@@ -1,7 +1,7 @@
 exec --no-startup-id setxkbmap -layout "us,bg" -variant "euro,phonetic" -option "grp:alt_shift_toggle" && xmodmap ~/.xmodmap
 exec --no-startup-id compton
-# exec --no-startup-id nitrogen --restore &
-exec --no-startup-id wal -R
+exec --no-startup-id nitrogen --restore &
+exec --no-startup-id wal -R -n
 exec --no-startup-id libinput-gestures-setup start
 exec --no-startup-id dunst
 

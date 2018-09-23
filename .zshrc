@@ -114,6 +114,9 @@ alias i3config="nvim ~/.config/i3/config"
 alias comptonconfig="nvim ~/.config/compton.conf"
 alias rr="ranger ."
 alias dots='git --git-dir=$HOME/.dots.git/ --work-tree=$HOME'
+alias audio-fix="sudo alsactl restore"
+alias pc="xrandr | grep 'HDMI-0 connected' && xrandr --output eDP-1-1 --auto --output HDMI-0 --auto --right-of eDP-1-1 && xrandr --output HDMI-0 --mode 1920x1080 --rate 119.98"
+
 bindkey '\e ' autosuggest-accept 
 
 prompt_end() {
