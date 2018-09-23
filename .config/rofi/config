@@ -1,0 +1,3 @@
+# rofi.theme: /usr/share/rofi/themes/onedark.rasi
+
+rofi.theme: ~/.cache/wal/colors-rofi-light.rasi
