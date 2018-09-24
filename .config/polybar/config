@@ -110,7 +110,7 @@ label-underline = ${colors.primary}
 
 [network]
 type = internal/network
-interface = wlp0s20f3
+interface = ${env:INTERFACE:}
 ;udspeed-minwidth = 3
 format-connected-underline = ${colors.underline}
 format-disconnected-underline = ${colors.primary}
