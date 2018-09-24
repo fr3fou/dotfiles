@@ -10,6 +10,7 @@ underline = ${xrdb:color5}
 
 
 [bar/example]
+monitor = ${env:MONITOR:}
 width = 100%
 height = 35
 fixed-center = true
@@ -25,9 +26,9 @@ font-0 = Hack Nerd Font:size=11
 font-1 = Weather Icons:size=11;1
 font-2 = Materials Icons:size=11
 font-3 = Menlo:size=11:weight=bold;2
-modules-left = i3 weather demo
+modules-left = i3 current-song-spotify demo
 modules-center = networkdown networkup root memory cpu battery temperature
-modules-right = keyboard date pulseaudio
+modules-right = weather keyboard date pulseaudio
 tray-position = none
 tray-padding = 0
 cursor-click = pointer
@@ -81,8 +82,8 @@ interval = 60
 
 ;format-background = ${colors.background-alt}
 format = <label>
-format-prefix = "    "
-format-suffix = "   "
+format-prefix = "  "
+format-suffix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 exec = python ~/.config/polybar/weather.py
 
@@ -109,7 +110,7 @@ label-underline = ${colors.primary}
 
 [network]
 type = internal/network
-interface = wlp2s0
+interface = wlp0s20f3
 ;udspeed-minwidth = 3
 format-connected-underline = ${colors.underline}
 format-disconnected-underline = ${colors.primary}
@@ -119,7 +120,7 @@ format-disconnected-underline = ${colors.primary}
 type = ${network.type}
 interface = ${network.interface}
 ;udspeed-minwidth = ${network.udspeed-minwidth}
-label-connected = %{A1:/home/ilya/Projects/networkmanager-dmenu/networkmanager_dmenu:}%downspeed:8:8%%{A}
+label-connected = %{A1:/home/simo/Projects/networkmanager-dmenu/networkmanager_dmenu:}%downspeed:8:8%%{A}
 label-disconnected =
 format-connected-underline = ${network.format-connected-underline}
 format-disconnected-underline = ${network.format-disconnected-underline}
@@ -129,8 +130,8 @@ format-disconnected-underline = ${network.format-disconnected-underline}
 type = ${network.type}
 interface = ${network.interface}
 ;udspeed-minwidth = ${network.udspeed-minwidth}
-label-connected = %{A1:/home/ilya/Projects/networkmanager-dmenu/networkmanager_dmenu:}%upspeed:8:8%%{A}
-label-disconnected = %{A1:/home/ilya/Projects/networkmanager-dmenu/networkmanager_dmenu:} not connected%{A}
+label-connected = %{A1:/home/simo/Projects/networkmanager-dmenu/networkmanager_dmenu:}%upspeed:8:8%%{A}
+label-disconnected = %{A1:/home/simo/Projects/networkmanager-dmenu/networkmanager_dmenu:} not connected%{A}
 format-connected-underline = ${network.format-connected-underline}
 format-disconnected-underline = ${network.format-disconnected-underline}
 
@@ -139,9 +140,15 @@ format-disconnected-underline = ${network.format-disconnected-underline}
 type = internal/fs
 interval = 25
 mount-0 = /
-label-mounted = %{A1:termite -e "/home/ilya/dotfiles/polybar/find_heaviest.sh" --hold:} %used%/%total%%{A}
+label-mounted = %{A1:termite -e "/home/simo/dotfiles/polybar/find_heaviest.sh" --hold:} %used%/%total%%{A}
 format-mounted = <label-mounted>
 format-mounted-underline = ${colors.underline}
+
+[module/current-song-spotify]
+type = custom/script
+exec = ~/Scripts/spotify.sh %artist% - %title%
+tail = true
+interval = 2
 
 
 [module/memory]

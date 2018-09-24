@@ -21,4 +21,10 @@ export POLY_WS_ICON_6="7;%{F$foreground_alt}%{F-} rnd"
 export POLY_WS_ICON_7="8;%{F$foreground_alt}%{F-} rnd"
 export POLY_WS_ICON_8="9;%{F$foreground_alt}%{F-} rnd"
 
-MONITOR=eDP-1-1 polybar example &
+if type "xrandr"; then
+  for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
+    MONITOR=$m polybar --reload example &
+  done
+else
+  polybar --reload example &
+fi
