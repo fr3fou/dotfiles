@@ -28,7 +28,7 @@ font-2 = Materials Icons:size=11
 font-3 = Menlo:size=11:weight=bold;2
 modules-left = i3 current-song-spotify demo
 modules-center = networkdown networkup root memory cpu battery temperature
-modules-right = weather keyboard date pulseaudio
+modules-right = wlan weather keyboard date pulseaudio
 tray-position = none
 tray-padding = 0
 cursor-click = pointer
