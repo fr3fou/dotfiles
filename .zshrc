@@ -1,3 +1,5 @@
+
+# source /usr/share/nvm/init-nvm.sh
 (cat ~/.cache/wal/sequences &)
 
 # Path to your oh-my-zsh installation.
@@ -116,6 +118,8 @@ alias rr="ranger ."
 alias config="cd ~/.config"
 alias dots='git --git-dir=$HOME/.dots.git/ --work-tree=$HOME'
 alias audio-fix="sudo alsactl restore"
+alias osudir="cd ~/.local/share/osu-wine/OSU"
+alias np="~/Scripts/0x0.sh"
 alias pc="xrandr | grep 'HDMI-0 connected' && xrandr --output eDP-1-1 --auto --output HDMI-0 --auto --right-of eDP-1-1 && xrandr --output HDMI-0 --mode 1920x1080 --rate 119.98"
 
 bindkey '\e ' autosuggest-accept 
