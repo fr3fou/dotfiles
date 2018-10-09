@@ -40,6 +40,7 @@ enable-ipc = true
 
 [module/i3]
 type = internal/i3
+pin-workspaces = true
 strip-wsnumbers = true
 label-focused = %name%
 label-focused-foreground = ${colors.foreground}
