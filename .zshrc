@@ -139,7 +139,7 @@ prompt_end() {
 }
 
 pdf() {
-	lowriter --convert-to pdf "$1" && evince ${1//docx/pdf}
+	lowriter --convert-to pdf "$1" && nohup evince ${1//docx/pdf} &
 }
 
 export BROWSER=/usr/bin/google-chrome-unstable
