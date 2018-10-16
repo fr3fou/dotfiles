@@ -1,5 +1,4 @@
 
-# source /usr/share/nvm/init-nvm.sh
 (cat ~/.cache/wal/sequences &)
 
 # Path to your oh-my-zsh installation.
@@ -64,6 +63,7 @@ ZSH_THEME="spaceship"
 plugins=(
   git
   zsh-syntax-highlighting
+  zsh-nvm
   zsh-autosuggestions
 )
 
@@ -109,6 +109,7 @@ alias notes="cd ~/Documents/Notes"
 alias nvm-init="source ~/.nvm/nvm.sh"
 alias nc-loc="nc -l -p 55555"
 alias downloads="cd ~/Downloads"
+alias cpma="cd /home/simo/Games/CPMA/CPMA-1.51-full-v1 && ./cnq3-x64"
 alias tbin="nc termbin.com 9999"
 alias games="cd ~/Documents/Games"
 alias yeet="yay"
@@ -137,17 +138,8 @@ prompt_end() {
   printf "\n ➜";
 }
 
-cf() { 
-	absolute=$(readlink -f "$1")
-	content=$(cat  "$1")
-	xclip -selection clipboard -i <<< "$content"
-}
-
-uf() { 
-	absolute=$(readlink -f "$1")
-	link=$(printf "$absolute:\n\n" | cat - "$1" | tbin | sed 's/\x0//g')
-	echo "Your link is: $link"
-	xclip -selection clipboard -i <<< "$link"
+pdf() {
+	lowriter --convert-to pdf "$1" && evince ${1//docx/pdf}
 }
 
 export BROWSER=/usr/bin/google-chrome-unstable
