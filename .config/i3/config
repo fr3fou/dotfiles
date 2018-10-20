@@ -1,5 +1,5 @@
 exec --no-startup-id setxkbmap -layout "us,bg" -variant "euro,phonetic" -option "grp:alt_shift_toggle" && xmodmap ~/.xmodmap
-# exec --no-startup-id compton
+exec --no-startup-id compton
 exec --no-startup-id ~/Scripts/144hz.sh &
 exec --no-startup-id gnome-settings-daemon
 exec --no-startup-id nitrogen --restore &
