@@ -86,6 +86,7 @@ format = <label>
 format-prefix = "  "
 format-suffix = " "
 format-prefix-foreground = ${colors.foreground-alt}
+format-underline = ${colors.primary}
 exec = python ~/Scripts/weather.py
 
 
@@ -208,6 +209,7 @@ type = internal/xkeyboard
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format = <label-layout>
+format-underline = ${colors.primary}
 format-foreground = ${colors.foreground}
 label = layout = %name%
 

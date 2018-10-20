@@ -117,6 +117,8 @@ alias i3config="nvim ~/.config/i3/config"
 alias comptonconfig="nvim ~/.config/compton.conf"
 alias rr="ranger ."
 alias config="cd ~/.config"
+alias igpu="sudo tee /proc/acpi/bbswitch <<<OFF"
+alias dgpu="sudo tee /proc/acpi/bbswitch <<<ON"
 alias dots='git --git-dir=$HOME/.dots.git/ --work-tree=$HOME'
 alias audio-fix="sudo alsactl restore"
 alias osudir="cd ~/.local/share/osu-wine/OSU"

@@ -49,20 +49,20 @@
 
 [urgency_low]
 	timeout = 4
-	background = "#0b070a"
-	foreground = "#d4eadd"
-	frame_color = "#94a39a"
+	background = "#201c2b"
+	foreground = "#e7c7c8"
+	frame_color = "#a18b8c"
 
 [urgency_normal]
 	timeout = 5
-	background = "#0b070a"
-	foreground = "#d4eadd"
-	frame_color = "#C1BDA8"
+	background = "#201c2b"
+	foreground = "#e7c7c8"
+	frame_color = "#50A9E7"
 
 [urgency_critical]
 	timeout = 0
-	background = "#0b070a"
-	foreground = "#d4eadd"
-	frame_color = "#BFAA73"
+	background = "#201c2b"
+	foreground = "#e7c7c8"
+	frame_color = "#3A94E0"
 
 # vim: ft=cfg
