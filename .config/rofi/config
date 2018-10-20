@@ -1,4 +1,4 @@
 # rofi.theme: /usr/share/rofi/themes/onedark.rasi
 
-rofi.font: xos4 Terminus 14
+rofi.font: FuraMono Nerd Font Mono 12
 rofi.theme: ~/.cache/wal/colors-rofi-light.rasi
