@@ -1,240 +1,344 @@
+"                                      .:.                                      
+"                  ##############   .:::::::.     ##############                
+"                  ############## ::::::::::::.   ##############                
+"                    ########## :::::::::::::::::   ##########                  
+"                    ########## ::::::::::::::::: #########                     
+"                    ########## ::::::::::::::: #########                       
+"                    ########## ::::::::::::: ######## :                        
+"                    ########## ::::::::::: ######## :::::.                     
+"                  . ########## ::::::::: ######## :::::::::.                   
+"                .:: ########## :::::: ######## :::::::::::::::.                
+"               `::: ########## :::: ######## ::::::::::::::::::`               
+"                 `: ########## :: #####****::::::::::::::::::`                 
+"                    ##########  ###### ####;:::::::::::::::`                   
+"                    #################  ****;:::::::::::::`                     
+"                    ############### ::####:::####:::####  ####                 
+"                    ############# :::####:::##################                 
+"                    ########### :::::####:::####:` ####  ####                  
+"                    #########  `::::####:::####`  ####  ####                   
+"                    #######      `::####:::####   ####  ####                   
+"                    ####           ####:::####   ####  ####                    
+"                                      `:`                                      
 
-call plug#begin('~/.vim/plugged')
 
-" -- syntax theme
+" --- General -- "
+" Use Vim settings, rather than Vi settings (much better!).
+" This must be first, because it changes other options as a side effect.
+set nocompatible
+
+" Default encoding
+set encoding=UTF-8
+
+" Make backspace behave in a sane manner.
+set backspace=indent,eol,start
+
+" Wrap text in a nice way
+set wrap
+set linebreak
+
+" Traverse line breaks
+set whichwrap=b,s,<,>,[,]
+
+" Switch syntax highlighting on
+syntax on
+
+" Enable file type detection and do language-dependent indenting.
+filetype plugin indent on
+
+" Show relative numbers
+set relativenumber
+
+" Visual autocomplete for commands
+set wildmenu
+
+" Redraw only when necessary
+set lazyredraw
+
+" Set tabs to have 4 spaces
+set tabstop=4
+set softtabstop=4
+
+" Indent when moving to the next line while writing code
+set autoindent
+
+" Expand tabs into spaces
+set expandtab
+
+" When using the >> or << commands, shift lines by 4 spaces
+set shiftwidth=4
+
+" Show the matching part of the pair for [] {} and ()
+set showmatch
+
+" Always show at least one line below/above the cursor
+if !&scrolloff
+  set scrolloff=1
+endif
+if !&sidescrolloff
+  set sidescrolloff=5
+endif
+
+" Show as much as you can before showing several '@'
+set display+=lastline
+
+" Bigger history for commands and searches
+set history=1000
+
+" Show tabs
+set listchars=tab:│·,trail:_
+
+
+"--- General Keybindings ---"
+
+" Better moving between windows
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" Use <F9> to clear the highlighting of :set hlsearch.
+if maparg('<F9>', 'n') ==# ''
+    nnoremap <silent> <F9> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><F9>
+endif
+
+
+"--- Searching ---"
+
+" Search as characters are entered
+set incsearch
+
+" Highlight matches
+set hlsearch
+
+" Better searching
+set ignorecase
+set smartcase
+
+
+"--- Plugins ---"
+
+" Enable plugins
+if empty(glob('~/.config/nvim/autoload/plug.vim'))
+    silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+" List plugins below this
+call plug#begin('~/.config/nvim/autoload/plugged')
+
+" Fancy directory viewer
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+
+" Nice colorschemes that fit with base16-shell
+Plug 'chriskempson/base16-vim'
+
+" Add git glyphs on the gutter column
+Plug 'airblade/vim-gitgutter'
+
+" Add support for hundreds of languages
+Plug 'sheerun/vim-polyglot'
+
+" Autocompletion
+Plug 'maralla/completor.vim'
+
+" Check syntax while writing
+Plug 'scrooloose/syntastic'
+
+" Git wrapper
+Plug 'tpope/vim-fugitive'
+
+" Very light and customizable staus line
+Plug 'itchyny/lightline.vim'
+
+" Fancy icons
+Plug 'ryanoasis/vim-devicons'
+
+" Minimalist, distraction-free writing mode
+Plug 'junegunn/goyo.vim'
+
+" Automatically close paranthesis, brackets, quotes, etc.
+Plug 'jiangmiao/auto-pairs'
+
+" Add, modify, or delete parenthesis, brackets, quotes, etc.
+Plug 'tpope/vim-surround'
+
+" Allow more complex commands to be repeteable
+Plug 'tpope/vim-repeat'
+
+" Comment stuff out
+Plug 'tpope/vim-commentary'
+
+" Better alignment
+Plug 'godlygeek/tabular'
+
+" SublimeText-like multiple selection
+Plug 'terryma/vim-multiple-cursors'
+
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'mdempsky/gocode', { 'rtp': 'vim', 'do': '~/.config/nvim/plugged/gocode/vim/symlink.sh' }
+
 Plug 'chriskempson/base16-vim'
 Plug 'morhetz/gruvbox'
 Plug 'dylanaraps/wal.vim'
 
-" Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
-Plug 'junegunn/vim-easy-align'
-" Any valid git URL is allowed
-Plug 'https://github.com/junegunn/vim-github-dashboard.git'
-" On-demand loading
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
-
-" Using a non-master branch
-Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
-
-" Using a tagged release; wildcard allowed (requires git 1.9.2 or above)
-Plug 'fatih/vim-go', { 'tag': '*' }
-
-" Plugin options
-Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
-
-" Plugin outside ~/.vim/plugged with post-update hook
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-
-" Unmanaged plugin (manually installed and updated)
-Plug '~/my-prototype-plugin'
-
-Plug 'dracula/vim', { 'as': 'dracula' }
-
-Plug 'morhetz/gruvbox'
-" -- dev icons
-Plug 'ryanoasis/vim-devicons'
-
-" -- vim airline
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-
-" -- improve syntax color
-Plug 'sheerun/vim-polyglot'
-
-" -- snippets
-Plug 'honza/vim-snippets'
-
-" -- start page
-Plug 'mhinz/vim-startify'
-
-" -- code check
-Plug 'scrooloose/syntastic'
-
-" -- format
-Plug 'Chiel92/vim-autoformat'
-
-" -- code completion
-Plug 'artur-shaik/vim-javacomplete2'
-Plug 'airblade/vim-rooter'
-Plug 'tomlion/vim-solidity'
-
-" -- complete brackets, parentheses, ...
-Plug 'jiangmiao/auto-pairs'
-
-" -- nerdtree
-Plug 'scrooloose/nerdtree'
-Plug 'jistr/vim-nerdtree-tabs'
-
+" Initialize plugin system
 call plug#end()
 
-" ************* editor configuration *************
+"- Nerdtree -"
+" Toggle nerdtree with F10
+map <F10> :NERDTreeToggle<CR>
 
-filetype plugin on
-filetype indent on
-syntax on
-set tabstop=4
-set shiftwidth=4
-set smarttab
-set splitright
-set nohlsearch
-set autoread
-set t_Co=16
-set scrolloff=8
+"- Base16 -"
+" Access colors present in 256 colorspace
 
-" ************* eye-candy configuration *************
+"- Git-Gutter -"
+" Better glyphs
+let g:gitgutter_sign_added='┃'
+let g:gitgutter_sign_modified='┃'
+let g:gitgutter_sign_removed='◢'
+let g:gitgutter_sign_removed_first_line='◥'
+let g:gitgutter_sign_modified_removed='◢'
+let g:gitgutter_override_sign_column_highlight = 0
 
-" show line numbers
-set nu
-highlight LineNr ctermfg=26
-highlight LineNr ctermbg=25
+" Removing background for a e s t h e t i c s
+hi! GitGutterAdd ctermbg=NONE
+hi! GitGutterChange ctermbg=NONE
+hi! GitGutterDelete ctermbg=NONE
+hi! GitGutterChangeDelete ctermbg=NONE
 
-" colorscheme
-set background=dark
-colorscheme wal
+" Update changes faster
+set updatetime=100
 
-"if filereadable(expand("~/.vimrc_background"))
-"  let base16colorspace=256
-"  source ~/.vimrc_background
-"endif
+"- Completor -"
+" Make autocompletion behave sanely
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
 
-"colorscheme base16-default-dark
-
-" ************* Keymaps *************
-
-let mapleader = " "
-
-nnoremap <leader>f :NERDTreeFocus<CR>
-nnoremap <leader>c :NERDTreeToggle<CR>
-nnoremap <leader>t :tabnew<CR>
-nnoremap <leader>p :tabprevious<CR>
-nnoremap <leader>n :tabnext<CR>
-
-" ************* JavaComplete configuration *************
-
-autocmd FileType java setlocal omnifunc=javacomplete#Complete
-
-" ************* Autoformat configuration *************
-
-autocmd FileType vim,tex,xml let b:autoformat_autoindent=0
-
-let blacklist = ['xml', 'conf']
-autocmd BufWritePre * if index(blacklist, &ft) < 0 | :Autoformat
-
-" c, c++
-let g:formatdef_my_custom_clang = '"clang-format"'
-let g:formatters_c = ['my_custom_clang']
-let g:formatters_cpp = ['my_custom_clang']
-
-" ************* Airline configuration *************
-
-let g:airline_powerline_fonts = 1
-let g:airline_theme = 'base16'
-
-" symbols
-if !exists('g:airline_symbols')
-	let g:airline_symbols = {}
-endif
-
-" extensions
-let g:airline_extensions = ['tabline']
-let g:airline#extensions#default#section_truncate_width = {}
-let g:airline#extensions#syntastic#enabled = 1
-let g:airline#extensions#tabline#enabled = 1
-
-" left sections
-let g:airline_section_a = airline#section#create(['mode'])
-let g:airline_section_b = airline#section#create(['%t'])
-let g:airline_section_c = airline#section#create([])
-
-" center
-let g:airline_section_getter = ''
-
-" right sections
-let g:airline_section_x = ''
-let g:airline_section_y = airline#section#create(['filetype'])
-let g:airline_section_z = airline#section#create(['%3.3l'])
-let g:airline_section_error = airline#section#create(['syntastic'])
-let g:airline_section_warning = airline#section#create([''])
-
-
-" tabline seperations
-let g:airline#extensions#tabline#left_sep = 'î‚°'
-let g:airline#extensions#tabline#left_alt_sep = 'î‚°'
-let g:airline#extensions#tabline#right_sep = 'î‚²'
-let g:airline#extensions#tabline#right_alt_sep = 'î‚²'
-
-" tabline options
-let g:airline#extensions#tabline#show_close_button = 0
-let g:airline#extensions#tabline#buffer_nr_show = 0
-let g:airline#extensions#tabline#show_buffers = 0
-let g:airline#extensions#tabline#show_splits = 0
-let g:airline#extensions#tabline#show_tab_type = 0
-let g:airline#extensions#tabline#show_tab_nr = 0
-
-" ************* YouCompleteMe configuration *************
-
-let g:ycm_add_preview_to_completeopt = 1
-let g:ycm_show_diagnostics_ui = 0
-let g:ycm_autoclose_preview_window_after_completion = 1
-let g:ycm_confirm_extra_conf = 0
-
-" ************* Startify configuration *************
-
-let g:startify_custom_header = [
-			\"   _   _                   _            ",
-			\"  | \\ | |                 (_)           ",
-			\"  |  \\| | ___  _____   ___ _ __ ___   ",
-			\"  | . ` |/ _ \\/ _ \\ \\ / / | '_ ` _ \\ ",
-			\"  | |\\  |  __/ (_) \\ V /| | | | | | | ",
-			\"  \\_| \\_/\\___|\\___/ \\_/ |_|_| |_| |_| ",
-			\]
-
-let g:startify_list_order = [
-			\ ['  ---------  FICHIERS  ---------'],
-			\ 'files',
-			\ ['  ---------  SESSIONS  ---------'],
-			\ 'sessions',
-			\ ['  ---------  PROJETS  ---------'],
-			\ 'bookmarks',
-			\ ]
-
-let g:startify_enable_special = 0
-let g:startify_files_number = 5
-
-" projets
-let g:startify_bookmarks = [
-			\ '~/Documents/Prog/mdata/'
-			\ ]
-
-" ************* Syntastic configuration *************
-
-" basic settings
+"- Syntastic -"
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_enable_signs = 0
+let g:syntastic_loc_list_height = 6
+let g:syntastic_error_symbol = '✖'
+let g:syntastic_style_error_symbol = '✖'
+let g:syntastic_warning_symbol = '!'
+let g:syntastic_style_warning_symbol = '!'
 
-" disabled checkers
-let g:syntastic_enable_latex_checker = 0
-let g:syntastic_enable_tex_checker = 0
-let g:syntastic_tex_checkers = []
-let g:syntastic_enable_xml_checker = 0
+" Linters
+let g:syntastic_python_checkers = [ 'flake8', 'pep8', 'pycodestyle', 'pyflakes' ]
+let g:syntastic_c_checkers = [ 'gcc', 'make', 'clang_check', 'flawfinder' ]
+let g:syntastic_go_checkers = [ 'go', 'golint', 'gofmt', 'gometalinter', 'govet' ]
 
-" checker ---- C
-let g:syntastic_c_checkers = ["clang_tidy"]
+" C
+let g:syntastic_c_compiler_options = "-fno-builtin -Wno-incompatible-library-redeclaration -Wno-gnu-designator -Wno-pointer-to-int-cast" " For working with xv6
 
-" checker ---- C++
-let g:syntastic_cpp_checkers = ["clang_check"]
+"- Lightline -"
+" Always show status line
+set laststatus=2
 
-" ************* NERDTree configuration *************
+" Get rid of the ugly default status line
+set noshowmode
 
-autocmd VimEnter *
-                \   if !argc()
-                \ |   Startify
-				\ |   execute 'NERDTreeTabsOpen'
-                \ |   wincmd w
-\ | endif
+" Customizations
+let g:lightline = {
+      \ 'colorscheme': 'wal',
+      \
+      \ 'active' : {
+      \     'left' : [ [ 'mode', 'paste'],
+      \                [ 'gitbranch', 'readonly', 'filename', 'modified'] 
+      \              ],
+      \     'right': [ [ 'filetype' ],
+      \                [ 'syntastic', 'lineinfo' ]
+      \              ]
+      \            },
+      \
+      \ 'inactive' : {
+      \     'left' : [ [ 'mode', 'paste'],
+      \                [ 'gitbranch', 'readonly', 'filename', 'modified'] 
+      \              ],
+      \     'right': [ [ 'filetype' ] ]
+      \            },
+      \ 
+      \ 'tabline': {
+      \     'right': [ ['buffericon'] ]
+      \            },
+      \ 'component': {
+      \     'readonly': '%{&readonly?"":""}',
+      \     'buffericon': '', 
+      \                     },
+      \
+      \ 'component_function' : {
+      \     'gitbranch' : 'MyGitBranch',
+      \     'filetype'  : 'MyFiletype',
+      \     'fileformat': 'MyFileformat',
+      \                        },
+      \
+      \ 'component_expand': {
+      \   'syntastic': 'SyntasticStatuslineFlag',
+      \                     },
+      \
+      \ 'component_type': {
+      \   'syntastic': 'error',
+      \                   }
+      \           }
 
-let g:nerdtree_tabs_open_on_console_startup = 1
-let g:nerdtree_tabs_synchronize_view = 0
+" Syntastic stuff
+augroup AutoSyntastic
+    autocmd!
+    autocmd BufWritePost *.c,*.cpp,*.py call s:syntastic()
+    augroup END
+
+function! s:syntastic()
+    SyntasticCheck
+    call lightline#update()
+endfunction
+
+let g:syntastic_mode_map = { 
+      \ 'mode': 'passive',
+      \ 'active_filetypes': [ 'c', 'cpp', 'python', 'fish' ] }
+
+" Custom functions
+function! MyFiletype()
+  return winwidth(0) > 30 ? (strlen(&filetype) ? toupper(&filetype) : '?') : ''
+endfunction
+
+function! MyFileformat()
+  return winwidth(0) > 30 ? &fileformat : ''
+endfunction
+
+function! MyGitBranch()
+    return winwidth(0) > 30 && fugitive#head() != '' ? (' ' . fugitive#head()) : ''
+endfunction
+
+"- Markdown -"
+let g:vim_markdown_frontmatter = 1
+let g:vim_markdown_toml_frontmatter = 1
+
+
+"--- Misc ---"
+
+" Remove background
+hi LineNr ctermbg=NONE
+hi SignColumn ctermbg=NONE
+hi VertSplit ctermbg=NONE
+hi CursorLineNr ctermbg=NONE
+hi CursorLineNr ctermfg=7
+
+" Set wildmenu colors
+hi WildMenu ctermbg=12
+hi WildMenu ctermfg=21
+hi StatusLine ctermbg=18
+
+" Nicer vertical separators
+set fillchars+=vert:┃
+
+" Make comments italiced
+hi Comment cterm=italic
+
+" Enable all Python syntax highlighting features
+let python_highlight_all = 1
+
