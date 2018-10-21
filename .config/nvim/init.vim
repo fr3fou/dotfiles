@@ -47,6 +47,7 @@ filetype plugin indent on
 
 " Show relative numbers
 set relativenumber
+set number
 
 " Visual autocomplete for commands
 set wildmenu
