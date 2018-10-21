@@ -128,6 +128,7 @@ endif
 " List plugins below this
 call plug#begin('~/.config/nvim/autoload/plugged')
 
+
 " Fancy directory viewer
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
@@ -175,6 +176,15 @@ Plug 'godlygeek/tabular'
 
 " SublimeText-like multiple selection
 Plug 'terryma/vim-multiple-cursors'
+
+" JavaScript support
+Plug 'pangloss/vim-javascript'
+Plug 'elzr/vim-json'
+Plug 'mxw/vim-jsx'
+Plug 'mattn/emmet-vim'
+
+" Ale
+Plug 'w0rp/ale'
 
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'mdempsky/gocode', { 'rtp': 'vim', 'do': '~/.config/nvim/plugged/gocode/vim/symlink.sh' }
