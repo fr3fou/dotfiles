@@ -254,6 +254,8 @@ set laststatus=2
 " Get rid of the ugly default status line
 set noshowmode
 
+colorscheme wal
+
 " Customizations
 let g:lightline = {
       \ 'colorscheme': 'wal',
