@@ -1,4 +1,4 @@
 # rofi.theme: /usr/share/rofi/themes/onedark.rasi
 
-rofi.font: FuraMono Nerd Font Mono 12
+rofi.font: Fira Code 13
 rofi.theme: ~/.cache/wal/colors-rofi-light.rasi
