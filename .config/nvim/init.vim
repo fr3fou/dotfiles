@@ -26,6 +26,9 @@
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
+" make leader the spacebar key
+let mapleader = " "
+
 " Default encoding
 set encoding=UTF-8
 
@@ -128,6 +131,8 @@ endif
 " List plugins below this
 call plug#begin('~/.config/nvim/autoload/plugged')
 
+" vimwiki
+Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
 
 " Fancy directory viewer
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
@@ -183,6 +188,18 @@ Plug 'elzr/vim-json'
 Plug 'mxw/vim-jsx'
 Plug 'mattn/emmet-vim'
 
+" Markdown support
+Plug 'reedes/vim-pencil'
+Plug 'godlygeek/tabular',                 { 'for': 'markdown' }
+Plug 'plasticboy/vim-markdown',           { 'for': 'markdown' }
+
+" HTML support 
+Plug 'othree/html5.vim'
+Plug 'mattn/emmet-vim'
+
+" CSS support
+Plug 'hail2u/vim-css3-syntax',  
+
 " Ale
 Plug 'w0rp/ale'
 
@@ -195,6 +212,10 @@ Plug 'dylanaraps/wal.vim'
 
 " Initialize plugin system
 call plug#end()
+
+" Prettier for js
+autocmd FileType javascript set formatprg=prettier\ --stdin
+autocmd BufWritePre *.js :normal gggqG
 
 "- Nerdtree -"
 " Toggle nerdtree with F10
@@ -254,9 +275,10 @@ set laststatus=2
 " Get rid of the ugly default status line
 set noshowmode
 
-colorscheme wal
 
 " Customizations
+colorscheme wal
+
 let g:lightline = {
       \ 'colorscheme': 'wal',
       \
