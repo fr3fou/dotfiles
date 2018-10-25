@@ -102,7 +102,7 @@ alias zshconfig="sudo nvim ~/.zshrc"
 alias nvimconfig="nvim ~/.config/nvim/init.vim"
 alias projects="cd ~/Documents/Projects"
 alias scripts="cd ~/Scripts"
-alias temp="cd ~/Documents/Projects/temp"
+alias temp="cd ~/Temp"
 alias wallpapers="cd ~/Pictures/Wallpapers"
 alias swap="xmodmap ~/.xmodmap"
 alias notes="cd ~/Documents/Notes"
@@ -122,8 +122,10 @@ alias dgpu="sudo tee /proc/acpi/bbswitch <<<ON"
 alias dots='git --git-dir=$HOME/.dots.git/ --work-tree=$HOME'
 alias audio-fix="sudo alsactl restore"
 alias osudir="cd ~/.local/share/osu-wine/OSU"
+alias kill-discord="pkill DiscordCanary && pkill DiscordCanary"
 alias yt="youtube-dl"
 alias np="~/Scripts/0x0.sh"
+alias wacom='xsetwacom set "Wacom Intuos S Pen stylus" Area 0 0 8500 4781 && xsetwacom set "Wacom Intuos S Pen stylus" MapToOutput 1920x1080+0+0 && xsetwacom set "Wacom Intuos S Pen stylus" RawSample 4 && xsetwacom set "Wacom Intuos S Pen stylus" Suppress 10'
 alias pc="xrandr | grep 'HDMI-0 connected' && xrandr --output eDP-1-1 --auto --output HDMI-0 --auto --right-of eDP-1-1 && xrandr --output HDMI-0 --mode 1920x1080 --rate 119.98"
 
 bindkey '\e ' autosuggest-accept 
