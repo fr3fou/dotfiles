@@ -29,8 +29,6 @@ font-3 = Fira Code:size=11:weight=bold;2
 modules-left = i3 
 modules-center = title
 modules-right = wlan weather keyboard date pulseaudio
-tray-position = right
-tray-padding = 0
 cursor-click = pointer
 cursor-scroll = ns-resize
 enable-ipc = true
@@ -45,15 +43,17 @@ background = ${colors.background}
 foreground = ${colors.foreground}
 line-size = 3
 line-color = #f00
-padding-left = 0
+padding-left = 1
 padding-right = 1
+tray-position = right
+tray-padding = 1
 module-margin-left = 0
 module-margin-right = 1
 font-0 = Hack Nerd Font:size=11
 font-1 = Weather Icons:size=11;1
 font-2 = Materials Icons:size=11
 font-3 = Fira Code:size=11:weight=bold;2
-modules-left current-song-spotify
+modules-left = current-song-spotify
 modules-center = networkdown networkup root memory cpu battery temperature
 cursor-click = pointer
 cursor-scroll = ns-resize
@@ -92,6 +92,8 @@ label-font = 3
 
 [module/title]
 type = internal/xwindow
+label = %title%
+label-maxlen = 500
 format-underline = ${colors.primary}
 
 [module/backup]
@@ -114,15 +116,6 @@ format-suffix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = ${colors.primary}
 exec = python ~/Scripts/weather.py
-
-
-[module/ping-pi]
-type = custom/script
-exec = ~/Scripts/ping-pi.sh
-interval = 10
-label = %output%
-format-underline = ${colors.primary}
-click-left = termite -e "ssh pi"
 
 
 [module/gmail]
