@@ -133,3 +133,4 @@ pdf() {
 }
 
 export BROWSER=/usr/bin/google-chrome-unstable
+export MANPAGER="nvim -c 'set ft=man' -"

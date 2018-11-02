@@ -356,6 +356,9 @@ let g:vim_markdown_toml_frontmatter = 1
 
 "--- Misc ---"
 
+autocmd Filetype man nnoremap <buffer> u <C-u>
+autocmd Filetype man nnoremap <buffer> d <C-d>
+
 " Remove background
 hi LineNr ctermbg=NONE
 hi SignColumn ctermbg=NONE
