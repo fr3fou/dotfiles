@@ -120,7 +120,7 @@ alias dgpu="sudo tee /proc/acpi/bbswitch <<<ON"
 alias dots='git --git-dir=$HOME/.dots.git/ --work-tree=$HOME'
 alias audio-fix="sudo alsactl restore"
 alias osudir="cd ~/.local/share/osu-wine/OSU"
-alias rdsc="pkill DiscordCanary && pkill DiscordCanary && discord-canary"
+alias rdsc="pkill DiscordCanary && pkill DiscordCanary && nohup discord-canary &"
 alias yt="youtube-dl"
 alias np="~/Scripts/0x0.sh"
 alias wacom='xsetwacom set "Wacom Intuos S Pen stylus" Area 0 0 8500 4781 && xsetwacom set "Wacom Intuos S Pen stylus" MapToOutput 1920x1080+0+0 && xsetwacom set "Wacom Intuos S Pen stylus" RawSample 4 && xsetwacom set "Wacom Intuos S Pen stylus" Suppress 10'
