@@ -3,9 +3,7 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/simo/.oh-my-zsh"
-export EDITOR="/usr/bin/nvim"
-
-# Set name of the theme to load. Optionally, if you set this to "random"
+export EDITOR="/usr/bin/nvim" # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="spaceship"
@@ -111,7 +109,7 @@ alias nc-loc="nc -l -p 55555"
 alias downloads="cd ~/Downloads"
 alias cpma="cd /home/simo/Games/CPMA/CPMA-1.51-full-v1 && ./cnq3-x64"
 alias tbin="nc termbin.com 9999"
-alias games="cd ~/Documents/Games"
+alias games="cd ~/Games"
 alias yeet="yay"
 alias i3config="nvim ~/.config/i3/config"
 alias comptonconfig="nvim ~/.config/compton.conf"
@@ -122,26 +120,13 @@ alias dgpu="sudo tee /proc/acpi/bbswitch <<<ON"
 alias dots='git --git-dir=$HOME/.dots.git/ --work-tree=$HOME'
 alias audio-fix="sudo alsactl restore"
 alias osudir="cd ~/.local/share/osu-wine/OSU"
-alias kill-discord="pkill DiscordCanary && pkill DiscordCanary"
+alias rdsc="pkill DiscordCanary && pkill DiscordCanary && discord-canary"
 alias yt="youtube-dl"
 alias np="~/Scripts/0x0.sh"
 alias wacom='xsetwacom set "Wacom Intuos S Pen stylus" Area 0 0 8500 4781 && xsetwacom set "Wacom Intuos S Pen stylus" MapToOutput 1920x1080+0+0 && xsetwacom set "Wacom Intuos S Pen stylus" RawSample 4 && xsetwacom set "Wacom Intuos S Pen stylus" Suppress 10'
 alias pc="xrandr | grep 'HDMI-0 connected' && xrandr --output eDP-1-1 --auto --output HDMI-0 --auto --right-of eDP-1-1 && xrandr --output HDMI-0 --mode 1920x1080 --rate 119.98"
 
 bindkey '\e ' autosuggest-accept 
-
-prompt_end() {
-  if [[ -n $CURRENT_BG ]]; then
-      print -n "%{%k%F{$CURRENT_BG}%}$SEGMENT_SEPARATOR"
-  else
-      print -n "%{%k%}"
-  fi
-
-  print -n "%{%f%}"
-  CURRENT_BG='' 
-
-  printf "\n ➜";
-}
 
 pdf() {
 	lowriter --convert-to pdf "$1" && nohup evince "${1%.*}".pdf &
