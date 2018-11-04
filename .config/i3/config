@@ -26,7 +26,7 @@ bindsym $mod+Return exec st
 bindsym $mod+Shift+q kill
 
 # i3lock-fancy
-bindsym $mod+Shift+Ctrl exec "i3lock-fancy -t uwu"
+bindsym $mod+Shift+Ctrl exec "i3lock -c 342E36"
 
 # rofi
 bindsym $mod+d exec "rofi -combi-modi drun,run -show combi -modi combi -lines 5"
@@ -127,8 +127,8 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 # pulseaudio
 
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +1% # increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -1% # decrease sound volume
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 2 +1% # increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 2 -1% # decrease sound volume
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
 # Sreen brightness controls
