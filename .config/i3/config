@@ -26,7 +26,7 @@ bindsym $mod+Return exec st
 bindsym $mod+Shift+q kill
 
 # i3lock-fancy
-bindsym $mod+Shift+Ctrl exec "i3lock -c 342E36"
+bindsym $mod+Shift+Tab exec "i3lock -c 342E36"
 
 # rofi
 bindsym $mod+d exec "rofi -combi-modi drun,run -show combi -modi combi -lines 5"
