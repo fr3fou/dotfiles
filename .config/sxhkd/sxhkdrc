@@ -7,7 +7,7 @@ super + Return
 	st
 
 # program launcher
-super + @space
+super + d
     rofi -combi-modi drun,run -show combi -modi combi
 
 # make sxhkd reload its configuration files:
