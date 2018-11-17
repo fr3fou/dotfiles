@@ -22,6 +22,10 @@ bindsym $mod+Tab workspace back_and_forth
 # start a terminal
 bindsym $mod+Return exec st
 
+
+# start chrome
+bindsym $mod+c exec google-chrome-unstable
+
 # kill focused window
 bindsym $mod+Shift+q kill
 
