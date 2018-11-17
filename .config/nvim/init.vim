@@ -131,6 +131,9 @@ endif
 " List plugins below this
 call plug#begin('~/.config/nvim/autoload/plugged')
 
+" Support for a lot of languages
+Plug 'sheerun/vim-polyglot'
+
 " vimwiki
 Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
 
@@ -188,6 +191,10 @@ Plug 'elzr/vim-json'
 Plug 'mxw/vim-jsx'
 Plug 'mattn/emmet-vim'
 
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install',
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'jsx', 'yaml', 'html'] }
+
 " Markdown support
 Plug 'reedes/vim-pencil'
 Plug 'godlygeek/tabular',                 { 'for': 'markdown' }
@@ -212,10 +219,6 @@ Plug 'dylanaraps/wal.vim'
 
 " Initialize plugin system
 call plug#end()
-
-" Prettier for js
-autocmd FileType javascript set formatprg=prettier\ --stdin
-autocmd BufWritePre *.js :normal gggqG
 
 "- Nerdtree -"
 " Toggle nerdtree with F10
