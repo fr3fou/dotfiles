@@ -6,7 +6,7 @@ export ZSH="/home/simo/.oh-my-zsh"
 export EDITOR="/usr/bin/nvim" # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="spaceship"
+ZSH_THEME="zeit"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -97,7 +97,7 @@ source $ZSH/oh-my-zsh.sh
 alias nx="nvidia-xrun"
 alias ac="acpi"
 alias nxconfig="sudo nvim ~/.nvidia-xinitrc"
-alias zshconfig="sudo nvim ~/.zshrc"
+alias zshconfig="nvim ~/.zshrc"
 alias nvimconfig="nvim ~/.config/nvim/init.vim"
 alias projects="cd ~/Projects"
 alias videos="cd ~/Videos"
@@ -137,3 +137,9 @@ pdf() {
 export BROWSER=/usr/bin/google-chrome-unstable
 export MANPAGER="nvim -c 'set ft=man' -"
 export PROMPT_COMMAND='echo -en "\033]0;$(whoami)@$(hostname)|$(pwd|cut -d "/" -f 4-100)\a"'
+
+PATH="/home/simo/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/home/simo/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/home/simo/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/home/simo/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/simo/perl5"; export PERL_MM_OPT;
