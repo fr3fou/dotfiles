@@ -60,6 +60,7 @@ ZSH_THEME="spaceship"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
+  z
   zsh-syntax-highlighting
   zsh-nvm
   zsh-autosuggestions
@@ -134,3 +135,4 @@ pdf() {
 
 export BROWSER=/usr/bin/google-chrome-unstable
 export MANPAGER="nvim -c 'set ft=man' -"
+export PROMPT_COMMAND='echo -en "\033]0;$(whoami)@$(hostname)|$(pwd|cut -d "/" -f 4-100)\a"'
