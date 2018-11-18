@@ -10,6 +10,10 @@ super + Return
 super + d
     rofi -combi-modi drun,run -show combi -modi combi
 
+# chrome
+super + c
+    google-chrome-unstable
+
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
@@ -119,3 +123,15 @@ super + alt + shift + {h,j,k,l}
 # move a floating window
 super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
+
+#
+# misc
+#
+
+# take a screenshot and upload to 0x0.st
+super + shift + x
+    maim -d 1 ~/Screenshots/Newest/newest.png -s && cd ~/Screenshots/Newest && curl -F'file=@newest.png' https://0x0.st/ | xclip -i -selection clipboard && mv ~/Screenshots/Newest/newest.png ~/Screenshots/$(date +%s).png && notify-send "Cheese!!~"
+
+# take a screenshot and sent to clipboard
+super + shift + z
+    maim -d 1 ~/Screenshots/Newest/newest.png -s && cd ~/Screenshots/Newest && cat newest.png | xclip -selection clipboard -t image/png -i && mv ~/Screenshots/Newest/newest.png ~/Screenshots/$(date +%s).png && notify-send "Cheese!!~"
