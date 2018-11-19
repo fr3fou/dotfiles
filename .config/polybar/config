@@ -29,7 +29,7 @@ label-focused-foreground = ${colors.background}
 label-focused-padding = 2
 
 label-unfocused = %icon%
-label-unfocused-background = ${colors.background}
+label-unfocused-background = #eeeeee
 label-unfocused-foreground = ${colors.background-alt}
 label-unfocused-padding = 2
 
@@ -286,5 +286,10 @@ label-layout = %layout%
 label-indicator-padding = 1
 label-indicator-margin = 1
 label-indicator-background = ${colors.secondary}
+
+[module/title]
+type = internal/xwindow
+label = %title%
+label-maxlen = 500
 
 ; vim:ft=dosini
