@@ -3,10 +3,12 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/simo/.oh-my-zsh"
-export EDITOR="/usr/bin/nvim" # Set name of the theme to load. Optionally, if you set this to "random"
+export EDITOR="/usr/bin/nvim"
+
+# Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="zeit"
+ZSH_THEME="cloud"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -125,6 +127,7 @@ alias osudir="cd ~/.local/share/osu-wine/OSU"
 alias rdsc="pkill DiscordCanary && pkill DiscordCanary && nohup discord-canary &"
 alias yt="youtube-dl"
 alias np="~/Scripts/0x0.sh"
+alias wp="wal -i ~/Pictures/Wallpapers/"
 alias wacom='xsetwacom set "Wacom Intuos S Pen stylus" Area 0 0 8500 4781 && xsetwacom set "Wacom Intuos S Pen stylus" MapToOutput 1920x1080+0+0 && xsetwacom set "Wacom Intuos S Pen stylus" RawSample 4 && xsetwacom set "Wacom Intuos S Pen stylus" Suppress 10'
 alias pc="xrandr | grep 'HDMI-0 connected' && xrandr --output eDP-1-1 --auto --output HDMI-0 --auto --right-of eDP-1-1 && xrandr --output HDMI-0 --mode 1920x1080 --rate 119.98"
 

@@ -1,9 +1,8 @@
 exec --no-startup-id setxkbmap -layout "us,bg" -variant "euro,phonetic" -option "grp:alt_shift_toggle" && xmodmap ~/.xmodmap
+exec --no-startup-id wal -R
 exec --no-startup-id compton &
 exec --no-startup-id ~/Scripts/144hz.sh &
 exec --no-startup-id gnome-settings-daemon
-exec --no-startup-id nitrogen --restore &
-exec --no-startup-id wal -R -n
 exec --no-startup-id libinput-gestures-setup start
 exec --no-startup-id dunst
 
@@ -35,7 +34,7 @@ bindsym $mod+Shift+q kill
 bindsym $mod+Shift+Tab exec "i3lock -c 342E36"
 
 # rofi
-bindsym $mod+d exec "rofi -combi-modi drun,run -show combi -modi combi -lines 5"
+bindsym $mod+d exec "rofi -combi-modi drun,run -show combi"
 
 # change focus
 bindsym $mod+h focus left
@@ -261,3 +260,4 @@ client.background       $bg
 
 bindsym $mod+Shift+x exec maim -d 1 ~/Screenshots/Newest/newest.png -s && cd ~/Screenshots/Newest && curl -F'file=@newest.png' https://0x0.st/ | xclip -i -selection clipboard && mv ~/Screenshots/Newest/newest.png ~/Screenshots/$(date +%s).png && notify-send "Cheese!!~"
 bindsym $mod+Shift+z exec maim -d 1 ~/Screenshots/Newest/newest.png -s && cd ~/Screenshots/Newest && cat newest.png | xclip -selection clipboard -t image/png -i && mv ~/Screenshots/Newest/newest.png ~/Screenshots/$(date +%s).png && notify-send "Cheese!!~"
+
