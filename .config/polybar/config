@@ -1,330 +1,232 @@
-[colors]
-background = ${xrdb:color0:#222}
-background-alt =
-foreground = ${xrdb:color7:#222}
-foreground-alt = ${xrdb:color7}
-primary = ${xrdb:color1}
-secondary = ${xrdb:color2}
-alert = ${xrdb:color7}
-underline = ${xrdb:color5}
+include-file = ~/.config/polybar/global.conf
+include-file = ~/.config/polybar/bars/top.conf
+include-file = ~/.config/polybar/bars/bottom.conf
 
+[module/filesystem]
+type = internal/fs
+interval = 25
 
-[bar/top]
-monitor = ${env:MONITOR:}
-width = 100%
-height = 35
-fixed-center = true
-background = ${colors.background}
-foreground = ${colors.foreground}
-line-size = 3
-line-color = #f00
-padding-left = 0
-padding-right = 1
-module-margin-left = 0
-module-margin-right = 1
-font-0 = Hack Nerd Font:size=11
-font-1 = Weather Icons:size=11;1
-font-2 = Materials Icons:size=11
-font-3 = Fira Code:size=11:weight=bold;2
-modules-left = i3 
-modules-center = title
-modules-right = wlan weather keyboard date pulseaudio
-cursor-click = pointer
-cursor-scroll = ns-resize
-enable-ipc = true
+mount-0 = /
+mount-1 = /media/mediabarbosa
 
-[bar/bottom]
-bottom = true
-monitor = ${env:MONITOR:}
-width = 100%
-height = 35
-fixed-center = true
-background = ${colors.background}
-foreground = ${colors.foreground}
-line-size = 3
-line-color = #f00
-padding-left = 1
-padding-right = 1
-tray-position = right
-tray-padding = 1
-module-margin-left = 0
-module-margin-right = 1
-font-0 = Hack Nerd Font:size=11
-font-1 = Weather Icons:size=11;1
-font-2 = Materials Icons:size=11
-font-3 = Fira Code:size=11:weight=bold;2
-modules-left = current-song-spotify
-modules-center = networkdown networkup root memory cpu battery temperature
-cursor-click = pointer
-cursor-scroll = ns-resize
-enable-ipc = true
-;;;;;;;;;;;;;;;LEFT;;;;;;;;;;;;;;;;;;
-
+label-mounted =  %percentage_free%%
+label-unmounted = %mountpoint%: not mounted
+label-unmounted-foreground = ${colors.foreground-alt}
 
 [module/i3]
 type = internal/i3
-pin-workspaces = true
+
+format = <label-state>
+index-sort = true
+enable-click = true
+fuzzy-match = true
+wrapping-scroll = false
 strip-wsnumbers = true
-label-focused = %name%
-label-focused-foreground = ${colors.foreground}
-label-focused-background = ${colors.background-alt}
-label-focused-padding = 1
-label-focused-underline = ${colors.primary}
-label-unfocused = %name%
-label-unfocused-padding = 1
-label-unfocused-foreground = ${colors.foreground}
+pin-workspaces = false
+
+label-focused = 
+label-focused-background = ${colors.foreground}
+label-focused-foreground = ${colors.background}
+label-focused-padding = 2
+
+label-unfocused = %icon%
 label-unfocused-background = ${colors.background}
-; label-unfocused-underline = ${colors.primary}
-label-urgent = %name%
-label-urgent-foreground = ${colors.primary}
+label-unfocused-foreground = ${colors.background-alt}
+label-unfocused-padding = 2
+
+label-urgent = %icon%
 label-urgent-background = ${colors.background}
-label-urgent-padding = 1
-label-urgent-underline = ${colors.underline}
-label-visible = %name%
-label-visible-foreground = ${colors.foreground}
+label-urgent-foreground = ${colors.foreground-alt}
+label-urgent-padding = 2
+
+label-visible = %icon%
 label-visible-background = ${colors.background}
-label-visible-underline = ${colors.underline}
-label-visible-padding = 1
-label-mode-foreground = ${colors.foreground}
-label-mode-background = ${colors.background-alt}
-label-mode-underline = ${colors.underline}
-label-font = 3
+label-visible-foreground = ${colors.foreground}
+label-visible-padding = 2
 
-[module/title]
-type = internal/xwindow
-label = %title%
-label-maxlen = 500
-format-underline = ${colors.primary}
+ws-icon-default = 
 
-[module/backup]
-type = custom/script
-exec = ~/dotfiles/polybar/LB.sh
-tail = true
-click-left = kill -USR1 %pid%
-format-underline = ${colors.primary}
+[module/mpd]
+type = internal/mpd
 
+host = localhost
+port = 6600
+interval = 1
 
-[module/weather]
+format-online = <label-song>
 
-type = custom/script
-interval = 60
+label-song = "  %artist% - %title%"
+label-offline = mopidy is offline
 
-;format-background = ${colors.background-alt}
-format = <label>
-format-prefix = "  "
-format-suffix = " "
-format-prefix-foreground = ${colors.foreground-alt}
-format-underline = ${colors.primary}
-exec = python ~/Scripts/weather.py
+icon-prev = 
+icon-stop = 
+icon-play = 
+icon-pause = 
+icon-next = 
 
+icon-random = 
+icon-repeat = 
 
-[module/gmail]
-type = custom/script
-exec = ~/dotfiles/polybar/gmail/launch.py -ns -u
-tail = true
-click-left = xdg-open https://mail.google.com
-label-underline = ${colors.primary}
+toggle-on-foreground = ${colors.foreground}
+toggle-off-foreground = ${colors.foreground-alt}
 
+bar-progress-width = 30
+bar-progress-format = %{A4:mpdseek+2: A5:mpdseek-2:}%fill%%indicator%%empty%%{A A}
+bar-progress-indicator = >
+bar-progress-indicator-foreground = ${colors.foreground}
+bar-progress-fill = -
+bar-progress-fill-foreground = ${colors.foreground}
+bar-progress-empty = -
+bar-progress-empty-foreground = ${colors.foreground}
 
-;;;;;;;;;;;;;;;;;;;;;;CENTER;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-[network]
+[module/wlan]
 type = internal/network
-interface = ${env:INTERFACE:}
-;udspeed-minwidth = 3
-format-connected-underline = ${colors.underline}
-format-disconnected-underline = ${colors.primary}
+interface = wlp2s0
+interval = 3.0
 
-[module/updates]
-type = custom/script
-exec = ~/Scripts/updates.sh
-format-underline = ${colors.underline}
-interval = 600
+format-connected = <label-connected>
 
-[module/networkdown]
-type = ${network.type}
-interface = ${network.interface}
-;udspeed-minwidth = ${network.udspeed-minwidth}
-label-connected = %{A1:/home/simo/Projects/networkmanager-dmenu/networkmanager_dmenu:}%downspeed:8:8%%{A}
-label-disconnected =
-format-connected-underline = ${network.format-connected-underline}
-format-disconnected-underline = ${network.format-disconnected-underline}
+label-connected = "  %essid%   %signal%% "
+label-disconnected = " %ifname% off "
 
+ramp-signal-0 =" "
+ramp-signal-1 =" "
+ramp-signal-2 =" "
+ramp-signal-3 =" "
+ramp-signal-4 =" "
 
-[module/networkup]
-type = ${network.type}
-interface = ${network.interface}
-;udspeed-minwidth = ${network.udspeed-minwidth}
-label-connected = %{A1:/home/simo/Projects/networkmanager-dmenu/networkmanager_dmenu:}%upspeed:8:8%%{A}
-label-disconnected = %{A1:/home/simo/Projects/networkmanager-dmenu/networkmanager_dmenu:} not connected%{A}
-format-connected-underline = ${network.format-connected-underline}
-format-disconnected-underline = ${network.format-disconnected-underline}
+[module/eth]
+type = internal/network
+interface = sit0
+interval = 3.0
 
+format-connected-prefix = " "
+format-connected-foreground-foreground = ${colors.foreground-alt}
+label-connected = %local_ip%
 
-[module/root]
-type = internal/fs
-interval = 25
-mount-0 = /
-label-mounted = %{A1:termite -e "/home/simo/dotfiles/polybar/find_heaviest.sh" --hold:} %used%/%total%%{A}
-format-mounted = <label-mounted>
-format-mounted-underline = ${colors.underline}
+label-disconnected = %ifname% disconnected
+label-disconnected-foreground = ${colors.foreground-alt}
 
-[module/current-song-spotify]
-type = custom/script
-exec = ~/Scripts/spotify.sh %artist% - %title%
-format-underline = ${colors.primary}
-tail = true
-interval = 2
+[module/date]
+type = internal/date
+interval = 5
 
+date = "%a %d %b,"
+date-alt = "%d/%m/%y"
+time = "%H:%M"
+time-alt = %H:%M
 
-[module/memory]
-type = internal/memory
-interval = 2
-format-underline = ${colors.underline}
-label = %{A1:termite -e htop:} %gb_used%%{A}
+label = "  %date% %time%"
 
+[module/volume]
+type = internal/volume
 
-[module/cpu]
-type = internal/cpu
-format = <label>
-interval = 2
-format-underline = ${colors.underline}
-label = %{A1:termite -e htop:} %percentage%%%{A}
+format-volume = <ramp-volume><label-volume>
+label-volume = "%percentage%"
+ramp-volume-0 =" "
+ramp-volume-1 =" "
+ramp-volume-2 =" "
+ramp-volume-3 =" "
+label-volume-foreground = ${colors.foreground}
 
+format-muted-prefix = " "
+format-muted-foreground = ${colors.foreground}
+label-muted = muted
+label-muted-foreground = ${colors.foreground}
 
 [module/battery]
 type = internal/battery
-full-at = 90
-battery = BAT1
-adapter = ADP1
-format-charging = <label-charging>
+battery = BAT0
+adapter = AT0
+full-at = 98
+
+poll-interval = 5
+
+format-charging = <animation-charging> <label-charging>
 format-discharging = <ramp-capacity> <label-discharging>
-format-full = <label-full>
-time-format = %H:%M
-label-discharging = %time% %percentage%%
-label-charging =  %percentage%%
-label-full = 🔌 %percentage%%
+format-full = <ramp-capacity> <label-full>
+label-charging = %percentage%%
+label-discharging = %percentage%%
+label-full = %percentage%%
+format-charging-padding = 3
+format-discharging-padding = 3
+format-full-padding = 3
+
 ramp-capacity-0 = 
 ramp-capacity-1 = 
 ramp-capacity-2 = 
 ramp-capacity-3 = 
 ramp-capacity-4 = 
-format-charging-underline = ${colors.alert}
-format-discharging-underline = ${colors.primary}
-format-full-underline = ${colors.underline}
 
-
-[module/temperature]
-type = internal/temperature
-thermal-zone = 0
-warn-temperature = 70
-format-underline = ${colors.underline}
-label = %temperature-c%
-label-warn = %temperature-c%
-format-warn-underline = ${colors.primary}
-
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;RIGHT;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-[module/keyboard]
-type = internal/xkeyboard
-
-
-format-prefix = " "
-format-prefix-foreground = ${colors.foreground-alt}
-format = <label-layout>
-format-underline = ${colors.primary}
-format-foreground = ${colors.foreground}
-label = layout = %name%
-
-
-[module/lastfm]
-type = custom/script
-exec = ~/dotfiles/polybar/lastfm.sh
-tail = true
-click-left = kill -USR1 %pid%
-format-underline = ${colors.primary}
-
-
-[module/xkeyboard]
-type = internal/xkeyboard
-blacklist-0 = num lock
-format-prefix-foreground = ${colors.foreground-alt}
-format-prefix-underline = ${colors.secondary}
-label-layout = %layout%
-label-layout-underline = ${colors.primary}
-label-indicator-padding = 1
-label-indicator-margin = 1
-label-indicator-background = ${colors.secondary}
-label-indicator-underline = ${colors.secondary}
-
-
-[module/date]
-type = internal/date
-interval = 1
-date-alt = "%A, %Y-%m-%d "
-time-alt = %H:%M:%S
-time = %H:%M:%S
-format-prefix-foreground = ${colors.foreground-alt}
-format-underline = ${colors.primary}
-label = %date%%time%
-
-
-[module/pulseaudio]
-type = internal/pulseaudio
-format-volume = <label-volume>
-label-volume = 🔊 %percentage%%
-label-muted = 
-format-muted-underline = ${colors.underline}
-format-volume-underline = ${colors.primary}
-format-muted-padding = 1
-
-
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;UNUSED;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-
-[module/xwindow]
-type = internal/xwindow
-label = %title:0:30:...%
-
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-framerate = 650
 
 [module/powermenu]
 type = custom/menu
-label-open = " P "
-label-open-foreground = ${colors.foreground}
-label-close = " C "
-label-close-foreground = ${colors.foreground}
-label-separator = " | "
+
+format-spacing = 1
+
+label-open = 
+label-close = cancel
+label-close-foreground = ${colors.foreground-alt}
+label-separator = |
+label-separator-foreground = ${colors.foreground-alt}
+
 menu-0-0 = reboot
 menu-0-0-exec = menu-open-1
-menu-0-1 = power off
+menu-0-1 = 
 menu-0-1-exec = menu-open-2
+
 menu-1-0 = cancel
 menu-1-0-exec = menu-open-0
 menu-1-1 = reboot
-menu-1-1-exec = termite -e 'sudo reboot'
-menu-2-0 = power off
-menu-2-0-exec = termite -e 'sudo poweroff'
+menu-1-1-exec = systemctl reboot
+
+menu-2-0 = 
+menu-2-0-exec = systemctl poweroff
 menu-2-1 = cancel
 menu-2-1-exec = menu-open-0
-format-background = ${colors.secondary}
 
-[module/card]
-type = internal/fs
-interval = 25
-mount-0 = /mnt/SD
-label-mounted = 💾 %percentage_used%%
-format-mounted = <label-mounted>
+[module/ip]
+type = custom/script
+interval = 2
+format = <label>
+format-prefix-foreground = ${colors.foreground}
+format-prefix-background = ${colors.background}
+exec = echo "$(hostname -i)"
+exec-if = ping -c 1 gentoo.org
 
-format-mounted-underline = ${colors.underline}
-label-font = 3
+[module/hostname]
+type = custom/script
+interval = 256
+format = "<label> "
+format-prefix = "  "
+format-prefix-foreground = ${colors.foreground-alt}
+format-padding = 0
+format-background = ${colors.background}
+exec = echo "$(uname -n)"
 
-[settings]
-screenchange-reload = true
+[module/weather]
+type = custom/script
+interval = 1800
+format = <label>
+format-padding = 1
+; format-suffix = "°C"
+format-prefix-foreground = ${colors.foreground-alt}
+format-background = ${colors.background}
+exec = ~/.dotfiles/i3/.i3/scripts/weather.sh -i
 
 
-[global/wm]
-margin-top = 0
-margin-bottom = 5
+[module/spotify]
+type = custom/script
+interval = 1
+format-prefix = " "
+format = <label>
+exec = python ~/.config/polybar/spotify_status.py -f '{artist}: {song}'
+format-underline = #1db954
 
+; vim:ft=dosini
