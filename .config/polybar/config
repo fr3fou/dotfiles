@@ -86,7 +86,7 @@ interval = 3.0
 
 format-connected = <label-connected>
 
-label-connected = "  %essid%   %signal%% "
+label-connected = "  %essid%"
 label-disconnected = " %ifname% off "
 
 ramp-signal-0 =" "
@@ -122,7 +122,7 @@ label = "  %date% %time%"
 type = internal/alsa
 
 format-volume = <ramp-volume><label-volume>
-label-volume = "%percentage%"
+label-volume = "%percentage%%"
 ramp-volume-0 =" "
 ramp-volume-1 =" "
 ramp-volume-2 =" "
@@ -153,7 +153,6 @@ ramp-capacity-3 = 
 ramp-capacity-4 = 
 format-charging-underline = ${colors.alert}
 format-discharging-underline = ${colors.primary}
-format-full-underline = ${colors.underline}
 
 [module/powermenu]
 type = custom/menu
@@ -224,7 +223,6 @@ format-underline = #1db954
 type = internal/network
 interface = ${env:INTERFACE:}
 ;udspeed-minwidth = 3
-format-connected-underline = ${colors.underline}
 format-disconnected-underline = ${colors.primary}
 
 [module/networkdown]
@@ -233,8 +231,6 @@ interface = ${network.interface}
 ;udspeed-minwidth = ${network.udspeed-minwidth}
 label-connected = %{A1:/home/simo/Projects/networkmanager-dmenu/networkmanager_dmenu:}%downspeed:8:8%%{A}
 label-disconnected =
-format-connected-underline = ${network.format-connected-underline}
-format-disconnected-underline = ${network.format-disconnected-underline}
 
 
 [module/networkup]
@@ -263,6 +259,14 @@ type = internal/cpu
 format = <label>
 interval = 2
 label = %{A1:termite -e htop:} %percentage%%%{A}
+
+[module/temperature]
+type = internal/temperature
+thermal-zone = 0
+warn-temperature = 70
+label = %temperature-c%
+label-warn = %temperature-c%
+format-warn-underline = ${colors.primary}
 
 [module/keyboard]
 type = internal/xkeyboard
