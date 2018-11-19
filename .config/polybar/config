@@ -81,7 +81,7 @@ bar-progress-empty-foreground = ${colors.foreground}
 
 [module/wlan]
 type = internal/network
-interface = wlp2s0
+interface = ${env:INTERFACE:}
 interval = 3.0
 
 format-connected = <label-connected>
@@ -119,7 +119,7 @@ time-alt = %H:%M
 label = "  %date% %time%"
 
 [module/volume]
-type = internal/volume
+type = internal/alsa
 
 format-volume = <ramp-volume><label-volume>
 label-volume = "%percentage%"
@@ -136,34 +136,24 @@ label-muted-foreground = ${colors.foreground}
 
 [module/battery]
 type = internal/battery
-battery = BAT0
-adapter = AT0
-full-at = 98
-
-poll-interval = 5
-
-format-charging = <animation-charging> <label-charging>
+full-at = 90
+battery = BAT1
+adapter = ADP1
+format-charging = <label-charging>
 format-discharging = <ramp-capacity> <label-discharging>
-format-full = <ramp-capacity> <label-full>
-label-charging = %percentage%%
-label-discharging = %percentage%%
-label-full = %percentage%%
-format-charging-padding = 3
-format-discharging-padding = 3
-format-full-padding = 3
-
+format-full = <label-full>
+time-format = %H:%M
+label-discharging = %time% %percentage%%
+label-charging =  %percentage%%
+label-full = 🔌 %percentage%%
 ramp-capacity-0 = 
 ramp-capacity-1 = 
 ramp-capacity-2 = 
 ramp-capacity-3 = 
 ramp-capacity-4 = 
-
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
-animation-charging-3 = 
-animation-charging-4 = 
-animation-charging-framerate = 650
+format-charging-underline = ${colors.alert}
+format-discharging-underline = ${colors.primary}
+format-full-underline = ${colors.underline}
 
 [module/powermenu]
 type = custom/menu
@@ -212,21 +202,86 @@ exec = echo "$(uname -n)"
 
 [module/weather]
 type = custom/script
-interval = 1800
+interval = 60
+
+;format-background = ${colors.background-alt}
 format = <label>
+format-prefix = "  "
+format-suffix = " "
 format-padding = 1
-; format-suffix = "°C"
 format-prefix-foreground = ${colors.foreground-alt}
 format-background = ${colors.background}
-exec = ~/.dotfiles/i3/.i3/scripts/weather.sh -i
-
+exec = python ~/Scripts/weather.py
 
 [module/spotify]
 type = custom/script
-interval = 1
-format-prefix = " "
-format = <label>
-exec = python ~/.config/polybar/spotify_status.py -f '{artist}: {song}'
+exec = ~/Scripts/spotify.sh %artist% - %title%
+tail = true
+interval = 2
 format-underline = #1db954
+
+[network]
+type = internal/network
+interface = ${env:INTERFACE:}
+;udspeed-minwidth = 3
+format-connected-underline = ${colors.underline}
+format-disconnected-underline = ${colors.primary}
+
+[module/networkdown]
+type = ${network.type}
+interface = ${network.interface}
+;udspeed-minwidth = ${network.udspeed-minwidth}
+label-connected = %{A1:/home/simo/Projects/networkmanager-dmenu/networkmanager_dmenu:}%downspeed:8:8%%{A}
+label-disconnected =
+format-connected-underline = ${network.format-connected-underline}
+format-disconnected-underline = ${network.format-disconnected-underline}
+
+
+[module/networkup]
+type = ${network.type}
+interface = ${network.interface}
+;udspeed-minwidth = ${network.udspeed-minwidth}
+label-connected = %{A1:/home/simo/Projects/networkmanager-dmenu/networkmanager_dmenu:}%upspeed:8:8%%{A}
+label-disconnected = %{A1:/home/simo/Projects/networkmanager-dmenu/networkmanager_dmenu:} not connected%{A}
+
+
+[module/root]
+type = internal/fs
+interval = 25
+mount-0 = /
+label-mounted = %{A1:termite -e "/home/simo/dotfiles/polybar/find_heaviest.sh" --hold:} %used%/%total%%{A}
+format-mounted = <label-mounted>
+
+[module/memory]
+type = internal/memory
+interval = 2
+label = %{A1:termite -e htop:} %gb_used%%{A}
+
+
+[module/cpu]
+type = internal/cpu
+format = <label>
+interval = 2
+label = %{A1:termite -e htop:} %percentage%%%{A}
+
+[module/keyboard]
+type = internal/xkeyboard
+
+
+format-prefix = " "
+format-prefix-foreground = ${colors.foreground-alt}
+format = <label-layout>
+format-foreground = ${colors.foreground}
+label = layout = %name%
+
+
+[module/xkeyboard]
+type = internal/xkeyboard
+blacklist-0 = num lock
+format-prefix-foreground = ${colors.foreground-alt}
+label-layout = %layout%
+label-indicator-padding = 1
+label-indicator-margin = 1
+label-indicator-background = ${colors.secondary}
 
 ; vim:ft=dosini
