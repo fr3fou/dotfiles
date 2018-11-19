@@ -1,4 +1,6 @@
-# rofi.theme: /usr/share/rofi/themes/onedark.rasi
 
-rofi.font: Fira Code 13
-rofi.theme: ~/.cache/wal/colors-rofi-light.rasi
+rofi.font: xos 4 Terminess Powerline 13
+rofi.lines: 5
+rofi.theme: ~/.cache/wal/colors-rofi-dark.rasi
+rofi.modi: combi
+rofi.show: combi
