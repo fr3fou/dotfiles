@@ -16,7 +16,6 @@ label-unmounted-foreground = ${colors.foreground-alt}
 [module/i3]
 type = internal/i3
 
-format = <label-state>
 index-sort = true
 enable-click = true
 fuzzy-match = true
