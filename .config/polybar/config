@@ -29,8 +29,8 @@ label-focused-foreground = ${colors.background}
 label-focused-padding = 2
 
 label-unfocused = %icon%
-label-unfocused-background = #eeeeee
-label-unfocused-foreground = ${colors.background-alt}
+label-unfocused-background = #ebebeb
+label-unfocused-foreground = #ebebeb
 label-unfocused-padding = 2
 
 label-urgent = %icon%
@@ -135,7 +135,7 @@ label-muted-foreground = ${colors.foreground}
 
 [module/battery]
 type = internal/battery
-full-at = 90
+full-at = 100
 battery = BAT1
 adapter = ADP1
 format-charging = <label-charging>
