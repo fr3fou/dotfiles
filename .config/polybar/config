@@ -28,12 +28,12 @@ label-focused-background = ${colors.foreground}
 label-focused-foreground = ${colors.background}
 label-focused-padding = 2
 
-label-unfocused = %icon%
+label-unfocused = %name%
 label-unfocused-background = #ebebeb
-label-unfocused-foreground = #ebebeb
+label-unfocused-foreground = ${colors.background}
 label-unfocused-padding = 2
 
-label-urgent = %icon%
+label-urgent = 
 label-urgent-background = ${colors.background}
 label-urgent-foreground = ${colors.foreground-alt}
 label-urgent-padding = 2
