@@ -8,7 +8,7 @@ export EDITOR="/usr/bin/nvim"
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="cloud"
+ZSH_THEME="spaceship"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -130,6 +130,7 @@ alias np="~/Scripts/0x0.sh"
 alias wp="wal -i ~/Pictures/Wallpapers/"
 alias wacom='xsetwacom set "Wacom Intuos S Pen stylus" Area 0 0 8500 4781 && xsetwacom set "Wacom Intuos S Pen stylus" MapToOutput 1920x1080+0+0 && xsetwacom set "Wacom Intuos S Pen stylus" RawSample 4 && xsetwacom set "Wacom Intuos S Pen stylus" Suppress 10'
 alias pc="xrandr | grep 'HDMI-0 connected' && xrandr --output eDP-1-1 --auto --output HDMI-0 --auto --right-of eDP-1-1 && xrandr --output HDMI-0 --mode 1920x1080 --rate 119.98"
+alias proc="ps -A | grep -i"
 
 bindkey '\e ' autosuggest-accept 
 
@@ -141,7 +142,7 @@ export BROWSER=/usr/bin/google-chrome-unstable
 export MANPAGER="nvim -c 'set ft=man' -"
 export PROMPT_COMMAND='echo -en "\033]0;$(whoami)@$(hostname)|$(pwd|cut -d "/" -f 4-100)\a"'
 
-PATH="/home/simo/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PATH="/home/simo/.gem/ruby/2.5.0/bin:/home/simo/perl5/bin${PATH:+:${PATH}}"; export PATH;
 PERL5LIB="/home/simo/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
 PERL_LOCAL_LIB_ROOT="/home/simo/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
 PERL_MB_OPT="--install_base \"/home/simo/perl5\""; export PERL_MB_OPT;
