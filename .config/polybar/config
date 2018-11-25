@@ -135,9 +135,10 @@ exec = python ~/Scripts/weather.py | xargs
 
 [module/spotify]
 type = custom/script
-exec = ~/Scripts/spotify.sh %artist% - %title%
-tail = true
-interval = 2
+exec = if [[ "$(playerctl status)" = "Playing" ]]; then playerctl metadata xesam:title; echo -n " by "; playerctl metadata xesam:artist; else echo -n ""; fi
+exec-if = [[ "$(playerctl status)" = "Playing" || "$(playerctl status)" = "Paused" ]] && echo "0"
+interval = 1
+format = <label>
 
 [network]
 type = internal/network
