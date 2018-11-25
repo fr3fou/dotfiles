@@ -2,17 +2,6 @@ include-file = ~/.config/polybar/global.conf
 include-file = ~/.config/polybar/bars/top.conf
 include-file = ~/.config/polybar/bars/bottom.conf
 
-[module/filesystem]
-type = internal/fs
-interval = 25
-
-mount-0 = /
-mount-1 = /media/mediabarbosa
-
-label-mounted =  %percentage_free%%
-label-unmounted = %mountpoint%: not mounted
-label-unmounted-foreground = ${colors.foreground-alt}
-
 [module/i3]
 type = internal/i3
 
@@ -24,18 +13,18 @@ strip-wsnumbers = true
 pin-workspaces = false
 
 label-focused = 
-label-focused-background = ${colors.foreground}
-label-focused-foreground = ${colors.background}
+label-focused-background = ${colors.background}
+label-focused-foreground = ${colors.foreground}
 label-focused-padding = 2
 
-label-unfocused = %name%
-label-unfocused-background = #ebebeb
-label-unfocused-foreground = ${colors.background}
+label-unfocused = %icon%
+label-unfocused-background = ${colors.background-alt}
+label-unfocused-foreground = ${colors.foreground}
 label-unfocused-padding = 2
 
 label-urgent = 
-label-urgent-background = ${colors.background}
-label-urgent-foreground = ${colors.foreground-alt}
+label-urgent-background = ${colors.background-alt}
+label-urgent-foreground = ${colors.foreground}
 label-urgent-padding = 2
 
 label-visible = %icon%
@@ -45,39 +34,6 @@ label-visible-padding = 2
 
 ws-icon-default = 
 
-[module/mpd]
-type = internal/mpd
-
-host = localhost
-port = 6600
-interval = 1
-
-format-online = <label-song>
-
-label-song = "  %artist% - %title%"
-label-offline = mopidy is offline
-
-icon-prev = 
-icon-stop = 
-icon-play = 
-icon-pause = 
-icon-next = 
-
-icon-random = 
-icon-repeat = 
-
-toggle-on-foreground = ${colors.foreground}
-toggle-off-foreground = ${colors.foreground-alt}
-
-bar-progress-width = 30
-bar-progress-format = %{A4:mpdseek+2: A5:mpdseek-2:}%fill%%indicator%%empty%%{A A}
-bar-progress-indicator = >
-bar-progress-indicator-foreground = ${colors.foreground}
-bar-progress-fill = -
-bar-progress-fill-foreground = ${colors.foreground}
-bar-progress-empty = -
-bar-progress-empty-foreground = ${colors.foreground}
-
 [module/wlan]
 type = internal/network
 interface = ${env:INTERFACE:}
@@ -85,7 +41,7 @@ interval = 3.0
 
 format-connected = <label-connected>
 
-label-connected = "  %essid%"
+label-connected = " %essid%"
 label-disconnected = " %ifname% off "
 
 ramp-signal-0 =" "
@@ -115,7 +71,7 @@ date-alt = "%d/%m/%y"
 time = "%H:%M"
 time-alt = %H:%M
 
-label = "  %date% %time%"
+label = " %date% %time%"
 
 [module/volume]
 type = internal/alsa
@@ -150,52 +106,21 @@ ramp-capacity-1 = 
 ramp-capacity-2 = 
 ramp-capacity-3 = 
 ramp-capacity-4 = 
-format-charging-underline = ${colors.alert}
-format-discharging-underline = ${colors.primary}
-
-[module/powermenu]
-type = custom/menu
-
-format-spacing = 1
-
-label-open = 
-label-close = cancel
-label-close-foreground = ${colors.foreground-alt}
-label-separator = |
-label-separator-foreground = ${colors.foreground-alt}
-
-menu-0-0 = reboot
-menu-0-0-exec = menu-open-1
-menu-0-1 = 
-menu-0-1-exec = menu-open-2
-
-menu-1-0 = cancel
-menu-1-0-exec = menu-open-0
-menu-1-1 = reboot
-menu-1-1-exec = systemctl reboot
-
-menu-2-0 = 
-menu-2-0-exec = systemctl poweroff
-menu-2-1 = cancel
-menu-2-1-exec = menu-open-0
 
 [module/ip]
 type = custom/script
-interval = 2
 format = <label>
-format-prefix-foreground = ${colors.foreground}
-format-prefix-background = ${colors.background}
-exec = echo "$(hostname -i)"
-exec-if = ping -c 1 gentoo.org
+format-prefix = " "
+format-prefix-foreground = #ffffff
+exec = echo "$(hostname -i | awk '{print $1}')"
 
 [module/hostname]
-type = custom/script
-interval = 256
+ftype = custom/script
 format = "<label> "
-format-prefix = "  "
-format-prefix-foreground = ${colors.foreground-alt}
+format-prefix = " "
+format-prefix-foreground = ${colors.foreground}
 format-padding = 0
-format-background = ${colors.background}
+format-background = ${colors.foreground}
 exec = echo "$(uname -n)"
 
 [module/weather]
@@ -204,19 +129,15 @@ interval = 60
 
 ;format-background = ${colors.background-alt}
 format = <label>
-format-prefix = "  "
-format-suffix = " "
-format-padding = 1
-format-prefix-foreground = ${colors.foreground-alt}
-format-background = ${colors.background}
-exec = python ~/Scripts/weather.py
+format-prefix = " "
+format-prefix-foreground = #ffffff
+exec = python ~/Scripts/weather.py | xargs
 
 [module/spotify]
 type = custom/script
 exec = ~/Scripts/spotify.sh %artist% - %title%
 tail = true
 interval = 2
-format-underline = #1db954
 
 [network]
 type = internal/network
@@ -240,13 +161,6 @@ label-connected = %{A1:/home/simo/Projects/networkmanager-dmenu/networkmanager_d
 label-disconnected = %{A1:/home/simo/Projects/networkmanager-dmenu/networkmanager_dmenu:} not connected%{A}
 
 
-[module/root]
-type = internal/fs
-interval = 25
-mount-0 = /
-label-mounted = %{A1:termite -e "/home/simo/dotfiles/polybar/find_heaviest.sh" --hold:} %used%/%total%%{A}
-format-mounted = <label-mounted>
-
 [module/memory]
 type = internal/memory
 interval = 2
@@ -269,23 +183,11 @@ format-warn-underline = ${colors.primary}
 
 [module/keyboard]
 type = internal/xkeyboard
-
-
 format-prefix = " "
-format-prefix-foreground = ${colors.foreground-alt}
+format-prefix-foreground = ${colors.foreground}
 format = <label-layout>
 format-foreground = ${colors.foreground}
 label = layout = %name%
-
-
-[module/xkeyboard]
-type = internal/xkeyboard
-blacklist-0 = num lock
-format-prefix-foreground = ${colors.foreground-alt}
-label-layout = %layout%
-label-indicator-padding = 1
-label-indicator-margin = 1
-label-indicator-background = ${colors.secondary}
 
 [module/title]
 type = internal/xwindow
