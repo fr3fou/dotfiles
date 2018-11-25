@@ -24,14 +24,14 @@ bindsym $mod+Return exec st
 # start chrome
 bindsym $mod+c exec google-chrome-unstable
 
-# start chrome
+# start vscode
 bindsym $mod+Shift+c exec code
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
-# i3lock-fancy
-bindsym $mod+Shift+Tab exec "i3lock -c 342E36"
+# lock screen
+bindsym $mod+Shift+Tab exec "betterlockscreen -l blur"
 
 # rofi
 bindsym $mod+d exec "rofi -combi-modi drun,run -show combi"
