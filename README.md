@@ -1,4 +1,7 @@
-# dots
+<div align="center">
+<h1>dots</h1>
+</div>
+
 :pencil: GitHub repo for my .files for my Linux PCs
 
 ![new](https://i.imgur.com/z9MuXWd.png)
