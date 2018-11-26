@@ -136,6 +136,7 @@ exec = python ~/Scripts/weather.py | xargs
 [module/music]
 type = custom/script
 exec = if [[ "$(playerctl status)" = "Playing" ]]; then playerctl metadata xesam:title; if [[ "$(playerctl metadata xesam:artist)" != "" ]]; then echo -n " by "; playerctl metadata xesam:artist; fi; else echo -n ""; fi
+exec-if = [[ "$(playerctl status)" = "Playing" || "$(playerctl status)" = "Paused" ]] && echo "0"
 interval = 1
 format = <label>
 
