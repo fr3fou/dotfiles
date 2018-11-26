@@ -1,6 +1,6 @@
 
-rofi.font: xos 4 Terminess Powerline 13
+rofi.font: Input Mono 11
 rofi.lines: 5
-rofi.theme: ~/.cache/wal/colors-rofi-dark.rasi
+rofi.theme: /home/simo/.local/share/rofi/themes/gab.rasi
 rofi.modi: combi
 rofi.show: combi

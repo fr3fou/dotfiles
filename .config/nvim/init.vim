@@ -26,6 +26,8 @@
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
+let base16colorspace=256 
+
 " make leader the spacebar key
 let mapleader = " "
 
@@ -130,6 +132,11 @@ endif
 
 " List plugins below this
 call plug#begin('~/.config/nvim/autoload/plugged')
+
+" Snippets
+"
+Plug 'honza/vim-snippets'
+
 
 " Support for a lot of languages
 Plug 'sheerun/vim-polyglot'
@@ -281,48 +288,6 @@ set noshowmode
 
 " Customizations
 colorscheme wal
-
-let g:lightline = {
-      \ 'colorscheme': 'wal',
-      \
-      \ 'active' : {
-      \     'left' : [ [ 'mode', 'paste'],
-      \                [ 'gitbranch', 'readonly', 'filename', 'modified'] 
-      \              ],
-      \     'right': [ [ 'filetype' ],
-      \                [ 'syntastic', 'lineinfo' ]
-      \              ]
-      \            },
-      \
-      \ 'inactive' : {
-      \     'left' : [ [ 'mode', 'paste'],
-      \                [ 'gitbranch', 'readonly', 'filename', 'modified'] 
-      \              ],
-      \     'right': [ [ 'filetype' ] ]
-      \            },
-      \ 
-      \ 'tabline': {
-      \     'right': [ ['buffericon'] ]
-      \            },
-      \ 'component': {
-      \     'readonly': '%{&readonly?"":""}',
-      \     'buffericon': '', 
-      \                     },
-      \
-      \ 'component_function' : {
-      \     'gitbranch' : 'MyGitBranch',
-      \     'filetype'  : 'MyFiletype',
-      \     'fileformat': 'MyFileformat',
-      \                        },
-      \
-      \ 'component_expand': {
-      \   'syntastic': 'SyntasticStatuslineFlag',
-      \                     },
-      \
-      \ 'component_type': {
-      \   'syntastic': 'error',
-      \                   }
-      \           }
 
 " Syntastic stuff
 augroup AutoSyntastic
