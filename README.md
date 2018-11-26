@@ -3,7 +3,7 @@
 
 ![new](https://i.imgur.com/z9MuXWd.png)
 
-![new1](https://i.imgur.com/l9TvdKs.png)
+![new1](https://i.imgur.com/u8YZek0.png)
 
 ![new2](https://i.imgur.com/sABLRi6.png)
 
