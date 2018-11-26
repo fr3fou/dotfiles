@@ -258,6 +258,6 @@ client.background       $bg
 
 # bindsym --release $mod+p exec  maim -d 2 -s --format=png /dev/stdout | xclip -selection clipboard -t image/png -i
 
-bindsym $mod+Shift+x exec maim -d 1 ~/Screenshots/Newest/newest.png -s && cd ~/Screenshots/Newest && curl -F'file=@newest.png' https://0x0.st/ | xclip -i -selection clipboard && mv ~/Screenshots/Newest/newest.png ~/Screenshots/$(date +%s).png && notify-send "Cheese!!~"
-bindsym $mod+Shift+z exec maim -d 1 ~/Screenshots/Newest/newest.png -s && cd ~/Screenshots/Newest && cat newest.png | xclip -selection clipboard -t image/png -i && mv ~/Screenshots/Newest/newest.png ~/Screenshots/$(date +%s).png && notify-send "Cheese!!~"
+bindsym $mod+Shift+x exec maim -d 1 ~/Screenshots/Newest/newest.png -s && cd ~/Screenshots/Newest && curl -F'file=@newest.png' https://0x0.st/ | xclip -i -selection clipboard && mv ~/Screenshots/Newest/newest.png ~/Screenshots/$(date +%s).png && notify-send -a Screeenshot "Cheese!!~" -i ~/Pictures/Avatars/d.png
+bindsym $mod+Shift+z exec maim -d 1 ~/Screenshots/Newest/newest.png -s && cd ~/Screenshots/Newest && cat newest.png | xclip -selection clipboard -t image/png -i && mv ~/Screenshots/Newest/newest.png ~/Screenshots/$(date +%s).png && notify-send -a Screeenshot "Cheese!!~" -i ~/Pictures/Avatars/d.png
 
