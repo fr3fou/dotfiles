@@ -131,7 +131,6 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # pulseaudio
-
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +1% # increase sound volume
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -1% # decrease sound volume
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
@@ -146,32 +145,11 @@ bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
-# resize window (you can also use the mouse for that)
-mode "resize" {
-# These bindings trigger as soon as you enter the resize mode
-
-# Pressing left will shrink the window’s width.
-# Pressing right will grow the window’s width.
-# Pressing up will shrink the window’s height.
-# Pressing down will grow the window’s height.
-	bindsym h resize shrink width 10 px or 10 ppt
-		bindsym j resize grow height 10 px or 10 ppt
-		bindsym k resize shrink height 10 px or 10 ppt
-		bindsym l resize grow width 10 px or 10 ppt
-
-# same bindings, but for the arrow keys
-		bindsym Left resize shrink width 10 px or 10 ppt
-		bindsym Down resize grow height 10 px or 10 ppt
-		bindsym Up resize shrink height 10 px or 10 ppt
-		bindsym Right resize grow width 10 px or 10 ppt
-
-# back to normal: Enter or Escape or $mod+r
-		bindsym Return mode "default"
-		bindsym Escape mode "default"
-		bindsym $mod+r mode "default"
-}
-
-bindsym $mod+r mode "resize"
+# Resize windows
+bindsym $mod+Shift+y resize shrink width 10 px or 10 ppt
+bindsym $mod+Shift+u resize grow height 10 px or 10 ppt
+bindsym $mod+Shift+i resize shrink height 10 px or 10 ppt
+bindsym $mod+Shift+o resize grow width 10 px or 10 ppt
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -180,14 +158,14 @@ bar {
 
 		status_command i3status
 }
-# G A P S
+# Gaps
 
 # Disable window titlebars entirely
 for_window [class="^.*"] border pixel 4
 
 # Set inner/outer gaps
-gaps inner 6
-gaps outer 1
+gaps inner 25
+gaps outer 15
 
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
 # gaps inner|outer current|all set|plus|minus <px>
@@ -239,6 +217,9 @@ mode "$mode_gaps_outer" {
 		bindsym Return mode "default"
 		bindsym Escape mode "default"
 }
+
+bindsym $mod+Shift+t		gaps inner current set 25; gaps outer current set 15
+bindsym $mod+Shift+d		gaps inner current set 0; gaps outer current set 0
 
 set_from_resource $bg           i3wm.color0 #ff0000
 set_from_resource $bg-alt       i3wm.color14 #ff0000

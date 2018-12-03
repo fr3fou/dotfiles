@@ -28,8 +28,9 @@ export INTERFACE="$(ip link show | grep \<BROADCAST | awk -F':' '{print $2}' | x
 if type "xrandr"; then
   for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
     MONITOR=$m polybar --reload top &
+    MONITOR=$m polybar --reload tray &
   done
 else
   polybar --reload top &
-  polybar --reload bottom &
+  polybar --reload tray &
 fi
