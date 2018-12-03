@@ -24,7 +24,8 @@ bindsym $mod+Return exec st
 # start chrome
 bindsym $mod+c exec google-chrome-unstable
 
-bindsym $mod+Shift+c exec "cat .config/i3/colors .config/i3/base >> .config/i3/config && i3-msg reload"
+# start vscode
+bindsym $mod+Shift+c exec code
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -155,16 +156,28 @@ bindsym $mod+Shift+o resize grow width 10 px or 10 ppt
 bar {
 	i3bar_command ~/.config/i3/polybar.sh
 
+		status_command i3status
 }
 # Gaps
 
 # Disable window titlebars entirely
-for_window [class="^.*"] border pixel 1
+for_window [class="^.*"] border pixel 4
 
 # Set inner/outer gaps
 gaps inner 25
 gaps outer 15
 
+# Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
+# gaps inner|outer current|all set|plus|minus <px>
+
+# gaps inner all set 10
+# gaps outer all plus 5
+
+# Smart gaps (gaps used if only more than one container on the workspace)
+# smart_gaps on
+
+# Smart borders (draw borders around container only if it is not the only container on this workspace)
+# on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
 smart_borders on
 
 # Press $mod+Shift+g to enter the gap mode. Choose o or i for modifying outer/inner gaps. Press one of + / - (in-/decrement for current workspace) or 0 (remove gaps for current workspace). If you also press Shift with these keys, the change will be global for all workspaces.
@@ -208,261 +221,24 @@ mode "$mode_gaps_outer" {
 bindsym $mod+Shift+t		gaps inner current set 25; gaps outer current set 15
 bindsym $mod+Shift+d		gaps inner current set 0; gaps outer current set 0
 
+set_from_resource $bg           i3wm.color0 #ff0000
+set_from_resource $bg-alt       i3wm.color14 #ff0000
+set_from_resource $fg           i3wm.color15 #ff0000
+set_from_resource $fg-alt       i3wm.color2 #ff0000
+set_from_resource $hl           i3wm.color13 #ff0000
+
+# class                 border      backgr. text indicator      child_border
+client.focused          $fg-alt     $bg     $hl  $fg-alt        $hl
+client.focused_inactive $fg-alt     $bg     $fg  $fg-alt        $fg-alt
+client.unfocused        $fg-alt     $bg     $fg  $fg-alt        $fg-alt
+client.urgent           $fg-alt     $bg     $fg  $fg-alt        $fg-alt
+client.placeholder      $fg-alt     $bg     $fg  $fg-alt        $fg-alt
+
+client.background       $bg
+
+
 # bindsym --release $mod+p exec  maim -d 2 -s --format=png /dev/stdout | xclip -selection clipboard -t image/png -i
 
 bindsym $mod+Shift+x exec maim -d 1 ~/Screenshots/Newest/newest.png -s && cd ~/Screenshots/Newest && curl -F'file=@newest.png' https://0x0.st/ | xclip -i -selection clipboard && mv ~/Screenshots/Newest/newest.png ~/Screenshots/$(date +%s).png && notify-send -a Screeenshot "Cheese!!~" -i ~/Pictures/Avatars/d.png
 bindsym $mod+Shift+z exec maim -d 1 ~/Screenshots/Newest/newest.png -s && cd ~/Screenshots/Newest && cat newest.png | xclip -selection clipboard -t image/png -i && mv ~/Screenshots/Newest/newest.png ~/Screenshots/$(date +%s).png && notify-send -a Screeenshot "Cheese!!~" -i ~/Pictures/Avatars/d.png
 
-## Base16 Default Dark
-# Author: Chris Kempson (http://chriskempson.com)
-#
-# You can use these variables anywhere in the i3 configuration file.
-
-set $base00 #181818
-set $base01 #282828
-set $base02 #383838
-set $base03 #585858
-set $base04 #b8b8b8
-set $base05 #d8d8d8
-set $base06 #e8e8e8
-set $base07 #f8f8f8
-set $base08 #ab4642
-set $base09 #dc9656
-set $base0A #f7ca88
-set $base0B #a1b56c
-set $base0C #86c1b9
-set $base0D #7cafc2
-set $base0E #ba8baf
-set $base0F #a16946
-
-## Base16 Default Dark
-# Author: Chris Kempson (http://chriskempson.com)
-#
-# You can use these variables anywhere in the i3 configuration file.
-
-set $base00 #181818
-set $base01 #282828
-set $base02 #383838
-set $base03 #585858
-set $base04 #b8b8b8
-set $base05 #d8d8d8
-set $base06 #e8e8e8
-set $base07 #f8f8f8
-set $base08 #ab4642
-set $base09 #dc9656
-set $base0A #f7ca88
-set $base0B #a1b56c
-set $base0C #86c1b9
-set $base0D #7cafc2
-set $base0E #ba8baf
-set $base0F #a16946
-## Base16 Default Dark
-# Author: Chris Kempson (http://chriskempson.com)
-#
-# You can use these variables anywhere in the i3 configuration file.
-
-set $base00 #181818
-set $base01 #282828
-set $base02 #383838
-set $base03 #585858
-set $base04 #b8b8b8
-set $base05 #d8d8d8
-set $base06 #e8e8e8
-set $base07 #f8f8f8
-set $base08 #ab4642
-set $base09 #dc9656
-set $base0A #f7ca88
-set $base0B #a1b56c
-set $base0C #86c1b9
-set $base0D #7cafc2
-set $base0E #ba8baf
-set $base0F #a16946
-## Base16 Default Dark
-# Author: Chris Kempson (http://chriskempson.com)
-#
-# You can use these variables anywhere in the i3 configuration file.
-
-set $base00 #181818
-set $base01 #282828
-set $base02 #383838
-set $base03 #585858
-set $base04 #b8b8b8
-set $base05 #d8d8d8
-set $base06 #e8e8e8
-set $base07 #f8f8f8
-set $base08 #ab4642
-set $base09 #dc9656
-set $base0A #f7ca88
-set $base0B #a1b56c
-set $base0C #86c1b9
-set $base0D #7cafc2
-set $base0E #ba8baf
-set $base0F #a16946
-## Base16 Default Dark
-# Author: Chris Kempson (http://chriskempson.com)
-#
-# You can use these variables anywhere in the i3 configuration file.
-
-set $base00 #181818
-set $base01 #282828
-set $base02 #383838
-set $base03 #585858
-set $base04 #b8b8b8
-set $base05 #d8d8d8
-set $base06 #e8e8e8
-set $base07 #f8f8f8
-set $base08 #ab4642
-set $base09 #dc9656
-set $base0A #f7ca88
-set $base0B #a1b56c
-set $base0C #86c1b9
-set $base0D #7cafc2
-set $base0E #ba8baf
-set $base0F #a16946
-## Base16 Default Dark
-# Author: Chris Kempson (http://chriskempson.com)
-#
-# You can use these variables anywhere in the i3 configuration file.
-
-set $base00 #181818
-set $base01 #282828
-set $base02 #383838
-set $base03 #585858
-set $base04 #b8b8b8
-set $base05 #d8d8d8
-set $base06 #e8e8e8
-set $base07 #f8f8f8
-set $base08 #ab4642
-set $base09 #dc9656
-set $base0A #f7ca88
-set $base0B #a1b56c
-set $base0C #86c1b9
-set $base0D #7cafc2
-set $base0E #ba8baf
-set $base0F #a16946
-## Base16 Default Dark
-# Author: Chris Kempson (http://chriskempson.com)
-#
-# You can use these variables anywhere in the i3 configuration file.
-
-set $base00 #181818
-set $base01 #282828
-set $base02 #383838
-set $base03 #585858
-set $base04 #b8b8b8
-set $base05 #d8d8d8
-set $base06 #e8e8e8
-set $base07 #f8f8f8
-set $base08 #ab4642
-set $base09 #dc9656
-set $base0A #f7ca88
-set $base0B #a1b56c
-set $base0C #86c1b9
-set $base0D #7cafc2
-set $base0E #ba8baf
-set $base0F #a16946
-## Base16 Default Dark
-# Author: Chris Kempson (http://chriskempson.com)
-#
-# You can use these variables anywhere in the i3 configuration file.
-
-set $base00 #181818
-set $base01 #282828
-set $base02 #383838
-set $base03 #585858
-set $base04 #b8b8b8
-set $base05 #d8d8d8
-set $base06 #e8e8e8
-set $base07 #f8f8f8
-set $base08 #ab4642
-set $base09 #dc9656
-set $base0A #f7ca88
-set $base0B #a1b56c
-set $base0C #86c1b9
-set $base0D #7cafc2
-set $base0E #ba8baf
-set $base0F #a16946
-## Base16 Tomorrow Night
-# Author: Chris Kempson (http://chriskempson.com)
-#
-# You can use these variables anywhere in the i3 configuration file.
-
-set $base00 #1d1f21
-set $base01 #282a2e
-set $base02 #373b41
-set $base03 #969896
-set $base04 #b4b7b4
-set $base05 #c5c8c6
-set $base06 #e0e0e0
-set $base07 #ffffff
-set $base08 #cc6666
-set $base09 #de935f
-set $base0A #f0c674
-set $base0B #b5bd68
-set $base0C #8abeb7
-set $base0D #81a2be
-set $base0E #b294bb
-set $base0F #a3685a
-## Base16 Tomorrow Night
-# Author: Chris Kempson (http://chriskempson.com)
-#
-# You can use these variables anywhere in the i3 configuration file.
-
-set $base00 #1d1f21
-set $base01 #282a2e
-set $base02 #373b41
-set $base03 #969896
-set $base04 #b4b7b4
-set $base05 #c5c8c6
-set $base06 #e0e0e0
-set $base07 #ffffff
-set $base08 #cc6666
-set $base09 #de935f
-set $base0A #f0c674
-set $base0B #b5bd68
-set $base0C #8abeb7
-set $base0D #81a2be
-set $base0E #b294bb
-set $base0F #a3685a
-## Base16 Tomorrow Night
-# Author: Chris Kempson (http://chriskempson.com)
-#
-# You can use these variables anywhere in the i3 configuration file.
-
-set $base00 #1d1f21
-set $base01 #282a2e
-set $base02 #373b41
-set $base03 #969896
-set $base04 #b4b7b4
-set $base05 #c5c8c6
-set $base06 #e0e0e0
-set $base07 #ffffff
-set $base08 #cc6666
-set $base09 #de935f
-set $base0A #f0c674
-set $base0B #b5bd68
-set $base0C #8abeb7
-set $base0D #81a2be
-set $base0E #b294bb
-set $base0F #a3685a
-## Base16 Tomorrow Night
-# Author: Chris Kempson (http://chriskempson.com)
-#
-# You can use these variables anywhere in the i3 configuration file.
-
-set $base00 #1d1f21
-set $base01 #282a2e
-set $base02 #373b41
-set $base03 #969896
-set $base04 #b4b7b4
-set $base05 #c5c8c6
-set $base06 #e0e0e0
-set $base07 #ffffff
-set $base08 #cc6666
-set $base09 #de935f
-set $base0A #f0c674
-set $base0B #b5bd68
-set $base0C #8abeb7
-set $base0D #81a2be
-set $base0E #b294bb
-set $base0F #a3685a
