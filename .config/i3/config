@@ -5,6 +5,7 @@ exec --no-startup-id ~/Scripts/144hz.sh &
 exec --no-startup-id gnome-settings-daemon
 exec --no-startup-id libinput-gestures-setup start
 exec --no-startup-id dunst
+exec --no-startup-id xsetroot -cursor_name left_ptr
 
 set $mod Mod4
 
@@ -161,7 +162,7 @@ bar {
 # Gaps
 
 # Disable window titlebars entirely
-for_window [class="^.*"] border pixel 4
+for_window [class="^.*"] border pixel 3
 
 # Set inner/outer gaps
 gaps inner 25
