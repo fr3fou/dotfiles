@@ -8,7 +8,7 @@ export EDITOR="/usr/bin/nvim"
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="spaceship"
+ZSH_THEME="kphoen"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -142,6 +142,7 @@ pdf() {
 export BROWSER=/usr/bin/google-chrome-unstable
 export MANPAGER="nvim -c 'set ft=man' -"
 export PROMPT_COMMAND='echo -en "\033]0;$(whoami)@$(hostname)|$(pwd|cut -d "/" -f 4-100)\a"'
+export GOPATH="/home/simo/go"
 
 PATH="/home/simo/Temp/color-scripts/color-scripts:/home/simo/.gem/ruby/2.5.0/bin:/home/simo/perl5/bin${PATH:+:${PATH}}"; export PATH;
 PERL5LIB="/home/simo/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
