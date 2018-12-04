@@ -1,6 +1,5 @@
-
-rofi.font: Input Mono 11
+rofi.font: Misc Tamsyn 12
 rofi.lines: 5
-rofi.theme: /home/simo/.local/share/rofi/themes/gab.rasi
+rofi.theme: ~/.cache/wal/colors-rofi-dark.rasi
 rofi.modi: combi
 rofi.show: combi
