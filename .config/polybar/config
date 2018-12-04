@@ -1,6 +1,7 @@
 include-file = ~/.config/polybar/global.conf
 include-file = ~/.config/polybar/bars/top.conf
 include-file = ~/.config/polybar/bars/bottom.conf
+include-file = ~/.config/polybar/bars/tray.conf
 
 [module/i3]
 type = internal/i3
@@ -12,13 +13,13 @@ wrapping-scroll = false
 strip-wsnumbers = true
 pin-workspaces = false
 
-label-focused = 
-label-focused-background = ${colors.background}
+label-focused = %name%
+label-focused-background = ${colors.alert}
 label-focused-foreground = ${colors.foreground}
 label-focused-padding = 2
 
-label-unfocused = %icon%
-label-unfocused-background = ${colors.background-alt}
+label-unfocused = %name%
+label-unfocused-background = #4b4b4b
 label-unfocused-foreground = ${colors.foreground}
 label-unfocused-padding = 2
 
@@ -27,8 +28,8 @@ label-urgent-background = ${colors.background-alt}
 label-urgent-foreground = ${colors.foreground}
 label-urgent-padding = 2
 
-label-visible = %icon%
-label-visible-background = ${colors.background}
+label-visible = %name%
+label-visible-background = #4b4b4b
 label-visible-foreground = ${colors.foreground}
 label-visible-padding = 2
 
