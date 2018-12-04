@@ -5,6 +5,7 @@ include-file = ~/.config/polybar/bars/tray.conf
 
 [module/i3]
 type = internal/i3
+format = <label-state> <label-mode>
 
 index-sort = true
 enable-click = true
@@ -14,22 +15,23 @@ strip-wsnumbers = true
 pin-workspaces = false
 
 label-focused = %name%
-label-focused-background = ${colors.alert}
+label-focused-underline = #e6ffffff
+label-focused-background = #00000000
 label-focused-foreground = ${colors.foreground}
 label-focused-padding = 2
 
 label-unfocused = %name%
-label-unfocused-background = #4b4b4b
+label-unfocused-background = #00000000
 label-unfocused-foreground = ${colors.foreground}
 label-unfocused-padding = 2
 
 label-urgent = 
-label-urgent-background = ${colors.background-alt}
+label-urgent-background = #00000000
 label-urgent-foreground = ${colors.foreground}
 label-urgent-padding = 2
 
 label-visible = %name%
-label-visible-background = #4b4b4b
+label-visible-background = #00000000 
 label-visible-foreground = ${colors.foreground}
 label-visible-padding = 2
 
