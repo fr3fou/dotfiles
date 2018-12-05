@@ -13,7 +13,6 @@ strip-wsnumbers = true
 pin-workspaces = false
 
 label-focused = %name%
-label-focused-underline = #e6ffffff
 label-focused-background = ${colors.foreground}
 label-focused-foreground = #ff000000
 label-focused-padding = 2
