@@ -14,8 +14,8 @@ pin-workspaces = false
 
 label-focused = %name%
 label-focused-underline = #e6ffffff
-label-focused-background = #00000000
-label-focused-foreground = ${colors.foreground}
+label-focused-background = ${colors.foreground}
+label-focused-foreground = #ff000000
 label-focused-padding = 2
 
 label-unfocused = %name%
