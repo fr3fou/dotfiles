@@ -1,4 +1,4 @@
-rofi.font: Misc Tamsyn 12
+rofi.font: Monaco 10
 rofi.lines: 5
 rofi.theme: ~/.cache/wal/colors-rofi-dark.rasi
 rofi.modi: combi
