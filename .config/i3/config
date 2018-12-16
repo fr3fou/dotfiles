@@ -9,7 +9,7 @@ exec --no-startup-id xsetroot -cursor_name left_ptr
 
 set $mod Mod4
 
-font pango:monospace 8
+font pango:Dank Mono 10
 
 # focus_follows_mouse no
 
@@ -20,7 +20,7 @@ floating_modifier $mod
 bindsym $mod+Tab workspace back_and_forth
 
 # start a terminal
-bindsym $mod+Return exec st
+bindsym $mod+Return exec xfce4-terminal
 
 # start chrome
 bindsym $mod+c exec google-chrome-unstable
@@ -147,10 +147,10 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 # Resize windows
-bindsym $mod+Shift+y resize shrink width 10 px or 10 ppt
-bindsym $mod+Shift+u resize grow height 10 px or 10 ppt
-bindsym $mod+Shift+i resize shrink height 10 px or 10 ppt
-bindsym $mod+Shift+o resize grow width 10 px or 10 ppt
+bindsym $mod+Shift+y resize grow width 10 px or 10 ppt
+bindsym $mod+Shift+u resize shrink height 10 px or 10 ppt
+bindsym $mod+Shift+i resize grow height 10 px or 10 ppt
+bindsym $mod+Shift+o resize shrink width 10 px or 10 ppt
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
