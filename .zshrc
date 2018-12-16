@@ -8,7 +8,7 @@ export EDITOR="/usr/bin/nvim"
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="wedisagree"
+ZSH_THEME="cloud"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -139,6 +139,17 @@ bindkey '\e ' autosuggest-accept
 
 pdf() {
 	lowriter --convert-to pdf "$1" && nohup zathura "${1%.*}".pdf &
+}
+
+weaponized_shitposting() {
+
+for i in `echo -n "$@" | sed 's/ /_/g' | tr '[A-Z]' '[a-z]' | fold -w 1` ; do
+    if [ "$i" = "_" ] ; then
+        echo -n ':clap:'
+    else
+        echo -n ":regional_indicator_$i: "
+    fi
+done
 }
 
 export BROWSER=/usr/bin/google-chrome-unstable
