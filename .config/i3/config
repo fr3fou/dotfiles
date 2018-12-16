@@ -37,6 +37,9 @@ bindsym $mod+Shift+Tab exec "betterlockscreen -l blur"
 # rofi
 bindsym $mod+d exec "rofi -combi-modi drun,run -show combi"
 
+# emoji picker
+bindsym $mod+grave exec ~/Scripts/emoji.sh
+
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
