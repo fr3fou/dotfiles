@@ -13,7 +13,7 @@
 	frame_width = 2
 	sort = no
 	idle_threshold = 0
-	font = Dank Mono 12 
+	font = Dank Mono 9 
 	line_height = 0
 	markup = full
 	format = "<b>%a</b>\n%s\n%b"
