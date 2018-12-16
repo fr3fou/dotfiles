@@ -31,7 +31,7 @@
 	sticky_history = yes
 	history_length = 10
 	dmenu = /usr/bin/rofi -dmenu
-	browser = /usr/bin/chromium
+	browser = /usr/bin/google-chrome-unstable
 	always_run_script = true
 	title = Dunst
 	class = Dunst
