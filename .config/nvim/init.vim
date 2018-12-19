@@ -103,7 +103,7 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
 " Use <F9> to clear the highlighting of :set hlsearch.
-if maparg('<F9>', 'n') ==# ''
+if maparg('<F8>', 'n') ==# ''
     nnoremap <silent> <F9> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><F9>
 endif
 
@@ -229,7 +229,7 @@ call plug#end()
 
 "- Nerdtree -"
 " Toggle nerdtree with F10
-map <F10> :NERDTreeToggle<CR>
+map <F9> :NERDTreeToggle<CR>
 
 "- Base16 -"
 " Access colors present in 256 colorspace
