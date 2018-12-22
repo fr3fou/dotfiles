@@ -1,0 +1,3 @@
+#include ".Xresources.d/colors"
+xterm*termName: xterm-256color
+rofi.font: UbuntuMono Nerd Font Regular 10

@@ -1,13 +1,14 @@
 exec --no-startup-id setxkbmap -layout "us,bg" -variant "euro,phonetic" -option "grp:alt_shift_toggle" && xmodmap ~/.xmodmap
-exec --no-startup-id wal -R
+exec --no-startup-id nitrogen --restore
 exec --no-startup-id compton &
 exec --no-startup-id ~/Scripts/144hz.sh &
 exec --no-startup-id gnome-settings-daemon
 exec --no-startup-id libinput-gestures-setup start
-exec --no-startup-id dunst
+exec --no-startup-id dunst & disown
 exec --no-startup-id xsetroot -cursor_name left_ptr
 
 set $mod Mod4
+set $term xfce4-terminal
 
 font pango:Dank Mono 10
 
@@ -20,8 +21,14 @@ floating_modifier $mod
 bindsym $mod+Tab workspace back_and_forth
 
 # start a terminal
-bindsym $mod+Return exec xfce4-terminal
+bindsym $mod+Return exec $term
 
+# start nnn
+bindsym $mod+n exec $term -e '/home/simo/Scripts/n.sh'
+
+# start fzf
+bindsym $mod+b exec $term -e '/home/simo/Scripts/fzf.sh'
+ 
 # start chrome
 bindsym $mod+c exec google-chrome-unstable
 
@@ -35,7 +42,7 @@ bindsym $mod+Shift+q kill
 bindsym $mod+Shift+Tab exec "betterlockscreen -l blur"
 
 # rofi
-bindsym $mod+d exec "rofi -combi-modi drun,run -show combi"
+bindsym $mod+d exec "rofi -combi-modi drun,run -show combi -lines 1"
 
 # emoji picker
 bindsym $mod+grave exec ~/Scripts/emoji.sh
@@ -225,21 +232,41 @@ mode "$mode_gaps_outer" {
 bindsym $mod+Shift+t		gaps inner current set 25; gaps outer current set 15
 bindsym $mod+Shift+d		gaps inner current set 0; gaps outer current set 0
 
-set_from_resource $bg           i3wm.color0 #ff0000
-set_from_resource $bg-alt       i3wm.color14 #ff0000
-set_from_resource $fg           i3wm.color15 #ff0000
-set_from_resource $fg-alt       i3wm.color2 #ff0000
-set_from_resource $hl           i3wm.color13 #ff0000
+## Base16 Monokai
+# Author: Wimer Hazenberg (http://www.monokai.nl)
+#
+# You can use these variables anywhere in the i3 configuration file.
 
-# class                 border      backgr. text indicator      child_border
-client.focused          $fg-alt     $bg     $hl  $fg-alt        $hl
-client.focused_inactive $fg-alt     $bg     $fg  $fg-alt        $fg-alt
-client.unfocused        $fg-alt     $bg     $fg  $fg-alt        $fg-alt
-client.urgent           $fg-alt     $bg     $fg  $fg-alt        $fg-alt
-client.placeholder      $fg-alt     $bg     $fg  $fg-alt        $fg-alt
+set_from_resource $term_background background
+set_from_resource $term_foreground foreground
+set_from_resource $base00           color0
+set_from_resource $base01           color1
+set_from_resource $base02           color2
+set_from_resource $base03           color3
+set_from_resource $base04           color4
+set_from_resource $base05           color5
+set_from_resource $base06           color6
+set_from_resource $base07           color7
+set_from_resource $base08           color8
+set_from_resource $base09           color9
+set_from_resource $base0A           color10
+set_from_resource $base0B           color11
+set_from_resource $base0C           color12
+set_from_resource $base0D           color13
+set_from_resource $base0E           color14
+set_from_resource $base0F           color15
 
-client.background       $bg
+set $gray #222222
+set $almostwhite #888888
 
+# Basic color configuration using the Base16 variables for windows and borders.
+# Property Name         Border  BG      Text    Indicator Child Border
+client.focused          $base02 $base02 $base00 $base02 $base02
+client.focused_inactive $base02 $base00 $base0D $base02 $gray
+client.unfocused        $base02 $gray   $almostwhite $base02 $gray
+client.urgent           $base02 $base00 $base0F $base02 $gray
+client.placeholder      $base02 $base00 $base0F $base02 $gray
+client.background       $base0E
 
 # bindsym --release $mod+p exec  maim -d 2 -s --format=png /dev/stdout | xclip -selection clipboard -t image/png -i
 

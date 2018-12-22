@@ -56,11 +56,11 @@ interface = sit0
 interval = 3.0
 
 format-connected-prefix = " "
-format-connected-foreground-foreground = ${colors.foreground-alt}
+format-connected-foreground-foreground = ${colors.foreground}
 label-connected = %local_ip%
 
 label-disconnected = %ifname% disconnected
-label-disconnected-foreground = ${colors.foreground-alt}
+label-disconnected-foreground = ${colors.foreground}
 
 [module/date]
 type = internal/date
@@ -111,7 +111,7 @@ ramp-capacity-4 = 
 type = custom/script
 format = <label>
 format-prefix = " "
-format-prefix-foreground = #ffffff
+format-prefix-foreground = ${colors.foreground}
 exec = echo "$(hostname -i | awk '{print $1}')"
 
 [module/hostname]
@@ -130,7 +130,7 @@ interval = 60
 ;format-background = ${colors.background-alt}
 format = <label>
 format-prefix = " "
-format-prefix-foreground = #ffffff
+format-prefix-foreground = ${colors.foreground}
 exec = python ~/Scripts/weather.py | xargs
 
 [module/music]
