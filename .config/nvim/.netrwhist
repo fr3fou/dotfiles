@@ -1,5 +1,3 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
-let g:netrw_dirhist_1='/home/simo/Documents/Projects/fr3timer/src'
-let g:netrw_dirhist_2='/home/simo/Documents/Projects/fr3timer/src/components'
-let g:netrw_dirhist_3='/home/simo/.config/nvim'
+let g:netrw_dirhist_cnt =1
+let g:netrw_dirhist_1='/home/simo/.config/polybar'

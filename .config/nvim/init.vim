@@ -25,8 +25,10 @@
 " Use Vim settings, rather than Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
+set termguicolors
 
-let base16colorspace=256 
+" let base16colorspace=256 
+" set t_Co=256
 
 " make leader the spacebar key
 let mapleader = " "
@@ -98,13 +100,13 @@ set listchars=tab:│·,trail:_
 
 " Better moving between windows
 nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
+        nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
 " Use <F9> to clear the highlighting of :set hlsearch.
 if maparg('<F8>', 'n') ==# ''
-    nnoremap <silent> <F9> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><F9>
+    nnoremap <silent> <F8> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><F9>
 endif
 
 
@@ -287,7 +289,7 @@ set noshowmode
 
 
 " Customizations
-colorscheme wal
+" colorscheme wal
 
 " Syntastic stuff
 augroup AutoSyntastic
@@ -348,3 +350,4 @@ hi Comment cterm=italic
 " Enable all Python syntax highlighting features
 let python_highlight_all = 1
 
+source ~/.config/nvim/colorscheme.vim

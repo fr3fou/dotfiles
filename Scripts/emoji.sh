@@ -5,7 +5,7 @@
 # Must have xclip installed to even show menu.
 xclip -h >/dev/null || exit
 
-chosen=$(grep -v "#" ~/.emoji | rofi -dmenu -i -l 20 -fn Monospace-18)
+chosen=$(grep -v "#" ~/.emoji | rofi -dmenu -i -l 17)
 
 [ "$chosen" != "" ] || exit
 

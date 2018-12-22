@@ -1,6 +1,4 @@
 
-(cat ~/.cache/wal/sequences &)
-
 # Path to your oh-my-zsh installation.
 export ZSH="/home/simo/.oh-my-zsh"
 export EDITOR="/usr/bin/nvim"
@@ -152,6 +150,23 @@ for i in `echo -n "$@" | sed 's/ /_/g' | tr '[A-Z]' '[a-z]' | fold -w 1` ; do
 done
 }
 
+export NNN_TMPFILE="/tmp/nnn"
+
+n() {
+        nnn "$@"
+
+        if [ -f $NNN_TMPFILE ]; then
+                . $NNN_TMPFILE
+                rm $NNN_TMPFILE
+        fi
+}
+
+vf() {
+    nvim $(fzf)
+}
+
+
+
 export BROWSER=/usr/bin/google-chrome-unstable
 export MANPAGER="nvim -c 'set ft=man' -"
 export PROMPT_COMMAND='echo -en "\033]0;$(whoami)@$(hostname)|$(pwd|cut -d "/" -f 4-100)\a"'
@@ -162,3 +177,4 @@ PERL5LIB="/home/simo/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
 PERL_LOCAL_LIB_ROOT="/home/simo/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
 PERL_MB_OPT="--install_base \"/home/simo/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/home/simo/perl5"; export PERL_MM_OPT;
+[ -f ~/.fzf.colors ] && source ~/.fzf.colors
