@@ -23,6 +23,9 @@ bindsym $mod+Tab workspace back_and_forth
 # start a terminal
 bindsym $mod+Return exec $term
 
+# start a terminal
+bindsym $mod+Shift+Return exec $term --drop-down
+
 # start nnn
 bindsym $mod+n exec $term -e '/home/simo/Scripts/n.sh'
 
