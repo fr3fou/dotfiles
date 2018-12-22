@@ -23,7 +23,7 @@ bindsym $mod+Tab workspace back_and_forth
 # start a terminal
 bindsym $mod+Return exec $term
 
-# start a terminal
+# start a drop-down terminal
 bindsym $mod+Shift+Return exec $term --drop-down
 
 # start nnn
@@ -265,7 +265,7 @@ set $almostwhite #888888
 # Basic color configuration using the Base16 variables for windows and borders.
 # Property Name         Border  BG      Text    Indicator Child Border
 client.focused          $base02 $base02 $base00 $base02 $base02
-client.focused_inactive $base02 $base00 $base0D $base02 $gray
+client.focused_inactive $base02 $base00 $base0D $gray $gray
 client.unfocused        $base02 $gray   $almostwhite $base02 $gray
 client.urgent           $base02 $base00 $base0F $base02 $gray
 client.placeholder      $base02 $base00 $base0F $base02 $gray
