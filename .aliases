@@ -1,0 +1,49 @@
+# Shorter versions of commands
+alias ac="acpi"
+alias yeet="yay"
+alias nx="nvidia-xrun"
+alias yt="youtube-dl"
+alias rr="ranger ."
+
+# Toggle gpu (doesn't seem to work :c)
+alias igpu="sudo tee /proc/acpi/bbswitch <<<OFF"
+alias dgpu="sudo tee /proc/acpi/bbswitch <<<ON"
+
+# Directory
+alias projects="cd ~/Projects"
+alias videos="cd ~/Videos"
+alias scripts="cd ~/Scripts"
+alias music="cd ~/Scripts"
+alias downloads="cd ~/Downloads"
+alias temp="cd ~/Temp"
+alias config="cd ~/.config"
+alias notes="cd ~/Documents/Notes"
+alias wallpapers="cd ~/Pictures/Wallpapers"
+alias games="cd ~/Games"
+alias osudir="cd ~/.local/share/osu-wine/OSU"
+
+# Config
+alias zshconfig="nvim ~/.zshrc"
+alias i3config="nvim ~/.config/i3/config"
+alias comptonconfig="nvim ~/.config/compton.conf"
+alias nxconfig="nvim ~/.nvidia-xinitrc"
+alias nvimconfig="nvim ~/.config/nvim/init.vim"
+
+# Dot management
+alias dots='git --git-dir=$HOME/.dots.git/ --work-tree=$HOME'
+
+# Games
+alias cpma="cd /home/simo/Games/CPMA/CPMA-1.51-full-v1 && ./cnq3-x64"
+
+# Misc
+alias np="~/Scripts/0x0.sh"
+alias wacom='xsetwacom set "Wacom Intuos S Pen stylus" Area 0 0 8500 4781 && xsetwacom set "Wacom Intuos S Pen stylus" MapToOutput 1920x1080+0+0 && xsetwacom set "Wacom Intuos S Pen stylus" RawSample 4 && xsetwacom set "Wacom Intuos S Pen stylus" Suppress 10'
+alias pc="xrandr | grep 'HDMI-0 connected' && xrandr --output eDP-1-1 --auto --output HDMI-0 --auto --right-of eDP-1-1 && xrandr --output HDMI-0 --mode 1920x1080 --rate 119.98"
+alias proc="ps -A | grep -i"
+alias xc="xclip -selection clipboard"
+alias swap="xmodmap ~/.xmodmap"
+alias rdsc="pkill DiscordCanary && pkill DiscordCanary && nohup discord-canary &"
+alias nvm-init="source ~/.nvm/nvm.sh"
+alias audio-fix="sudo alsactl restore"
+
+# vim:ft=config

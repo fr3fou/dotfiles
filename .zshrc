@@ -1,63 +1,13 @@
-
-# Path to your oh-my-zsh installation.
 export ZSH="/home/simo/.oh-my-zsh"
 export EDITOR="/usr/bin/nvim"
+export NNN_TMPFILE="/tmp/nnn"
+export BROWSER=/usr/bin/google-chrome-unstable
+export MANPAGER="nvim -c 'set ft=man' -"
+export PROMPT_COMMAND='echo -en "\033]0;$(whoami)@$(hostname)|$(pwd|cut -d "/" -f 4-100)\a"'
+export GOPATH="/home/simo/go"
 
-# Set name of the theme to load. Optionally, if you set this to "random"
-# it'll load a random theme each time that oh-my-zsh is loaded.
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="cloud"
-
-# Set list of themes to load
-# Setting this variable when ZSH_THEME=random
-# cause zsh load theme from this variable instead of
-# looking in ~/.oh-my-zsh/themes/
-# An empty array have no effect
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
-
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-# Uncomment the following line to use hyphen-insensitive completion. Case
-# sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
-
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
- DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.  You can set one of the optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# or set a custom format using the strftime function format specifications,
-# see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
+DISABLE_AUTO_TITLE="true"
 plugins=(
   git
   z
@@ -67,71 +17,9 @@ plugins=(
   zsh-nvm
   zsh-autosuggestions
 )
-
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-alias nx="nvidia-xrun"
-alias ac="acpi"
-alias nxconfig="sudo nvim ~/.nvidia-xinitrc"
-alias zshconfig="nvim ~/.zshrc"
-alias nvimconfig="nvim ~/.config/nvim/init.vim"
-alias projects="cd ~/Projects"
-alias videos="cd ~/Videos"
-alias scripts="cd ~/Scripts"
-alias temp="cd ~/Temp"
-alias wallpapers="cd ~/Pictures/Wallpapers"
-alias swap="xmodmap ~/.xmodmap"
-alias notes="cd ~/Documents/Notes"
-alias nvm-init="source ~/.nvm/nvm.sh"
-alias nc-loc="nc -l -p 55555"
-alias downloads="cd ~/Downloads"
-alias cpma="cd /home/simo/Games/CPMA/CPMA-1.51-full-v1 && ./cnq3-x64"
-alias tbin="nc termbin.com 9999"
-alias games="cd ~/Games"
-alias yeet="yay"
-alias i3config="nvim ~/.config/i3/config"
-alias comptonconfig="nvim ~/.config/compton.conf"
-alias rr="ranger ."
-alias config="cd ~/.config"
-alias igpu="sudo tee /proc/acpi/bbswitch <<<OFF"
-alias dgpu="sudo tee /proc/acpi/bbswitch <<<ON"
-alias dots='git --git-dir=$HOME/.dots.git/ --work-tree=$HOME'
-alias audio-fix="sudo alsactl restore"
-alias osudir="cd ~/.local/share/osu-wine/OSU"
-alias rdsc="pkill DiscordCanary && pkill DiscordCanary && nohup discord-canary &"
-alias yt="youtube-dl"
-alias np="~/Scripts/0x0.sh"
-alias wp="wal -i ~/Pictures/Wallpapers/"
-alias wacom='xsetwacom set "Wacom Intuos S Pen stylus" Area 0 0 8500 4781 && xsetwacom set "Wacom Intuos S Pen stylus" MapToOutput 1920x1080+0+0 && xsetwacom set "Wacom Intuos S Pen stylus" RawSample 4 && xsetwacom set "Wacom Intuos S Pen stylus" Suppress 10'
-alias pc="xrandr | grep 'HDMI-0 connected' && xrandr --output eDP-1-1 --auto --output HDMI-0 --auto --right-of eDP-1-1 && xrandr --output HDMI-0 --mode 1920x1080 --rate 119.98"
-alias proc="ps -A | grep -i"
-alias xc="xclip -selection clipboard"
+source ~/.aliases
 
 bindkey '\e ' autosuggest-accept 
 
@@ -150,7 +38,6 @@ for i in `echo -n "$@" | sed 's/ /_/g' | tr '[A-Z]' '[a-z]' | fold -w 1` ; do
 done
 }
 
-export NNN_TMPFILE="/tmp/nnn"
 
 n() {
         nnn "$@"
@@ -165,12 +52,6 @@ vf() {
     nvim $(fzf)
 }
 
-
-
-export BROWSER=/usr/bin/google-chrome-unstable
-export MANPAGER="nvim -c 'set ft=man' -"
-export PROMPT_COMMAND='echo -en "\033]0;$(whoami)@$(hostname)|$(pwd|cut -d "/" -f 4-100)\a"'
-export GOPATH="/home/simo/go"
 
 PATH="/home/simo/Temp/color-scripts/color-scripts:/home/simo/.gem/ruby/2.5.0/bin:/home/simo/perl5/bin${PATH:+:${PATH}}"; export PATH;
 PERL5LIB="/home/simo/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
