@@ -178,7 +178,7 @@ bar {
 for_window [class="^.*"] border pixel 3
 
 # Set inner/outer gaps
-gaps inner 25
+gaps inner 20
 gaps outer 15
 
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
@@ -232,7 +232,7 @@ mode "$mode_gaps_outer" {
 		bindsym Escape mode "default"
 }
 
-bindsym $mod+Shift+t		gaps inner current set 25; gaps outer current set 15
+bindsym $mod+Shift+t		gaps inner current set 20; gaps outer current set 15
 bindsym $mod+Shift+d		gaps inner current set 0; gaps outer current set 0
 
 ## Base16 Monokai
