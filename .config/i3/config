@@ -1,16 +1,16 @@
 exec --no-startup-id setxkbmap -layout "us,bg" -variant "euro,phonetic" -option "grp:alt_shift_toggle" && xmodmap ~/.xmodmap
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id compton &
-exec --no-startup-id ~/Scripts/144hz.sh &
 exec --no-startup-id gnome-settings-daemon
 exec --no-startup-id libinput-gestures-setup start
 exec --no-startup-id dunst & disown
 exec --no-startup-id xsetroot -cursor_name left_ptr
+exec --no-startup-id ~/Scripts/pc.sh & 
 
 set $mod Mod4
 set $term xfce4-terminal
 
-font pango:Dank Mono 10
+font pango:UbuntuMono Nerd Font 10
 
 # focus_follows_mouse no
 
@@ -45,7 +45,7 @@ bindsym $mod+Shift+q kill
 bindsym $mod+Shift+Tab exec "betterlockscreen -l blur"
 
 # rofi
-bindsym $mod+d exec "rofi -combi-modi drun,run -show combi -lines 1"
+bindsym $mod+d exec "rofi -show drun -lines 5"
 
 # emoji picker
 bindsym $mod+grave exec ~/Scripts/emoji.sh
