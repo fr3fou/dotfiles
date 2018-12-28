@@ -326,6 +326,7 @@ let g:vim_markdown_toml_frontmatter = 1
 
 "--- Misc ---"
 
+" Makes scorlling in manpages easier
 autocmd Filetype man nnoremap <buffer> u <C-u>
 autocmd Filetype man nnoremap <buffer> d <C-d>
 
@@ -349,5 +350,9 @@ hi Comment cterm=italic
 
 " Enable all Python syntax highlighting features
 let python_highlight_all = 1
+
+" Adds x11 clipboard shortcuts
+vnoremap <C-c> "+y
+map <C-p> "+P
 
 source ~/.config/nvim/colorscheme.vim
