@@ -52,9 +52,9 @@ vf() {
     nvim $(fzf)
 }
 
-if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then exec nx; fi
+if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then nx; fi
 
-PATH="/home/simo/Temp/color-scripts/color-scripts:/home/simo/.gem/ruby/2.5.0/bin:/home/simo/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PATH="/home/simo/.bin:/home/simo/.local/bin:/home/simo/Temp/color-scripts/color-scripts:/home/simo/.gem/ruby/2.5.0/bin:/home/simo/perl5/bin${PATH:+:${PATH}}"; export PATH;
 PERL5LIB="/home/simo/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
 PERL_LOCAL_LIB_ROOT="/home/simo/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
 PERL_MB_OPT="--install_base \"/home/simo/perl5\""; export PERL_MB_OPT;
