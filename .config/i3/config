@@ -176,10 +176,10 @@ bar {
 # Gaps
 
 # Disable window titlebars entirely
-for_window [class="^.*"] border pixel 3
+for_window [class="^.*"] border pixel 2
 
 # Set inner/outer gaps
-gaps inner 20
+gaps inner 15
 gaps outer 15
 
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
@@ -189,7 +189,7 @@ gaps outer 15
 # gaps outer all plus 5
 
 # Smart gaps (gaps used if only more than one container on the workspace)
-# smart_gaps on
+ smart_gaps on
 
 # Smart borders (draw borders around container only if it is not the only container on this workspace)
 # on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
@@ -233,7 +233,7 @@ mode "$mode_gaps_outer" {
 		bindsym Escape mode "default"
 }
 
-bindsym $mod+Shift+t		gaps inner current set 20; gaps outer current set 15
+bindsym $mod+Shift+t		gaps inner current set 15; gaps outer current set 15
 bindsym $mod+Shift+d		gaps inner current set 0; gaps outer current set 0
 
 ## Base16 Monokai
