@@ -4,6 +4,8 @@
 
 :pencil: GitHub repo for my .files for my Linux PCs
 
+![new](https://i.redd.it/ywmjde2nj2821.png)
+
 ![new](https://i.imgur.com/z9MuXWd.png)
 
 ![new1](https://i.imgur.com/u8YZek0.png)
