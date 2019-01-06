@@ -6,7 +6,7 @@ export MANPAGER="nvim -c 'set ft=man' -"
 export PROMPT_COMMAND='echo -en "\033]0;$(whoami)@$(hostname)|$(pwd|cut -d "/" -f 4-100)\a"'
 export GOPATH="/home/simo/go"
 
-ZSH_THEME="cloud"
+ZSH_THEME="juanghurtado"
 DISABLE_AUTO_TITLE="true"
 plugins=(
   git
