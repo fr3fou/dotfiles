@@ -28,7 +28,7 @@ bindsym $mod+Return exec $term
 bindsym $mod+Shift+Return exec $term --drop-down
 
 # start nnn
-bindsym $mod+n exec $term -e '/home/simo/Scripts/n.sh'
+bindsym $mod+n exec $term -e 'zsh -e /home/simo/Scripts/n.sh &'
 
 # start fzf
 bindsym $mod+b exec $term -e '/home/simo/Scripts/fzf.sh'
@@ -176,7 +176,7 @@ bar {
 # Gaps
 
 # Disable window titlebars entirely
-for_window [class="^.*"] border pixel 2
+for_window [class="^.*"] border pixel 3
 
 # Set inner/outer gaps
 gaps inner 15
