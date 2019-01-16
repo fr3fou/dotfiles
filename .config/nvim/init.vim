@@ -168,7 +168,10 @@ Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-fugitive'
 
 " Very light and customizable staus line
-Plug 'itchyny/lightline.vim'
+" Plug 'itchyny/lightline.vim'
+" Airline (bar at the bottom)
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 " Fancy icons
 Plug 'ryanoasis/vim-devicons'
@@ -244,6 +247,7 @@ let g:gitgutter_sign_removed='◢'
 let g:gitgutter_sign_removed_first_line='◥'
 let g:gitgutter_sign_modified_removed='◢'
 let g:gitgutter_override_sign_column_highlight = 0
+let g:airline_powerline_fonts = 1
 
 " Removing background for a e s t h e t i c s
 hi! GitGutterAdd ctermbg=NONE
@@ -282,7 +286,7 @@ let g:syntastic_c_compiler_options = "-fno-builtin -Wno-incompatible-library-red
 
 "- Lightline -"
 " Always show status line
-set laststatus=2
+" set laststatus=2
 
 " Get rid of the ugly default status line
 set noshowmode
@@ -296,11 +300,6 @@ augroup AutoSyntastic
     autocmd!
     autocmd BufWritePost *.c,*.cpp,*.py call s:syntastic()
     augroup END
-
-function! s:syntastic()
-    SyntasticCheck
-    call lightline#update()
-endfunction
 
 let g:syntastic_mode_map = { 
       \ 'mode': 'passive',
