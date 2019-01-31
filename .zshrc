@@ -1,5 +1,13 @@
-ZSH_THEME="juanghurtado"
-DISABLE_AUTO_TITLE="true"
+export ZSH="/home/simo/.oh-my-zsh"
+export EDITOR="/usr/bin/nvim"
+export NNN_TMPFILE="/tmp/nnn"
+export BROWSER=/usr/bin/google-chrome-unstable
+export MANPAGER="nvim -c 'set ft=man' -"
+export PROMPT_COMMAND='echo -en "\033]0;$(whoami)@$(hostname)|$(pwd|cut -d "/" -f 4-100)\a"'
+export GOPATH="/home/simo/go"
+
+ZSH_THEME="robbyrussell"
+DISABLE_AUTO_TITLE="false"
 plugins=(
   git
   z
