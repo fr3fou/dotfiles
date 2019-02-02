@@ -20,15 +20,14 @@
 "                    ####           ####:::####   ####  ####                    
 "                                      `:`                                      
 
-
 " --- General -- "
 " Use Vim settings, rather than Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 set termguicolors
 
-" let base16colorspace=256 
-" set t_Co=256
+let base16colorspace=256 
+set t_Co=256
 
 " make leader the spacebar key
 let mapleader = " "
@@ -136,9 +135,7 @@ endif
 call plug#begin('~/.config/nvim/autoload/plugged')
 
 " Snippets
-"
 Plug 'honza/vim-snippets'
-
 
 " Support for a lot of languages
 Plug 'sheerun/vim-polyglot'
