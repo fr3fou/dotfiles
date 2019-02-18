@@ -59,7 +59,6 @@ for i in `echo -n "$@" | sed 's/ /_/g' | tr '[A-Z]' '[a-z]' | fold -w 1` ; do
 done
 }
 
-
 n() {
     nnn "$@"
 
@@ -72,3 +71,12 @@ n() {
 vf() {
     nvim $(fzf)
 }
+
+if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then nx; fi
+
+PATH="/home/simo/.npm-packages/bin:/home/simo/.bin:/home/simo/.local/bin:/home/simo/Temp/color-scripts/color-scripts:/home/simo/.gem/ruby/2.5.0/bin:/home/simo/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/home/simo/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/home/simo/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/home/simo/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/simo/perl5"; export PERL_MM_OPT;
+[ -f ~/.fzf.colors ] && source ~/.fzf.colors

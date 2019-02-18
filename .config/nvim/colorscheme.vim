@@ -1,1 +1,1 @@
-colorscheme base16-ocean
+colorscheme base16-monokai

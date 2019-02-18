@@ -1,22 +1,22 @@
-! Base16 Ocean
-! Scheme: Chris Kempson (http://chriskempson.com)
+! Base16 Monokai
+! Scheme: Wimer Hazenberg (http://www.monokai.nl)
 
-#define base00 #2b303b
-#define base01 #343d46
-#define base02 #4f5b66
-#define base03 #65737e
-#define base04 #a7adba
-#define base05 #c0c5ce
-#define base06 #dfe1e8
-#define base07 #eff1f5
-#define base08 #bf616a
-#define base09 #d08770
-#define base0A #ebcb8b
-#define base0B #a3be8c
-#define base0C #96b5b4
-#define base0D #8fa1b3
-#define base0E #b48ead
-#define base0F #ab7967
+#define base00 #272822
+#define base01 #383830
+#define base02 #49483e
+#define base03 #75715e
+#define base04 #a59f85
+#define base05 #f8f8f2
+#define base06 #f5f4f1
+#define base07 #f9f8f5
+#define base08 #f92672
+#define base09 #fd971f
+#define base0A #f4bf75
+#define base0B #a6e22e
+#define base0C #a1efe4
+#define base0D #66d9ef
+#define base0E #ae81ff
+#define base0F #cc6633
 
 *foreground:   base05
 #ifdef background_opacity
