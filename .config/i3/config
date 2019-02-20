@@ -6,7 +6,7 @@ exec --no-startup-id gnome-settings-daemon
 exec --no-startup-id libinput-gestures-setup start
 exec --no-startup-id dunst & disown
 exec --no-startup-id xsetroot -cursor_name left_ptr
-exec --no-startup-id ~/Scripts/pc.sh & 
+exec --no-startup-id ~/Scripts/144hz.sh & 
 
 set $mod Mod4
 set $term xfce4-terminal
@@ -276,4 +276,3 @@ client.background       $base0E
 
 bindsym $mod+Shift+x exec maim -d 1 ~/Screenshots/Newest/newest.png -s && cd ~/Screenshots/Newest && curl -F'file=@newest.png' https://0x0.st/ | xclip -i -selection clipboard && mv ~/Screenshots/Newest/newest.png ~/Screenshots/$(date +%s).png && notify-send -a Screeenshot "Cheese!!~" -i ~/Pictures/Avatars/d.png
 bindsym $mod+Shift+z exec maim -d 1 ~/Screenshots/Newest/newest.png -s && cd ~/Screenshots/Newest && cat newest.png | xclip -selection clipboard -t image/png -i && mv ~/Screenshots/Newest/newest.png ~/Screenshots/$(date +%s).png && notify-send -a Screeenshot "Cheese!!~" -i ~/Pictures/Avatars/d.png
-
