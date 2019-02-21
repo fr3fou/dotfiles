@@ -44,5 +44,6 @@ alias swap="xmodmap ~/.xmodmap"
 alias rdsc="pkill DiscordCanary && pkill DiscordCanary && nohup discord-canary &"
 alias nvm-init="source ~/.nvm/nvm.sh"
 alias audio-fix="sudo alsactl restore"
+alias git="hub"
 
 # vim:ft=config
