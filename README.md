@@ -6,6 +6,8 @@
 
 ## Screenshots
 
+![new](https://i.imgur.com/CnUC52A.png)
+
 ![new](https://i.redd.it/ywmjde2nj2821.png)
 
 ![new](https://i.imgur.com/z9MuXWd.png)
