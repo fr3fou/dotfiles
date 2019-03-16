@@ -2,7 +2,7 @@
 <h1>dots</h1>
 </div>
 
-:pencil: GitHub repo for my .files for my Linux PCs
+:pencil: GitHub repo for my .dotfiles for my Linux PCs
 
 ## Screenshots
 
