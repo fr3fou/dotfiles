@@ -41,19 +41,6 @@ pdf() {
 	lowriter --convert-to pdf "$1" && nohup zathura "${1%.*}".pdf &
 }
 
-weaponized_shitposting() {
-
-for i in `echo -n "$@" | sed 's/ /_/g' | tr '[A-Z]' '[a-z]' | fold -w 1` ; do
-    if [ "$i" = "_" ] ; then
-        echo -n ':clap:'
-    else
-        echo -n ":regional_indicator_$i: "
-    fi
-done
-
-}
-
-
 n() {
     nnn "$@"
 
