@@ -6,6 +6,7 @@ alias yt="youtube-dl"
 alias rr="ranger ."
 alias c="code ."
 alias sc="systemctl"
+alias n="nautilus ."
 
 # Toggle gpu (doesn't seem to work :c)
 alias igpu="sudo tee /proc/acpi/bbswitch <<<OFF"
