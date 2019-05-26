@@ -25,6 +25,7 @@
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 set termguicolors
+set background=light
 
 let base16colorspace=256 
 set t_Co=256
@@ -144,10 +145,13 @@ Plug 'sheerun/vim-polyglot'
 Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
 
 " Fancy directory viewer
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'scrooloose/nerdtree'
 
 " Nice colorschemes that fit with base16-shell
 Plug 'chriskempson/base16-vim'
+
+" Cute colorscheme
+Plug 'nightsense/snow'
 
 " Add git glyphs on the gutter column
 Plug 'airblade/vim-gitgutter'
@@ -290,7 +294,7 @@ set noshowmode
 
 
 " Customizations
-" colorscheme wal
+colorscheme snow
 
 " Syntastic stuff
 augroup AutoSyntastic
@@ -351,4 +355,10 @@ let python_highlight_all = 1
 vnoremap <C-c> "+y
 map <C-p> "+P
 
-source ~/.config/nvim/colorscheme.vim
+autocmd vimenter * NERDTree
+
+let g:airline_theme='snow_light'
+
+colorscheme snow
+
+" source ~/.config/nvim/colorscheme.vim
