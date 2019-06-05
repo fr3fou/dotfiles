@@ -26,6 +26,7 @@
 set nocompatible
 set termguicolors
 set background=light
+set mouse=a
 
 let base16colorspace=256 
 set t_Co=256
