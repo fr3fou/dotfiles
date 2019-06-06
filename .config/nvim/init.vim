@@ -26,7 +26,7 @@
 set nocompatible
 set termguicolors
 set mouse=a
-set background=light
+set background=dark
 
 let base16colorspace=256 
 set t_Co=256
@@ -158,14 +158,8 @@ Plug 'scrooloose/nerdtree'
 " Nice colorschemes that fit with base16-shell
 Plug 'chriskempson/base16-vim'
 
-" More colorschemes
-Plug 'nightsense/snow'
-Plug 'sickill/vim-monokai'
-
 " Add git glyphs on the gutter column
-Plug 'airblade/vim-gitgutter'
-
-" Check syntax while writing
+Plug 'airblade/vim-gitgutter' " Check syntax while writing
 Plug 'scrooloose/syntastic'
 
 " Git wrapper
@@ -173,16 +167,10 @@ Plug 'tpope/vim-fugitive'
 
 " Very light and customizable staus line
 Plug 'itchyny/lightline.vim'
-" Airline (bar at the bottom)
-" Plug 'vim-airline/vim-airline'
-" Plug 'vim-airline/vim-airline-themes'
 
 " Vim Session
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-session'
-
-" Integration between Vim and its environment
-Plug 'Shougo/vimshell.vim'
 
 " Fancy icons
 Plug 'ryanoasis/vim-devicons'
@@ -215,7 +203,9 @@ Plug 'mxw/vim-jsx'
 Plug 'mattn/emmet-vim'
 Plug 'leafgarland/typescript-vim'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+Plug 'alvan/vim-closetag'
 
+" Prettier
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
 " Markdown support
@@ -353,18 +343,6 @@ let g:vim_markdown_toml_frontmatter = 1
 autocmd Filetype man nnoremap <buffer> u <C-u>
 autocmd Filetype man nnoremap <buffer> d <C-d>
 
-" Remove background
-hi LineNr ctermbg=NONE
-hi SignColumn ctermbg=NONE
-hi VertSplit ctermbg=NONE
-hi CursorLineNr ctermbg=NONE
-hi CursorLineNr ctermfg=7
-
-" Set wildmenu colors
-hi WildMenu ctermbg=12
-hi WildMenu ctermfg=21
-hi StatusLine ctermbg=18
-
 " Coc.nvim
 
 " Use tab for trigger completion with characters ahead and navigate.
@@ -425,6 +403,18 @@ let g:lightline = {
       \ },
       \ }
 
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.jsx,*.tsx'
+let g:closetag_xhtml_filenames = '*.xhtml,*.jsx,*.tsx'
+let g:closetag_emptyTags_caseSensitive = 1
+let g:closetag_regions = {
+    \ 'typescript.tsx': 'jsxRegion,tsxRegion',
+    \ 'javascript.jsx': 'jsxRegion'
+    \ }
+
+" Shortcut for closing tags, default is '>'
+"
+let g:closetag_shortcut = '>'
+
 " Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
@@ -436,9 +426,6 @@ set fillchars+=vert:┃
 
 " Make comments italiced
 hi Comment cterm=italic
-
-" Enable all Python syntax highlighting features
-let python_highlight_all = 1
 
 " Map leader to space
 let mapleader=' '
@@ -490,20 +477,5 @@ noremap <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>"
 " Open current line on GitHub
 noremap ,o :!echo `git url`/blob/`git rev-parse --abbrev-ref HEAD`/%\#L<C-R>=line('.')<CR> \| xargs open<CR><CR>
 
-colorscheme monokai
-
-hi Normal ctermfg=231 ctermbg=235 cterm=NONE guifg=#f8f8f2 guibg=#282c34 gui=NONE
-hi Folded ctermfg=242 ctermbg=235 cterm=NONE guifg=#75715e guibg=#282c34 gui=NONE
-hi Cursor ctermfg=235 ctermbg=231 cterm=NONE guifg=#282c34  guibg=#f8f8f0 gui=NONE
-hi NonText ctermfg=59 ctermbg=236 cterm=NONE guifg=#49483e guibg=#282c34 gui=NONE
-hi CursorLine ctermfg=NONE ctermbg=237 cterm=NONE guifg=NONE guibg=#555b66 gui=NONE
-hi CursorColumn ctermfg=NONE ctermbg=237 cterm=NONE guifg=NONE guibg=#282c34 gui=NONE
-hi ColorColumn ctermfg=NONE ctermbg=237 cterm=NONE guifg=NONE guibg=#282c34 gui=NONE
-hi LineNr ctermfg=102 ctermbg=237 cterm=NONE guifg=#90908a guibg=#282c34 gui=NONE
-hi SignColumn ctermfg=NONE ctermbg=237 cterm=NONE guifg=NONE guibg=#2e3542 gui=NONE
-hi VertSplit ctermfg=241 ctermbg=241 cterm=NONE guifg=#282c34 guibg=#282c34 gui=NONE
-hi StatusLine ctermfg=231 ctermbg=241 cterm=bold guifg=#f8f8f2 guibg=#555b66 gui=bold
-hi StatusLineNC ctermfg=231 ctermbg=241 cterm=NONE guifg=#f8f8f2 guibg=#555b66 gui=NONE
-
-
-" source ~/.config/nvim/colorscheme.vim
+" Colorscheme
+source ~/.config/nvim/colorscheme.vim
