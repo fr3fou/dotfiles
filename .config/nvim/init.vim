@@ -146,8 +146,30 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 " Snippets
 Plug 'honza/vim-snippets'
 
-" Or install latest release tag
-Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
+" Coc.nvim
+Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install() } }
+
+le g:coc_global_extensions = [
+        \ 'coc-snippets',
+        \ 'coc-marketplace',
+        \ 'coc-lists',
+        \ 'coc-jest',
+        \ 'coc-highlight',
+        \ 'coc-eslint',
+        \ 'coc-emoji',
+        \ 'coc-emmet',
+        \ 'coc-yaml',
+        \ 'coc-tsserver',
+        \ 'coc-tslint',
+        \ 'coc-stylelint',
+        \ 'coc-python',
+        \ 'coc-json',
+        \ 'coc-html',
+        \ 'coc-gocode',
+        \ 'coc-docker',
+        \ 'coc-css',
+        \ ]
+
 
 " vimwiki
 Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
@@ -262,7 +284,6 @@ hi! GitGutterChangeDelete ctermbg=NONE
 set updatetime=100
 
 " Prettier config
-
 let g:prettier#exec_cmd_async = 1
 let g:prettier#quickfix_enabled = 0
 let g:prettier#autoformat = 0
@@ -291,7 +312,7 @@ let g:syntastic_c_compiler_options = "-fno-builtin -Wno-incompatible-library-red
 
 "- Lightline -"
 " Always show status line
-" set laststatus=2
+set laststatus=2
 
 " Get rid of the ugly default status line
 set noshowmode
@@ -359,12 +380,10 @@ inoremap <silent><expr> <TAB>
       \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
-
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
-
 
 " Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
