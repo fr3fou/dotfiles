@@ -7,6 +7,7 @@ alias rr="ranger ."
 alias c="code ."
 alias sc="systemctl"
 alias n="nautilus ."
+alias nv="nvim"
 
 # Toggle gpu (doesn't seem to work :c)
 alias igpu="sudo tee /proc/acpi/bbswitch <<<OFF"
