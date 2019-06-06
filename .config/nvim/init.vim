@@ -222,9 +222,9 @@ Plug 'godlygeek/tabular'
 Plug 'terryma/vim-multiple-cursors'
 
 " JavaScript/TypeScript support
-Plug 'leafgarland/typescript-vim'
-Plug 'ianks/vim-tsx'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+Plug 'leafgarland/typescript-vim'
+Plug 'maxmellon/vim-jsx-pretty'
 Plug 'alvan/vim-closetag'
 
 " Markdown support
@@ -454,8 +454,6 @@ let g:session_directory = "~/.vim/session"
 let g:session_autoload = "no"
 let g:session_autosave = "no"
 let g:session_command_aliases = 1
-
-autocmd BufNewFile,BufRead *.tsx set filetype=typescript
 
 nnoremap <leader>so :OpenSession<Space>
 nnoremap <leader>ss :SaveSession<Space>
