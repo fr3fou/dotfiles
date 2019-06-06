@@ -175,8 +175,6 @@ le g:coc_global_extensions = [
 " Print function signatures in echo area
 Plug 'Shougo/echodoc.vim'
 
-
-
 " vimwiki
 Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
 
@@ -223,30 +221,15 @@ Plug 'godlygeek/tabular'
 " SublimeText-like multiple selection
 Plug 'terryma/vim-multiple-cursors'
 
-" JavaScript support
-Plug 'pangloss/vim-javascript'
-Plug 'elzr/vim-json'
+" JavaScript/TypeScript support
+Plug 'leafgarland/typescript-vim'
+Plug 'ianks/vim-tsx'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'alvan/vim-closetag'
 
-" Typescript syntax highlighting
-Plug 'HerringtonDarkholme/yats.vim'
-
-" Syntax highlighting for javascript libraries
-Plug 'othree/javascript-libraries-syntax.vim'
-
-" Improved syntax highlighting and indentation
-Plug 'othree/yajs.vim'
-
-" ReactJS JSX syntax highlighting
-Plug 'mxw/vim-jsx'
-
-" Generate JSDoc commands based on function signature
-Plug 'heavenshell/vim-jsdoc'
-
 " Markdown support
 Plug 'reedes/vim-pencil'
-Plug 'plasticboy/vim-markdown',           { 'for': 'markdown' }
+Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 
 " Denite - Fuzzy finding, buffer management
 Plug 'Shougo/denite.nvim'
@@ -472,8 +455,7 @@ let g:session_autoload = "no"
 let g:session_autosave = "no"
 let g:session_command_aliases = 1
 
-" Highlight jsx syntax even in non .jsx files
-let g:jsx_ext_required = 0
+autocmd BufNewFile,BufRead *.tsx set filetype=typescript
 
 nnoremap <leader>so :OpenSession<Space>
 nnoremap <leader>ss :SaveSession<Space>
