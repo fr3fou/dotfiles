@@ -63,14 +63,16 @@ set wildmenu
 " Redraw only when necessary
 set lazyredraw
 
-" Set tabs to have 4 spaces
-set tabstop=4
-set softtabstop=4
-
 " Indent when moving to the next line while writing code
 set autoindent
 
 " Expand tabs into spaces
+set expandtab
+
+" Tabs. May be overriten by autocmd rules
+set tabstop=4
+set softtabstop=0
+set shiftwidth=4
 set expandtab
 
 " When using the >> or << commands, shift lines by 4 spaces
@@ -78,6 +80,11 @@ set shiftwidth=4
 
 " Show the matching part of the pair for [] {} and ()
 set showmatch
+
+" Prevent swap files
+set nobackup
+set noswapfile
+
 
 " Always show at least one line below/above the cursor
 if !&scrolloff
@@ -170,10 +177,17 @@ Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-fugitive'
 
 " Very light and customizable staus line
-" Plug 'itchyny/lightline.vim'
+Plug 'itchyny/lightline.vim'
 " Airline (bar at the bottom)
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+" Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
+
+" Vim Session
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-session'
+
+" Integration between Vim and its environment
+Plug 'Shougo/vimshell.vim'
 
 " Fancy icons
 Plug 'ryanoasis/vim-devicons'
@@ -204,6 +218,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'elzr/vim-json'
 Plug 'mxw/vim-jsx'
 Plug 'mattn/emmet-vim'
+Plug 'leafgarland/typescript-vim'
 
 Plug 'prettier/vim-prettier', {
   \ 'do': 'yarn install',
@@ -233,10 +248,6 @@ Plug 'dylanaraps/wal.vim'
 
 " Initialize plugin system
 call plug#end()
-
-"- Nerdtree -"
-" Toggle nerdtree with F10
-map <F9> :NERDTreeToggle<CR>
 
 "- Base16 -"
 " Access colors present in 256 colorspace
@@ -301,7 +312,27 @@ colorscheme snow
 augroup AutoSyntastic
     autocmd!
     autocmd BufWritePost *.c,*.cpp,*.py call s:syntastic()
-    augroup END
+augroup END
+
+" Indentation rules
+augroup vimrc-javascript
+      autocmd!
+        autocmd FileType javascript set tabstop=2|set shiftwidth=2|set expandtab softtabstop=2 smartindent
+        autocmd FileType typescript set tabstop=2|set shiftwidth=2|set expandtab softtabstop=2 smartindent
+        autocmd FileType vue set tabstop=2|set shiftwidth=2|set expandtab softtabstop=2 smartindent
+        autocmd FileType jsx set tabstop=2|set shiftwidth=2|set expandtab softtabstop=2 smartindent
+        autocmd FileType tsx set tabstop=2|set shiftwidth=2|set expandtab softtabstop=2 smartindent
+        autocmd FileType less set tabstop=2|set shiftwidth=2|set expandtab softtabstop=2 smartindent
+        autocmd FileType scss set tabstop=2|set shiftwidth=2|set expandtab softtabstop=2 smartindent
+        autocmd FileType html set tabstop=2|set shiftwidth=2|set expandtab softtabstop=2 smartindent
+        autocmd FileType css set tabstop=2|set shiftwidth=2|set expandtab softtabstop=2 smartindent
+      augroup END
+
+"" Remember cursor position
+augroup vimrc-remember-cursor-position
+      autocmd!
+        autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+        augroup END"`'")"'")
 
 let g:syntastic_mode_map = { 
       \ 'mode': 'passive',
@@ -352,14 +383,58 @@ hi Comment cterm=italic
 " Enable all Python syntax highlighting features
 let python_highlight_all = 1
 
+" Map leader to space
+let mapleader=' '
+
 " Adds x11 clipboard shortcuts
 vnoremap <C-c> "+y
 map <C-p> "+P
 
 autocmd vimenter * NERDTree
 
-let g:airline_theme='snow_light'
+" NERDTree configuration
+let g:NERDTreeChDirMode=2
+let g:NERDTreeIgnore=['\.rbc$', '\~$', '\.pyc$', '\.db$', '\.sqlite$', '__pycache__']
+let g:NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$', '\.bak$', '\~$']
+let g:NERDTreeShowBookmarks=1
+let g:nerdtree_tabs_focus_on_files=1
+let g:NERDTreeMapOpenInTabSilent = '<RightMouse>'
+let g:NERDTreeWinSize = 30
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
 
-colorscheme snow
+nnoremap <silent> <F2> :NERDTreeFind<CR>
+noremap <F3> :NERDTreeToggle<CR>
+noremap <Leader>0 :NERDTreeFocus<CR>
+
+" Session management
+let g:session_directory = "~/.vim/session"
+let g:session_autoload = "no"
+let g:session_autosave = "no"
+let g:session_command_aliases = 1
+
+nnoremap <leader>so :OpenSession<Space>
+nnoremap <leader>ss :SaveSession<Space>
+nnoremap <leader>sd :DeleteSession<CR>
+nnoremap <leader>sc :CloseSession<CR>
+
+" Split
+noremap <Leader>h :<C-u>split<CR>
+noremap <Leader>v :<C-u>vsplit<CR>
+
+" Set working directory
+nnoremap <leader>. :lcd %:p:h<CR>
+
+" Opens an edit command with the path of the currently edited file filled in
+noremap <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
+
+" Opens a tab edit command with the path of the currently edited file filled
+noremap <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>" 
+
+" Open current line on GitHub
+noremap ,o :!echo `git url`/blob/`git rev-parse --abbrev-ref HEAD`/%\#L<C-R>=line('.')<CR> \| xargs open<CR><CR>
+
+" let g:airline_theme='snow_light'
+
+colorscheme base16-gruvbox-dark-soft
 
 " source ~/.config/nvim/colorscheme.vim
