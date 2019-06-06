@@ -1,4 +1,4 @@
-ZSH_THEME="spaceship"
+ZSH_THEME="philips"
 DISABLE_AUTO_TITLE="false"
 plugins=(
   git
@@ -9,7 +9,8 @@ plugins=(
   zsh-autosuggestions
 )
 
-PATH="/home/simo/.bin:/home/simo/.local/bin:/home/simo/.gem/ruby/2.5.0/bin:/home/simo/.npm-packages/bin:/home/simo/go/bin${PATH:+:${PATH}}";
+GOPATH="/home/simo/.go"
+PATH="$PATH:/home/simo/.bin:/home/simo/.local/bin:/home/simo/.gem/ruby/2.5.0/bin:/home/simo/.npm-packages/bin:$GOPATH/bin";
 NPM_PACKAGES="/home/simo/.npm-packages"
 
 unset MANPATH
@@ -26,7 +27,7 @@ export NNN_TMPFILE="/tmp/nnn"
 export BROWSER="/usr/bin/google-chrome-unstable"
 export MANPAGER="nvim -c 'set ft=man' -"
 export PROMPT_COMMAND='echo -en "\033]0;$(whoami)@$(hostname)|$(pwd|cut -d "/" -f 4-100)\a"'
-export GOPATH="/home/simo/go"
+export GOPATH;
 export MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
 
 source $ZSH/oh-my-zsh.sh
@@ -39,15 +40,6 @@ bindkey '\e ' autosuggest-accept
 
 pdf() {
 	lowriter --convert-to pdf "$1" && nohup zathura "${1%.*}".pdf &
-}
-
-n() {
-    nnn "$@"
-
-    if [ -f $NNN_TMPFILE ]; then
-          . $NNN_TMPFILE
-          rm $NNN_TMPFILE
-    fi
 }
 
 vf() {
