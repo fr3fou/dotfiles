@@ -146,8 +146,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 " Snippets
 Plug 'honza/vim-snippets'
 
-" Support for a lot of languages
-Plug 'sheerun/vim-polyglot'
+" Or install latest release tag
+Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
 
 " vimwiki
 Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
@@ -163,12 +163,6 @@ Plug 'nightsense/snow'
 
 " Add git glyphs on the gutter column
 Plug 'airblade/vim-gitgutter'
-
-" Add support for hundreds of languages
-Plug 'sheerun/vim-polyglot'
-
-" Autocompletion
-Plug 'maralla/completor.vim'
 
 " Check syntax while writing
 Plug 'scrooloose/syntastic'
@@ -220,9 +214,7 @@ Plug 'mxw/vim-jsx'
 Plug 'mattn/emmet-vim'
 Plug 'leafgarland/typescript-vim'
 
-Plug 'prettier/vim-prettier', {
-  \ 'do': 'yarn install',
-  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'jsx', 'yaml', 'html'] }
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
 " Markdown support
 Plug 'reedes/vim-pencil'
@@ -239,9 +231,14 @@ Plug 'hail2u/vim-css3-syntax',
 " Ale
 Plug 'w0rp/ale'
 
+" Go Support
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'mdempsky/gocode', { 'rtp': 'vim', 'do': '~/.config/nvim/plugged/gocode/vim/symlink.sh' }
 
+" Add support for hundreds of languages
+Plug 'sheerun/vim-polyglot'
+
+" Colorschemes
 Plug 'chriskempson/base16-vim'
 Plug 'morhetz/gruvbox'
 Plug 'dylanaraps/wal.vim'
@@ -271,11 +268,13 @@ hi! GitGutterChangeDelete ctermbg=NONE
 " Update changes faster
 set updatetime=100
 
-"- Completor -"
-" Make autocompletion behave sanely
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
+" Prettier config
+
+let g:prettier#exec_cmd_async = 1
+let g:prettier#quickfix_enabled = 0
+let g:prettier#autoformat = 0
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
+
 
 "- Syntastic -"
 let g:syntastic_always_populate_loc_list = 1
@@ -303,16 +302,6 @@ let g:syntastic_c_compiler_options = "-fno-builtin -Wno-incompatible-library-red
 
 " Get rid of the ugly default status line
 set noshowmode
-
-
-" Customizations
-colorscheme snow
-
-" Syntastic stuff
-augroup AutoSyntastic
-    autocmd!
-    autocmd BufWritePost *.c,*.cpp,*.py call s:syntastic()
-augroup END
 
 " Indentation rules
 augroup vimrc-javascript
@@ -374,6 +363,72 @@ hi WildMenu ctermbg=12
 hi WildMenu ctermfg=21
 hi StatusLine ctermbg=18
 
+" Coc.nvim
+
+" Use tab for trigger completion with characters ahead and navigate.
+" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+
+" Use K to show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+" Smaller updatetime for CursorHold & CursorHoldI
+set updatetime=300
+
+" don't give |ins-completion-menu| messages.
+set shortmess+=c
+
+" always show signcolumns
+set signcolumn=yes
+
+" Remap for rename current word
+nmap <leader>rn <Plug>(coc-rename)
+
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
+" Coc only does snippet and additional edit on confirm.
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+" Add diagnostic info for https://github.com/itchyny/lightline.vim
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'cocstatus': 'coc#status'
+      \ },
+      \ }
+
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
 " Nicer vertical separators
 set fillchars+=vert:┃
 
@@ -432,8 +487,6 @@ noremap <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>"
 
 " Open current line on GitHub
 noremap ,o :!echo `git url`/blob/`git rev-parse --abbrev-ref HEAD`/%\#L<C-R>=line('.')<CR> \| xargs open<CR><CR>
-
-" let g:airline_theme='snow_light'
 
 colorscheme base16-gruvbox-dark-soft
 
