@@ -31,8 +31,10 @@ MiscSlimTabs=TRUE
 MiscNewTabAdjacent=FALSE
 ShortcutsNoMenukey=TRUE
 ScrollingBar=TERMINAL_SCROLLBAR_NONE
-ColorForeground=#5a496e
+ColorForeground=#abb2bf
 ColorCursor=x
-ColorPalette=rgb(254,255,255);rgb(39,217,213);rgb(160,68,107);rgb(91,162,182);rgb(71,249,245);rgb(189,1,82);rgb(195,54,120);rgb(90,73,110);rgb(156,146,168);rgb(39,217,213);rgb(217,126,162);rgb(91,162,182);rgb(71,249,245);rgb(107,90,132);rgb(239,185,191);rgb(25,1,52)
-ColorBackground=#feffff
+ColorBackground=#282c34
+TitleInitial=uwu
+ColorPalette=#272728282222;#f9f926267272;#a6a6e2e22e2e;#f4f4bfbf7575;#6666d9d9efef;#aeae8181ffff;#a1a1efefe4e4;#f8f8f8f8f2f2;#757571715e5e;#f9f926267272;#a6a6e2e22e2e;#f4f4bfbf7575;#6666d9d9efef;#aeae8181ffff;#a1a1efefe4e4;#f9f9f8f8f5f5
+
 

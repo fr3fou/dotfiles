@@ -25,8 +25,8 @@
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 set termguicolors
-set background=light
 set mouse=a
+set background=light
 
 let base16colorspace=256 
 set t_Co=256
@@ -158,8 +158,9 @@ Plug 'scrooloose/nerdtree'
 " Nice colorschemes that fit with base16-shell
 Plug 'chriskempson/base16-vim'
 
-" Cute colorscheme
+" More colorschemes
 Plug 'nightsense/snow'
+Plug 'sickill/vim-monokai'
 
 " Add git glyphs on the gutter column
 Plug 'airblade/vim-gitgutter'
@@ -213,6 +214,7 @@ Plug 'elzr/vim-json'
 Plug 'mxw/vim-jsx'
 Plug 'mattn/emmet-vim'
 Plug 'leafgarland/typescript-vim'
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
@@ -488,6 +490,20 @@ noremap <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>"
 " Open current line on GitHub
 noremap ,o :!echo `git url`/blob/`git rev-parse --abbrev-ref HEAD`/%\#L<C-R>=line('.')<CR> \| xargs open<CR><CR>
 
-colorscheme base16-gruvbox-dark-soft
+colorscheme monokai
+
+hi Normal ctermfg=231 ctermbg=235 cterm=NONE guifg=#f8f8f2 guibg=#282c34 gui=NONE
+hi Folded ctermfg=242 ctermbg=235 cterm=NONE guifg=#75715e guibg=#282c34 gui=NONE
+hi Cursor ctermfg=235 ctermbg=231 cterm=NONE guifg=#282c34  guibg=#f8f8f0 gui=NONE
+hi NonText ctermfg=59 ctermbg=236 cterm=NONE guifg=#49483e guibg=#282c34 gui=NONE
+hi CursorLine ctermfg=NONE ctermbg=237 cterm=NONE guifg=NONE guibg=#555b66 gui=NONE
+hi CursorColumn ctermfg=NONE ctermbg=237 cterm=NONE guifg=NONE guibg=#282c34 gui=NONE
+hi ColorColumn ctermfg=NONE ctermbg=237 cterm=NONE guifg=NONE guibg=#282c34 gui=NONE
+hi LineNr ctermfg=102 ctermbg=237 cterm=NONE guifg=#90908a guibg=#282c34 gui=NONE
+hi SignColumn ctermfg=NONE ctermbg=237 cterm=NONE guifg=NONE guibg=#2e3542 gui=NONE
+hi VertSplit ctermfg=241 ctermbg=241 cterm=NONE guifg=#282c34 guibg=#282c34 gui=NONE
+hi StatusLine ctermfg=231 ctermbg=241 cterm=bold guifg=#f8f8f2 guibg=#555b66 gui=bold
+hi StatusLineNC ctermfg=231 ctermbg=241 cterm=NONE guifg=#f8f8f2 guibg=#555b66 gui=NONE
+
 
 " source ~/.config/nvim/colorscheme.vim
