@@ -146,6 +146,9 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 " Snippets
 Plug 'honza/vim-snippets'
 
+" Ale
+Plug 'w0rp/ale'
+
 " Coc.nvim
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install() } }
 
@@ -160,7 +163,6 @@ le g:coc_global_extensions = [
         \ 'coc-emmet',
         \ 'coc-yaml',
         \ 'coc-tsserver',
-        \ 'coc-tslint',
         \ 'coc-stylelint',
         \ 'coc-python',
         \ 'coc-json',
@@ -169,6 +171,10 @@ le g:coc_global_extensions = [
         \ 'coc-docker',
         \ 'coc-css',
         \ ]
+
+" Print function signatures in echo area
+Plug 'Shougo/echodoc.vim'
+
 
 
 " vimwiki
@@ -182,7 +188,6 @@ Plug 'chriskempson/base16-vim'
 
 " Add git glyphs on the gutter column
 Plug 'airblade/vim-gitgutter' " Check syntax while writing
-Plug 'scrooloose/syntastic'
 
 " Git wrapper
 Plug 'tpope/vim-fugitive'
@@ -221,42 +226,40 @@ Plug 'terryma/vim-multiple-cursors'
 " JavaScript support
 Plug 'pangloss/vim-javascript'
 Plug 'elzr/vim-json'
-Plug 'mxw/vim-jsx'
-Plug 'peitalin/vim-jsx-typescript'
-Plug 'mattn/emmet-vim'
-Plug 'leafgarland/typescript-vim'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'alvan/vim-closetag'
 
-" Prettier
-Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+" Typescript syntax highlighting
+Plug 'HerringtonDarkholme/yats.vim'
+
+" Syntax highlighting for javascript libraries
+Plug 'othree/javascript-libraries-syntax.vim'
+
+" Improved syntax highlighting and indentation
+Plug 'othree/yajs.vim'
+
+" ReactJS JSX syntax highlighting
+Plug 'mxw/vim-jsx'
+
+" Generate JSDoc commands based on function signature
+Plug 'heavenshell/vim-jsdoc'
 
 " Markdown support
 Plug 'reedes/vim-pencil'
-Plug 'godlygeek/tabular',                 { 'for': 'markdown' }
 Plug 'plasticboy/vim-markdown',           { 'for': 'markdown' }
 
-" HTML support 
-Plug 'othree/html5.vim'
-Plug 'mattn/emmet-vim'
-
-" CSS support
-Plug 'hail2u/vim-css3-syntax',  
-
-" Ale
-Plug 'w0rp/ale'
+" Denite - Fuzzy finding, buffer management
+Plug 'Shougo/denite.nvim'
 
 " Go Support
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'mdempsky/gocode', { 'rtp': 'vim', 'do': '~/.config/nvim/plugged/gocode/vim/symlink.sh' }
 
+" Emmet
+Plug 'mattn/emmet-vim'
+
 " Add support for hundreds of languages
 Plug 'sheerun/vim-polyglot'
-
-" Colorschemes
-Plug 'chriskempson/base16-vim'
-Plug 'morhetz/gruvbox'
-Plug 'dylanaraps/wal.vim'
 
 " Initialize plugin system
 call plug#end()
@@ -282,13 +285,6 @@ hi! GitGutterChangeDelete ctermbg=NONE
 
 " Update changes faster
 set updatetime=100
-
-" Prettier config
-let g:prettier#exec_cmd_async = 1
-let g:prettier#quickfix_enabled = 0
-let g:prettier#autoformat = 0
-autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
-
 
 "- Syntastic -"
 let g:syntastic_always_populate_loc_list = 1
@@ -364,10 +360,6 @@ let g:vim_markdown_toml_frontmatter = 1
 " Makes scorlling in manpages easier
 autocmd Filetype man nnoremap <buffer> u <C-u>
 autocmd Filetype man nnoremap <buffer> d <C-d>
-
-" set filetypes as typescript.tsx
-autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
-
 
 " Coc.nvim
 
@@ -480,6 +472,9 @@ let g:session_autoload = "no"
 let g:session_autosave = "no"
 let g:session_command_aliases = 1
 
+" Highlight jsx syntax even in non .jsx files
+let g:jsx_ext_required = 0
+
 nnoremap <leader>so :OpenSession<Space>
 nnoremap <leader>ss :SaveSession<Space>
 nnoremap <leader>sd :DeleteSession<CR>
@@ -500,6 +495,9 @@ noremap <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>"
 
 " Open current line on GitHub
 noremap ,o :!echo `git url`/blob/`git rev-parse --abbrev-ref HEAD`/%\#L<C-R>=line('.')<CR> \| xargs open<CR><CR>
+
+" Automaticaly close nvim if NERDTree is only thing left open
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " Colorscheme
 source ~/.config/nvim/colorscheme.vim
