@@ -200,6 +200,7 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'pangloss/vim-javascript'
 Plug 'elzr/vim-json'
 Plug 'mxw/vim-jsx'
+Plug 'ianks/vim-tsx'
 Plug 'mattn/emmet-vim'
 Plug 'leafgarland/typescript-vim'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
