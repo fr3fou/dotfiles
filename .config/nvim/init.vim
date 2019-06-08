@@ -1,25 +1,3 @@
-"                                      .:.                                      
-"                  ##############   .:::::::.     ##############                
-"                  ############## ::::::::::::.   ##############                
-"                    ########## :::::::::::::::::   ##########                  
-"                    ########## ::::::::::::::::: #########                     
-"                    ########## ::::::::::::::: #########                       
-"                    ########## ::::::::::::: ######## :                        
-"                    ########## ::::::::::: ######## :::::.                     
-"                  . ########## ::::::::: ######## :::::::::.                   
-"                .:: ########## :::::: ######## :::::::::::::::.                
-"               `::: ########## :::: ######## ::::::::::::::::::`               
-"                 `: ########## :: #####****::::::::::::::::::`                 
-"                    ##########  ###### ####;:::::::::::::::`                   
-"                    #################  ****;:::::::::::::`                     
-"                    ############### ::####:::####:::####  ####                 
-"                    ############# :::####:::##################                 
-"                    ########### :::::####:::####:` ####  ####                  
-"                    #########  `::::####:::####`  ####  ####                   
-"                    #######      `::####:::####   ####  ####                   
-"                    ####           ####:::####   ####  ####                    
-"                                      `:`                                      
-
 " --- General -- "
 " Use Vim settings, rather than Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
@@ -39,6 +17,9 @@ set encoding=UTF-8
 
 " Make backspace behave in a sane manner.
 set backspace=indent,eol,start
+
+" Splits settings
+set splitbelow splitright
 
 " Wrap text in a nice way
 set wrap
@@ -85,7 +66,6 @@ set showmatch
 set nobackup
 set noswapfile
 
-
 " Always show at least one line below/above the cursor
 if !&scrolloff
   set scrolloff=1
@@ -103,12 +83,11 @@ set history=1000
 " Show tabs
 set listchars=tab:│·,trail:_
 
-
 "--- General Keybindings ---"
 
 " Better moving between windows
 nnoremap <C-h> <C-w>h
-        nnoremap <C-j> <C-w>j
+nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
@@ -232,7 +211,6 @@ Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 Plug 'alvan/vim-closetag'
 
 " Markdown support
-Plug 'reedes/vim-pencil'
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 
 " Denite - Fuzzy finding, buffer management
@@ -456,6 +434,12 @@ nnoremap <leader>sc :CloseSession<CR>
 noremap <Leader>h :<C-u>split<CR>
 noremap <Leader>v :<C-u>vsplit<CR>
 
+" Goyo
+noremap <Leader>g :Goyo<CR>
+
+" vim-commentary
+noremap <C-/> gc
+
 " Ctrl + p 
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
@@ -484,6 +468,9 @@ autocmd BufNewFile,BufRead *.jsx set filetype=javascript.jsx
 nnoremap <Tab> gt
 nnoremap <S-Tab> gT
 nnoremap <silent> <S-n> :tabnew<CR>
+
+" Make Y yank from cursor to end of line
+noremap Y y$
 
 " Colorscheme
 colorscheme base16-material-palenight
