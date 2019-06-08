@@ -125,6 +125,9 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 " Snippets
 Plug 'honza/vim-snippets'
 
+" Nord
+Plug 'arcticicestudio/nord-vim'
+
 " Ale
 Plug 'w0rp/ale'
 
@@ -363,7 +366,7 @@ let g:polyglot_disabled = ['jsx', 'tsx']
 
 " Add diagnostic info for https://github.com/itchyny/lightline.vim
 let g:lightline = {
-      \ 'colorscheme': 'wombat',
+      \ 'colorscheme': 'nord',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
@@ -443,6 +446,11 @@ noremap <C-/> gc
 " Ctrl + p 
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
+" Nord confirg
+let g:nord_cursor_line_number_background = 1
+let g:nord_uniform_status_lines = 1
+let g:nord_bold_vertical_split_line = 1
+
 " Set working directory
 nnoremap <leader>. :lcd %:p:h<CR>
 
@@ -473,5 +481,5 @@ nnoremap <silent> <S-n> :tabnew<CR>
 noremap Y y$
 
 " Colorscheme
-colorscheme base16-material-palenight
+colorscheme nord
 " source ~/.config/nvim/colorscheme.vim
