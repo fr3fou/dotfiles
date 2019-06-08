@@ -15,6 +15,8 @@ let mapleader = " "
 " Default encoding
 set encoding=UTF-8
 
+set cursorline
+
 " Make backspace behave in a sane manner.
 set backspace=indent,eol,start
 
@@ -439,9 +441,6 @@ noremap <Leader>v :<C-u>vsplit<CR>
 
 " Goyo
 noremap <Leader>g :Goyo<CR>
-
-" vim-commentary
-noremap <C-/> gc
 
 " Ctrl + p 
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
