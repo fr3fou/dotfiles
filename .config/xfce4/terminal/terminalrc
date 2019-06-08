@@ -19,7 +19,7 @@ ScrollingLines=999999
 BackgroundMode=TERMINAL_BACKGROUND_TRANSPARENT
 BackgroundDarkness=1.000000
 ScrollingOnOutput=FALSE
-FontName=Operator Mono 15
+FontName=Operator Mono Semi-Light 15
 MiscBellUrgent=FALSE
 MiscMouseWheelZoom=TRUE
 MiscMiddleClickOpensUri=FALSE
@@ -31,10 +31,9 @@ MiscSlimTabs=TRUE
 MiscNewTabAdjacent=FALSE
 ShortcutsNoMenukey=TRUE
 ScrollingBar=TERMINAL_SCROLLBAR_NONE
-ColorForeground=#abb2bf
+ColorForeground=#959DCB
 ColorCursor=x
-ColorBackground=#282c34
+ColorBackground=#292D3E
 TitleInitial=uwu
-ColorPalette=#272728282222;#f9f926267272;#a6a6e2e22e2e;#f4f4bfbf7575;#6666d9d9efef;#aeae8181ffff;#a1a1efefe4e4;#f8f8f8f8f2f2;#757571715e5e;#f9f926267272;#a6a6e2e22e2e;#f4f4bfbf7575;#6666d9d9efef;#aeae8181ffff;#a1a1efefe4e4;#f9f9f8f8f5f5
-
+ColorPalette=#292D3E;#F07178;#C3E88D;#FFCB6B;#82AAFF;#C792EA;#89DDFF;#959DCB;#676E95;#F07178;#C3E88D;#FFCB6B;#82AAFF;#C792EA;#89DDFF;#FFFFFF
 
