@@ -175,6 +175,9 @@ le g:coc_global_extensions = [
 " Print function signatures in echo area
 Plug 'Shougo/echodoc.vim'
 
+" Ctrl + p
+Plug 'ctrlpvim/ctrlp.vim'
+
 " vimwiki
 Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
 
@@ -222,9 +225,10 @@ Plug 'godlygeek/tabular'
 Plug 'terryma/vim-multiple-cursors'
 
 " JavaScript/TypeScript support
-Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+" Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'leafgarland/typescript-vim'
 Plug 'maxmellon/vim-jsx-pretty'
+Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 Plug 'alvan/vim-closetag'
 
 " Markdown support
@@ -320,23 +324,9 @@ let g:syntastic_mode_map = {
       \ 'mode': 'passive',
       \ 'active_filetypes': [ 'c', 'cpp', 'python', 'fish' ] }
 
-" Custom functions
-function! MyFiletype()
-  return winwidth(0) > 30 ? (strlen(&filetype) ? toupper(&filetype) : '?') : ''
-endfunction
-
-function! MyFileformat()
-  return winwidth(0) > 30 ? &fileformat : ''
-endfunction
-
-function! MyGitBranch()
-    return winwidth(0) > 30 && fugitive#head() != '' ? (' ' . fugitive#head()) : ''
-endfunction
-
 "- Markdown -"
 let g:vim_markdown_frontmatter = 1
 let g:vim_markdown_toml_frontmatter = 1
-
 
 "--- Misc ---"
 
@@ -390,6 +380,9 @@ nmap <leader>rn <Plug>(coc-rename)
 " Coc only does snippet and additional edit on confirm.
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
+" Disable polyglot for jsx / tsx
+let g:polyglot_disabled = ['jsx', 'tsx']
+
 " Add diagnostic info for https://github.com/itchyny/lightline.vim
 let g:lightline = {
       \ 'colorscheme': 'wombat',
@@ -411,7 +404,6 @@ let g:closetag_regions = {
     \ }
 
 " Shortcut for closing tags, default is '>'
-"
 let g:closetag_shortcut = '>'
 
 " Remap keys for gotos
@@ -464,6 +456,9 @@ nnoremap <leader>sc :CloseSession<CR>
 noremap <Leader>h :<C-u>split<CR>
 noremap <Leader>v :<C-u>vsplit<CR>
 
+" Ctrl + p 
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+
 " Set working directory
 nnoremap <leader>. :lcd %:p:h<CR>
 
@@ -479,5 +474,14 @@ noremap ,o :!echo `git url`/blob/`git rev-parse --abbrev-ref HEAD`/%\#L<C-R>=lin
 " Automaticaly close nvim if NERDTree is only thing left open
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
+" typescript.tsx
+autocmd BufNewFile,BufRead *.tsx set filetype=typescript.tsx
+
+" Tabs
+nnoremap <Tab> gt
+nnoremap <S-Tab> gT
+nnoremap <silent> <S-n> :tabnew<CR>
+
 " Colorscheme
-source ~/.config/nvim/colorscheme.vim
+colorscheme base16-material-palenight
+" source ~/.config/nvim/colorscheme.vim

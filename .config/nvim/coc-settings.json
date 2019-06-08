@@ -2,11 +2,13 @@
   "suggest.echodocSupport": true,
   "suggest.maxCompleteItemCount": 20,
   "coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript", "typescriptreact", "json", "javascriptreact"],
-  "eslint.filetypes": ["javascript", "typescript", "typescriptreact", "javascriptreact"],
+  "eslint.filetypes": ["javascript", "typescript", "typescriptreact", "javascriptreact", "typescript.tsx", "javascript.jsx","typescript.tsx"],
   "eslint.packageManager": "yarn",
   "eslint.run": "onSave",
   "diagnostic.errorSign": "•",
   "diagnostic.warningSign": "•",
   "diagnostic.infoSign": "•",
-  "suggest.noselect": false
+  "suggest.noselect": false,
+  "tsserver.trace.server": "verbose",
+  "tsserver.log": "verbose"
 }
