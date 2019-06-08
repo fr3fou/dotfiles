@@ -477,6 +477,9 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " typescript.tsx
 autocmd BufNewFile,BufRead *.tsx set filetype=typescript.tsx
 
+" javascript.jsx
+autocmd BufNewFile,BufRead *.jsx set filetype=javascript.jsx
+
 " Tabs
 nnoremap <Tab> gt
 nnoremap <S-Tab> gT
