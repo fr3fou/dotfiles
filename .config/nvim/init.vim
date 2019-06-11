@@ -456,6 +456,8 @@ let g:nord_bold_vertical_split_line = 1
 " Set working directory
 nnoremap <leader>. :lcd %:p:h<CR>
 
+nnoremap <C-s> :w<CR>
+
 " Opens an edit command with the path of the currently edited file filled in
 noremap <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 
