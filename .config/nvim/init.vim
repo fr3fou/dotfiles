@@ -131,6 +131,9 @@ Plug 'honza/vim-snippets'
 " Nord
 Plug 'arcticicestudio/nord-vim'
 
+" Wakatime
+Plug 'wakatime/vim-wakatime'
+
 " Ale
 Plug 'w0rp/ale'
 
@@ -415,6 +418,7 @@ autocmd vimenter * NERDTree
 
 " NERDTree configuration
 let g:NERDTreeChDirMode=2
+let g:NERDTreeShowHidden=1
 let g:NERDTreeIgnore=['\.rbc$', '\~$', '\.pyc$', '\.db$', '\.sqlite$', '__pycache__']
 let g:NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$', '\.bak$', '\~$']
 let g:NERDTreeShowBookmarks=1
