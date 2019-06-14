@@ -5,10 +5,14 @@
   "eslint.filetypes": ["javascript", "typescript", "typescriptreact", "javascriptreact", "typescript.tsx", "javascript.jsx","typescript.tsx"],
   "eslint.packageManager": "yarn",
   "eslint.run": "onSave",
+  "eslint.autoFix": true,
+  "eslint.autoFixOnSave": true,
   "diagnostic.errorSign": "•",
   "diagnostic.warningSign": "•",
   "diagnostic.infoSign": "•",
   "suggest.noselect": false,
   "tsserver.trace.server": "verbose",
-  "tsserver.log": "verbose"
+  "tsserver.log": "verbose",
+"java.home": "/usr/lib/jvm/java-11-jdk",
+"java.errors.incompleteClasspath.severity": "ignore"
 }
