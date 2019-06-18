@@ -488,5 +488,5 @@ nnoremap <S-Tab> gT
 noremap Y y$
 
 " Colorscheme
-colorscheme nord
+colorscheme base16-material-palenight
 " source ~/.config/nvim/colorscheme.vim

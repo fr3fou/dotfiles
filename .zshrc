@@ -1,4 +1,4 @@
-ZSH_THEME="philips"
+ZSH_THEME="spaceship"
 DISABLE_AUTO_TITLE="false"
 plugins=(
   git
