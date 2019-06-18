@@ -483,7 +483,6 @@ autocmd BufNewFile,BufRead *.jsx set filetype=javascript.jsx
 " Tabs
 nnoremap <Tab> gt
 nnoremap <S-Tab> gT
-nnoremap <silent> <S-n> :tabnew<CR>
 
 " Make Y yank from cursor to end of line
 noremap Y y$
