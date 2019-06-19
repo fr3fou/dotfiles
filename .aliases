@@ -6,8 +6,12 @@ alias yt="youtube-dl"
 alias rr="ranger ."
 alias c="code ."
 alias sc="systemctl"
-alias n="nautilus ."
+alias n="nautilus . & disown"
 alias nv="nvim"
+alias ta="tmux a #"
+alias tk="tmux kill-session #"
+alias tl="tmux ls"
+alias t="tmux"
 
 # Toggle gpu (doesn't seem to work :c)
 alias igpu="sudo tee /proc/acpi/bbswitch <<<OFF"
