@@ -181,9 +181,9 @@ Plug 'airblade/vim-gitgutter' " Check syntax while writing
 " Git wrapper
 Plug 'tpope/vim-fugitive'
 
-" Very light and customizable staus line
-" Plug 'itchyny/lightline.vim'
+" Airline and Airline Themes
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 " Vim Session
 Plug 'xolox/vim-misc'
@@ -236,11 +236,14 @@ Plug 'mattn/emmet-vim'
 " Add support for hundreds of languages
 Plug 'sheerun/vim-polyglot'
 
+" Gruvbox themes
+Plug 'morhetz/gruvbox'
+
 " Initialize plugin system
 call plug#end()
 
-"- Base16 -"
-" Access colors present in 256 colorspace
+" Gruvbox
+let g:gruvbox_contrast_dark="soft"
 
 "- Git-Gutter -"
 " Better glyphs
@@ -250,8 +253,10 @@ let g:gitgutter_sign_removed='◢'
 let g:gitgutter_sign_removed_first_line='◥'
 let g:gitgutter_sign_modified_removed='◢'
 let g:gitgutter_override_sign_column_highlight = 0
+
+" Airline
 let g:airline_powerline_fonts = 1
-let g:airline_theme="nord"
+let g:airline_theme="gruvbox"
 
 " Removing background for a e s t h e t i c s
 hi! GitGutterAdd ctermbg=NONE
@@ -488,5 +493,5 @@ nnoremap <S-Tab> gT
 noremap Y y$
 
 " Colorscheme
-colorscheme base16-material-palenight
+colorscheme gruvbox
 " source ~/.config/nvim/colorscheme.vim
