@@ -192,6 +192,9 @@ Plug 'xolox/vim-session'
 " Fancy icons
 Plug 'ryanoasis/vim-devicons'
 
+" limelight
+Plug 'junegunn/limelight.vim'
+
 " Minimalist, distraction-free writing mode
 Plug 'junegunn/goyo.vim'
 
@@ -452,7 +455,7 @@ noremap <Leader>h :<C-u>split<CR>
 noremap <Leader>v :<C-u>vsplit<CR>
 
 " Goyo
-noremap <Leader>g :Goyo<CR>
+noremap <Leader>g :Goyo<CR>:Limelight!!<CR>
 
 " Ctrl + p 
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
