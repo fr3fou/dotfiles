@@ -1,9 +1,12 @@
 # Shorter versions of commands
 alias ac="acpi"
 alias yeet="yay"
+alias uwu="yay"
 alias nx="nvidia-xrun"
 alias yt="youtube-dl"
 alias rr="ranger ."
+alias :q="exit"
+alias :x="exit"
 alias c="code ."
 alias sc="systemctl"
 alias n="nautilus . & disown"
