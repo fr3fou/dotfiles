@@ -1,10 +1,10 @@
 [Configuration]
 MiscAlwaysShowTabs=FALSE
-MiscBell=FALSE
+MiscBell=TRUE
 MiscBordersDefault=TRUE
 MiscCursorBlinks=FALSE
 MiscCursorShape=TERMINAL_CURSOR_SHAPE_BLOCK
-MiscDefaultGeometry=80x24
+MiscDefaultGeometry=88x21
 MiscInheritGeometry=FALSE
 MiscMenubarDefault=FALSE
 MiscMouseAutohide=FALSE
@@ -19,8 +19,8 @@ ScrollingLines=999999
 BackgroundMode=TERMINAL_BACKGROUND_TRANSPARENT
 BackgroundDarkness=1.000000
 ScrollingOnOutput=FALSE
-FontName=Operator Mono Semi-Light 17
-MiscBellUrgent=FALSE
+FontName=Operator Mono Semi-Light 13
+MiscBellUrgent=TRUE
 MiscMouseWheelZoom=TRUE
 MiscMiddleClickOpensUri=FALSE
 MiscCopyOnSelect=FALSE
@@ -34,7 +34,14 @@ ScrollingBar=TERMINAL_SCROLLBAR_NONE
 TitleInitial=uwu
 FontAllowBold=FALSE
 ColorCursor=x
-ColorForeground=#959DCB
-ColorPalette=#292D3E;#F07178;#C3E88D;#FFCB6B;#82AAFF;#C792EA;#89DDFF;#959DCB;#676E95;#F07178;#C3E88D;#FFCB6B;#82AAFF;#C792EA;#89DDFF;#FFFFFF
-ColorBackground=#292D3E
+ColorForeground=#ABB2BF
+ColorCursor=#ABB2BF
+ColorBackground=#282C34
+ColorSelection=#3B4451
+ColorSelectionUseDefault=FALSE
+ColorBold=#B9C0CB
+ColorBoldUseDefault=FALSE
+ColorPalette=#282C34;#E06C75;#98C379;#E5C07B;#61AFEF;#C678DD;#56B6C2;#ABB2BF;#3E4452;#e34d5a;#98C379;#D19A66;#61AFEF;#C678DD;#56B6C2;#5C6370
+ColorForeground=#c0c5ce
+
 
