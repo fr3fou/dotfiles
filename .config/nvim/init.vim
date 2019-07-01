@@ -517,7 +517,6 @@ noremap Y y$
 " Make command mode easier to access
 nnoremap ; :
 
-
 " Colorscheme
 colorscheme onedark
 " source ~/.config/nvim/colorscheme.vim
