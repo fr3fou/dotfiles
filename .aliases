@@ -9,12 +9,12 @@ alias :q="exit"
 alias :x="exit"
 alias c="code ."
 alias sc="systemctl"
-alias n="nautilus . & disown"
+alias n="nautilus . > /dev/null & disown"
 alias nv="nvim"
-alias ta="tmux a #"
+alias ta="tmux -2 a #"
 alias tk="tmux kill-session #"
 alias tl="tmux ls"
-alias t="tmux"
+alias t="tmux -2"
 
 # Toggle gpu (doesn't seem to work :c)
 alias igpu="sudo tee /proc/acpi/bbswitch <<<OFF"
@@ -39,6 +39,8 @@ alias i3config="nvim ~/.config/i3/config"
 alias comptonconfig="nvim ~/.config/compton.conf"
 alias nxconfig="nvim ~/.nvidia-xinitrc"
 alias nvimconfig="nvim ~/.config/nvim/init.vim"
+alias tmuxconfig="nvim ~/.tmux.conf"
+alias aliases="nvim ~/.aliases"
 
 # Dot management
 alias dots='git --git-dir=$HOME/.dots.git/ --work-tree=$HOME'
