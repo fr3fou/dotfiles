@@ -4,6 +4,7 @@
 set nocompatible
 set termguicolors
 set mouse=a
+set autowrite
 set background=dark
 
 let base16colorspace=256 
@@ -411,6 +412,8 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
+noremap <silent> gb <C-o>
+
 " Nicer vertical separators
 set fillchars+=vert:┃
 
@@ -443,6 +446,13 @@ noremap <Leader>0 :NERDTreeFocus<CR>
 
 " vim-go
 let g:go_fmt_command = "goimports"
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_calls = 1
+
+autocmd FileType go nmap <leader>b  <Plug>(go-build)
+autocmd FileType go nmap <leader>r  <Plug>(go-run)
 
 " Session management
 let g:session_directory = "~/.vim/session"
