@@ -441,6 +441,9 @@ nnoremap <silent> <F2> :NERDTreeFind<CR>
 noremap <F3> :NERDTreeToggle<CR>
 noremap <Leader>0 :NERDTreeFocus<CR>
 
+" vim-go
+let g:go_fmt_command = "goimports"
+
 " Session management
 let g:session_directory = "~/.vim/session"
 let g:session_autoload = "no"
@@ -479,7 +482,7 @@ noremap <Leader>g :Goyo<CR>:Limelight!!<CR>
 " Ctrl + p 
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
-" Nord confirg
+" Nord config
 let g:nord_cursor_line_number_background = 1
 let g:nord_uniform_status_lines = 1
 let g:nord_bold_vertical_split_line = 1
@@ -487,6 +490,7 @@ let g:nord_bold_vertical_split_line = 1
 " Set working directory
 nnoremap <leader>. :lcd %:p:h<CR>
 
+" Save with Ctrl + s
 nnoremap <C-s> :w<CR>
 
 " Opens an edit command with the path of the currently edited file filled in
