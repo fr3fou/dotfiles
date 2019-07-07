@@ -129,6 +129,12 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 " Snippets
 Plug 'honza/vim-snippets'
 
+" Dark+ theme from vscode
+Plug 'tomasiser/vim-code-dark'
+
+" Share colorscheme between vim and tmux
+Plug 'edkolev/tmuxline.vim'
+
 " Nord
 Plug 'arcticicestudio/nord-vim'
 
@@ -262,7 +268,11 @@ let g:gitgutter_override_sign_column_highlight = 0
 
 " Airline
 let g:airline_powerline_fonts = 1
-let g:airline_theme="onedark"
+let g:airline_theme="codedark"
+let g:airline#extensions#tmuxline#enabled = 0
+
+" Tmuxline
+let g:tmuxline_preset = "full"
 
 " Removing background for a e s t h e t i c s
 hi! GitGutterAdd ctermbg=NONE
@@ -532,5 +542,9 @@ noremap Y y$
 nnoremap ; :
 
 " Colorscheme
-colorscheme onedark
+colorscheme codedark
+
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+match OverLength /\%81v.\+/
+
 " source ~/.config/nvim/colorscheme.vim
