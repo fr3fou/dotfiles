@@ -16,9 +16,6 @@ let mapleader = " "
 " Default encoding
 set encoding=UTF-8
 
-set cursorline
-set cursorcolumn
-
 " Make backspace behave in a sane manner.
 set backspace=indent,eol,start
 
@@ -125,6 +122,9 @@ endif
 
 " List plugins below this
 call plug#begin('~/.config/nvim/autoload/plugged')
+
+" Material theme
+Plug 'hzchirs/vim-material'
 
 " Snippets
 Plug 'honza/vim-snippets'
@@ -268,7 +268,7 @@ let g:gitgutter_override_sign_column_highlight = 0
 
 " Airline
 let g:airline_powerline_fonts = 1
-let g:airline_theme="codedark"
+let g:airline_theme="material"
 let g:airline#extensions#tmuxline#enabled = 0
 
 " Tmuxline
@@ -454,6 +454,7 @@ nnoremap <silent> <F2> :NERDTreeFind<CR>
 noremap <F3> :NERDTreeToggle<CR>
 noremap <Leader>0 :NERDTreeFocus<CR>
 
+
 " vim-go
 let g:go_fmt_command = "goimports"
 let g:go_highlight_types = 1
@@ -474,6 +475,9 @@ nnoremap <leader>so :OpenSession<Space>
 nnoremap <leader>ss :SaveSession<Space>
 nnoremap <leader>sd :DeleteSession<CR>
 nnoremap <leader>sc :CloseSession<CR>
+
+" Material
+let g:material_style='oceanic'
 
 " Split
 noremap <Leader>h :<C-u>split<CR>
@@ -542,9 +546,6 @@ noremap Y y$
 nnoremap ; :
 
 " Colorscheme
-colorscheme codedark
-
-highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-match OverLength /\%81v.\+/
+colorscheme vim-material
 
 " source ~/.config/nvim/colorscheme.vim
