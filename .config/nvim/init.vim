@@ -133,7 +133,7 @@ Plug 'honza/vim-snippets'
 Plug 'tomasiser/vim-code-dark'
 
 " Share colorscheme between vim and tmux
-Plug 'edkolev/tmuxline.vim'
+Plug 'sainnhe/tmuxline.vim'
 
 " Nord
 Plug 'arcticicestudio/nord-vim'
@@ -269,9 +269,9 @@ let g:gitgutter_sign_removed_first_line='◥'
 let g:gitgutter_sign_modified_removed='◢'
 let g:gitgutter_override_sign_column_highlight = 0
 
-
 " Tmuxline
-let g:tmuxline_preset = "full"
+let g:tmuxline_preset = "powerline"
+let g:tmuxline_powerline_separators = 0
 
 " Removing background for a e s t h e t i c s
 hi! GitGutterAdd ctermbg=NONE
