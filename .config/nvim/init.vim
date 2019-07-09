@@ -124,7 +124,7 @@ endif
 call plug#begin('~/.config/nvim/autoload/plugged')
 
 " Material theme
-Plug 'hzchirs/vim-material'
+Plug 'kaicataldo/material.vim'
 
 " Snippets
 Plug 'honza/vim-snippets'
@@ -191,8 +191,11 @@ Plug 'airblade/vim-gitgutter' " Check syntax while writing
 Plug 'tpope/vim-fugitive'
 
 " Airline and Airline Themes
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+" Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
+
+" Lightline
+Plug 'itchyny/lightline.vim'
 
 " Vim Session
 Plug 'xolox/vim-misc'
@@ -266,10 +269,6 @@ let g:gitgutter_sign_removed_first_line='◥'
 let g:gitgutter_sign_modified_removed='◢'
 let g:gitgutter_override_sign_column_highlight = 0
 
-" Airline
-let g:airline_powerline_fonts = 1
-let g:airline_theme="material"
-let g:airline#extensions#tmuxline#enabled = 0
 
 " Tmuxline
 let g:tmuxline_preset = "full"
@@ -393,17 +392,16 @@ inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " Disable polyglot for jsx / tsx
 let g:polyglot_disabled = ['jsx', 'tsx']
 
-" Add diagnostic info for https://github.com/itchyny/lightline.vim
-" let g:lightline = {
-"       \ 'colorscheme': 'nord',
-"       \ 'active': {
-"       \   'left': [ [ 'mode', 'paste' ],
-"       \             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
-"       \ },
-"       \ 'component_function': {
-"       \   'cocstatus': 'coc#status'
-"       \ },
-"       \ }
+let g:lightline = {
+      \ 'colorscheme': 'material_vim',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'cocstatus': 'coc#status'
+      \ },
+      \ }
 
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.jsx,*.tsx'
 let g:closetag_xhtml_filenames = '*.xhtml,*.jsx,*.tsx'
@@ -477,7 +475,13 @@ nnoremap <leader>sd :DeleteSession<CR>
 nnoremap <leader>sc :CloseSession<CR>
 
 " Material
-let g:material_style='oceanic'
+let g:material_theme_style='ocean'
+let g:material_terminal_italics = 1
+
+" " Airline
+" let g:airline_powerline_fonts = 1
+" let g:airline_theme="material_vim"
+" let g:airline#extensions#tmuxline#enabled = 0
 
 " Split
 noremap <Leader>h :<C-u>split<CR>
@@ -546,6 +550,6 @@ noremap Y y$
 nnoremap ; :
 
 " Colorscheme
-colorscheme vim-material
+colorscheme material
 
 " source ~/.config/nvim/colorscheme.vim
