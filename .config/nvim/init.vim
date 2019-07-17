@@ -275,6 +275,7 @@ let g:gitgutter_override_sign_column_highlight = 0
 
 " Tmuxline
 let g:tmuxline_preset = "powerline"
+let g:tmuxline_powerline_separators = 0
 
 " Removing background for a e s t h e t i c s
 hi! GitGutterAdd ctermbg=NONE
@@ -396,15 +397,14 @@ inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 let g:polyglot_disabled = ['jsx', 'tsx']
 
 let g:lightline = {
-      \ 'colorscheme': 'plastic',
+      \ 'colorscheme': 'material_vim',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
       \ },
       \ 'component_function': {
       \   'cocstatus': 'coc#status'
-      \ },
-      \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
+      \ }
       \ }
 
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.jsx,*.tsx'
@@ -479,7 +479,7 @@ nnoremap <leader>sd :DeleteSession<CR>
 nnoremap <leader>sc :CloseSession<CR>
 
 " Material
-let g:material_theme_style='ocean'
+let g:material_theme_style='darker'
 let g:material_terminal_italics = 1
 
 " " Airline
@@ -557,6 +557,6 @@ noremap Y y$
 nnoremap ; :
 
 " Colorscheme
-colorscheme plastic
+colorscheme material
 
 " source ~/.config/nvim/colorscheme.vim
