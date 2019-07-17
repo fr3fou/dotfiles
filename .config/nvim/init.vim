@@ -97,7 +97,6 @@ if maparg('<F8>', 'n') ==# ''
     nnoremap <silent> <F8> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><F9>
 endif
 
-
 "--- Searching ---"
 
 " Search as characters are entered
@@ -109,7 +108,6 @@ set hlsearch
 " Better searching
 set ignorecase
 set smartcase
-
 
 "--- Plugins ---"
 
@@ -125,6 +123,9 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
 " Material theme
 Plug 'kaicataldo/material.vim'
+
+" Palenight
+Plug 'drewtempelmeyer/palenight.vim'
 
 " Snippets
 Plug 'honza/vim-snippets'
@@ -232,8 +233,7 @@ Plug 'godlygeek/tabular'
 Plug 'terryma/vim-multiple-cursors'
 
 " JavaScript/TypeScript support
-" Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
-Plug 'leafgarland/typescript-vim'
+" Plug 'leafgarland/typescript-vim'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 Plug 'alvan/vim-closetag'
@@ -260,8 +260,6 @@ Plug 'morhetz/gruvbox'
 " Initialize plugin system
 call plug#end()
 
-" Gruvbox
-let g:gruvbox_contrast_dark="soft"
 
 "- Git-Gutter -"
 " Better glyphs
@@ -274,7 +272,6 @@ let g:gitgutter_override_sign_column_highlight = 0
 
 " Tmuxline
 let g:tmuxline_preset = "powerline"
-let g:tmuxline_powerline_separators = 0
 
 " Removing background for a e s t h e t i c s
 hi! GitGutterAdd ctermbg=NONE
@@ -396,7 +393,7 @@ inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 let g:polyglot_disabled = ['jsx', 'tsx']
 
 let g:lightline = {
-      \ 'colorscheme': 'material_vim',
+      \ 'colorscheme': 'palenight',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
@@ -404,6 +401,7 @@ let g:lightline = {
       \ 'component_function': {
       \   'cocstatus': 'coc#status'
       \ },
+      \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
       \ }
 
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.jsx,*.tsx'
@@ -556,6 +554,6 @@ noremap Y y$
 nnoremap ; :
 
 " Colorscheme
-colorscheme material
+colorscheme palenight
 
 " source ~/.config/nvim/colorscheme.vim
