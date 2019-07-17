@@ -127,6 +127,9 @@ Plug 'kaicataldo/material.vim'
 " Palenight
 Plug 'drewtempelmeyer/palenight.vim'
 
+" Plastic
+Plug 'flrnprz/plastic.vim'
+
 " Snippets
 Plug 'honza/vim-snippets'
 
@@ -393,7 +396,7 @@ inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 let g:polyglot_disabled = ['jsx', 'tsx']
 
 let g:lightline = {
-      \ 'colorscheme': 'palenight',
+      \ 'colorscheme': 'plastic',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
@@ -554,6 +557,6 @@ noremap Y y$
 nnoremap ; :
 
 " Colorscheme
-colorscheme palenight
+colorscheme plastic
 
 " source ~/.config/nvim/colorscheme.vim

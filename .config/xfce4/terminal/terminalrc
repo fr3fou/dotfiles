@@ -19,7 +19,7 @@ ScrollingLines=999999
 BackgroundMode=TERMINAL_BACKGROUND_TRANSPARENT
 BackgroundDarkness=1.000000
 ScrollingOnOutput=FALSE
-FontName=Operator Mono weight=330 13
+FontName=Operator Mono Semi-Light 13
 MiscBellUrgent=TRUE
 MiscMouseWheelZoom=TRUE
 MiscMiddleClickOpensUri=FALSE
@@ -32,9 +32,12 @@ MiscNewTabAdjacent=FALSE
 ShortcutsNoMenukey=TRUE
 ScrollingBar=TERMINAL_SCROLLBAR_NONE
 TitleInitial=uwu
-ColorCursor=#ffcc00
-ColorForeground=#8f93a2
-ColorBackground=#0f111a
-ColorPalette=#546e7a;#ff5370;#c3e88d;#ffcb6b;#82aaff;#c792ea;#89ddff;#ffffff;#546e7a;#ff5370;#c3e88d;#ffcb6b;#82aaff;#c792ea;#89ddff;#ffffff
+ColorCursor=x
+ColorForeground=#d8d8d8
+ColorBackground=#292c36
+ColorPalette=#292c36;#f84547;#95c76f;#efa16b;#8485ce;#b74989;#64878f;#d8d8d8;#65568a;#f84547;#95c76f;#efa16b;#8485ce;#b74989;#64878f;#f8f8f8
 CustomCommand=tmux
+FontAllowBold=FALSE
+MiscSearchDialogOpacity=100
+MiscShowUnsafePasteDialog=TRUE
 
