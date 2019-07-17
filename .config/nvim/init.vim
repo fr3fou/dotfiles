@@ -139,6 +139,9 @@ Plug 'tomasiser/vim-code-dark'
 " Share colorscheme between vim and tmux
 Plug 'sainnhe/tmuxline.vim'
 
+" vim-tmux-navigator
+Plug 'christoomey/vim-tmux-navigator'
+
 " Nord
 Plug 'arcticicestudio/nord-vim'
 
@@ -450,6 +453,8 @@ let g:NERDTreeShowBookmarks=1
 let g:nerdtree_tabs_focus_on_files=1
 let g:NERDTreeMapOpenInTabSilent = '<RightMouse>'
 let g:NERDTreeWinSize = 30
+let g:NERDTreeHighlightCursorline=0
+
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
 
 nnoremap <silent> <F2> :NERDTreeFind<CR>
@@ -503,10 +508,6 @@ if (empty($TMUX))
     set termguicolors
   endif
 endif
-
-" Limelight
-" let g:limelight_bop = '^\w.*\(:\|{\|(\)\n'
-" let g:limelight_eop = '^\p\n'
 
 " Goyo
 noremap <Leader>g :Goyo<CR>:Limelight!!<CR>
