@@ -170,6 +170,9 @@ le g:coc_global_extensions = [
 " Print function signatures in echo area
 Plug 'Shougo/echodoc.vim'
 
+" Styled Componets
+Plug 'styled-components/vim-styled-components', { 'branch': 'main'  }
+
 " Ctrl + p
 Plug 'ctrlpvim/ctrlp.vim'
 
@@ -538,6 +541,9 @@ autocmd BufNewFile,BufRead *.tsx set filetype=typescript.tsx
 
 " javascript.jsx
 autocmd BufNewFile,BufRead *.jsx set filetype=javascript.jsx
+
+" Fix styled-components
+autocmd BufEnter * :syntax sync fromstart
 
 " Tabs
 nnoremap <Tab> gt
