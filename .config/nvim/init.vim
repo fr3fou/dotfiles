@@ -403,7 +403,7 @@ inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 let g:polyglot_disabled = ['jsx', 'tsx']
 
 let g:lightline = {
-      \ 'colorscheme': 'shades_of_purple',
+      \ 'colorscheme': 'material_vim',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
@@ -487,7 +487,7 @@ nnoremap <leader>sd :DeleteSession<CR>
 nnoremap <leader>sc :CloseSession<CR>
 
 " Material
-let g:material_theme_style='darker'
+let g:material_theme_style='ocean'
 let g:material_terminal_italics = 1
 
 " " Airline
@@ -561,6 +561,6 @@ noremap Y y$
 nnoremap ; :
 
 " Colorscheme
-colorscheme shades_of_purple
+colorscheme material
 
 " source ~/.config/nvim/colorscheme.vim
