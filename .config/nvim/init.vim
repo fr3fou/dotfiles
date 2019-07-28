@@ -124,6 +124,9 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 " Material theme
 Plug 'kaicataldo/material.vim'
 
+" Shades of purple theme
+Plug 'Rigellute/shades-of-purple.vim'
+
 " Palenight
 Plug 'drewtempelmeyer/palenight.vim'
 
@@ -400,7 +403,7 @@ inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 let g:polyglot_disabled = ['jsx', 'tsx']
 
 let g:lightline = {
-      \ 'colorscheme': 'material_vim',
+      \ 'colorscheme': 'shades_of_purple',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
@@ -558,6 +561,6 @@ noremap Y y$
 nnoremap ; :
 
 " Colorscheme
-colorscheme material
+colorscheme shades_of_purple
 
 " source ~/.config/nvim/colorscheme.vim
