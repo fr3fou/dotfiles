@@ -42,7 +42,6 @@ SPACESHIP_DIR_TRUNC='1' # show only last directory
 
 # GIT
 # Disable git symbol
-SPACESHIP_GIT_SYMBOL="" # disable git prefix
 SPACESHIP_GIT_BRANCH_PREFIX="" # disable branch prefix too
 # Wrap git in `git:(...)`
 SPACESHIP_GIT_PREFIX='git:('
@@ -55,32 +54,26 @@ SPACESHIP_GIT_STATUS_SUFFIX=""
 # NODE
 SPACESHIP_NODE_PREFIX="node:("
 SPACESHIP_NODE_SUFFIX=") "
-SPACESHIP_NODE_SYMBOL=""
 
 # RUBY
 SPACESHIP_RUBY_PREFIX="ruby:("
 SPACESHIP_RUBY_SUFFIX=") "
-SPACESHIP_RUBY_SYMBOL=""
 
 # XCODE
 SPACESHIP_XCODE_PREFIX="xcode:("
 SPACESHIP_XCODE_SUFFIX=") "
-SPACESHIP_XCODE_SYMBOL=""
 
 # SWIFT
 SPACESHIP_SWIFT_PREFIX="swift:("
 SPACESHIP_SWIFT_SUFFIX=") "
-SPACESHIP_SWIFT_SYMBOL=""
 
 # GOLANG
 SPACESHIP_GOLANG_PREFIX="go:("
 SPACESHIP_GOLANG_SUFFIX=") "
-SPACESHIP_GOLANG_SYMBOL=""
 
 # DOCKER
 SPACESHIP_DOCKER_PREFIX="docker:("
 SPACESHIP_DOCKER_SUFFIX=") "
-SPACESHIP_DOCKER_SYMBOL=""
 
 # VENV
 SPACESHIP_VENV_PREFIX="venv:("
@@ -89,7 +82,6 @@ SPACESHIP_VENV_SUFFIX=") "
 # PYENV
 SPACESHIP_PYENV_PREFIX="python:("
 SPACESHIP_PYENV_SUFFIX=") "
-SPACESHIP_PYENV_SYMBOL=""
 
 disable -r time
 
@@ -112,6 +104,7 @@ export BROWSER="/usr/bin/google-chrome-stable"
 export MANPAGER="nvim -c 'set ft=man' -"
 export GOPATH;
 export MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
+export motherfucker="redeemer"
 
 source $ZSH/oh-my-zsh.sh
 source ~/.aliases
