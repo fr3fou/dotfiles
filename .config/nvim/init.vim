@@ -247,9 +247,6 @@ Plug 'maxmellon/vim-jsx-pretty'
 Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 Plug 'alvan/vim-closetag'
 
-" Markdown support
-Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
-
 " Denite - Fuzzy finding, buffer management
 Plug 'Shougo/denite.nvim'
 
@@ -342,10 +339,6 @@ augroup vimrc-remember-cursor-position
 let g:syntastic_mode_map = { 
       \ 'mode': 'passive',
       \ 'active_filetypes': [ 'c', 'cpp', 'python', 'fish' ] }
-
-"- Markdown -"
-let g:vim_markdown_frontmatter = 1
-let g:vim_markdown_toml_frontmatter = 1
 
 "--- Misc ---"
 
@@ -561,6 +554,6 @@ noremap Y y$
 nnoremap ; :
 
 " Colorscheme
-colorscheme material
+colorscheme codedark
 
 " source ~/.config/nvim/colorscheme.vim
