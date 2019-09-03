@@ -480,7 +480,7 @@ nnoremap <leader>sd :DeleteSession<CR>
 nnoremap <leader>sc :CloseSession<CR>
 
 " Material
-let g:material_theme_style='ocean'
+let g:material_theme_style='darker'
 let g:material_terminal_italics = 1
 
 " " Airline
@@ -554,6 +554,6 @@ noremap Y y$
 nnoremap ; :
 
 " Colorscheme
-colorscheme codedark
+colorscheme material
 
 " source ~/.config/nvim/colorscheme.vim
