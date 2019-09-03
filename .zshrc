@@ -7,12 +7,11 @@ plugins=(
   zsh-autosuggestions
 )
 
-# ORDER
 SPACESHIP_PROMPT_ORDER=(
-  time     #
-  vi_mode  # these sections will be
-  user     # before prompt char
-  host     #
+  time     
+  vi_mode 
+  user    
+  host   
   char
   dir
   git
@@ -25,61 +24,32 @@ SPACESHIP_PROMPT_ORDER=(
   venv
   pyenv
 )
-
-# USER
-SPACESHIP_USER_PREFIX="" # remove `with` before username
-SPACESHIP_USER_SUFFIX="" # remove space before host
-
-# HOST
-# Result will look like this:
-#   username@:(hostname)
+SPACESHIP_USER_PREFIX=""
+SPACESHIP_USER_SUFFIX=""
 SPACESHIP_HOST_PREFIX="@:("
 SPACESHIP_HOST_SUFFIX=") "
-
-# DIR
-SPACESHIP_DIR_PREFIX='' # disable directory prefix, cause it's not the first section
-SPACESHIP_DIR_TRUNC='1' # show only last directory
-
-# GIT
-# Disable git symbol
-SPACESHIP_GIT_BRANCH_PREFIX="" # disable branch prefix too
-# Wrap git in `git:(...)`
+SPACESHIP_DIR_PREFIX=''
+SPACESHIP_DIR_TRUNC='1'
+SPACESHIP_GIT_BRANCH_PREFIX=""
 SPACESHIP_GIT_PREFIX='git:('
 SPACESHIP_GIT_SUFFIX=") "
-SPACESHIP_GIT_BRANCH_SUFFIX="" # remove space after branch name
-# Unwrap git status from `[...]`
+SPACESHIP_GIT_BRANCH_SUFFIX="" 
 SPACESHIP_GIT_STATUS_PREFIX=""
 SPACESHIP_GIT_STATUS_SUFFIX=""
-
-# NODE
 SPACESHIP_NODE_PREFIX="node:("
 SPACESHIP_NODE_SUFFIX=") "
-
-# RUBY
 SPACESHIP_RUBY_PREFIX="ruby:("
 SPACESHIP_RUBY_SUFFIX=") "
-
-# XCODE
 SPACESHIP_XCODE_PREFIX="xcode:("
 SPACESHIP_XCODE_SUFFIX=") "
-
-# SWIFT
 SPACESHIP_SWIFT_PREFIX="swift:("
 SPACESHIP_SWIFT_SUFFIX=") "
-
-# GOLANG
 SPACESHIP_GOLANG_PREFIX="go:("
 SPACESHIP_GOLANG_SUFFIX=") "
-
-# DOCKER
 SPACESHIP_DOCKER_PREFIX="docker:("
 SPACESHIP_DOCKER_SUFFIX=") "
-
-# VENV
 SPACESHIP_VENV_PREFIX="venv:("
 SPACESHIP_VENV_SUFFIX=") "
-
-# PYENV
 SPACESHIP_PYENV_PREFIX="python:("
 SPACESHIP_PYENV_SUFFIX=") "
 
@@ -92,10 +62,6 @@ NPM_PACKAGES="/home/simo/.npm-packages"
 unset MANPATH
 
 export PATH;
-export PERL_MB_OPT;
-export PERL_MM_OPT;
-export PERL_LOCAL_LIB_ROOT;
-export PERL5LIB;
 export ZSH="/home/simo/.oh-my-zsh"
 export EDITOR="/usr/bin/nvim"
 export VISUAL=$EDITOR
@@ -108,7 +74,6 @@ export motherfucker="redeemer"
 
 source $ZSH/oh-my-zsh.sh
 source ~/.aliases
-source ~/.fzf.colors
 
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then nx; fi
 
@@ -127,18 +92,3 @@ else
 fi
 
 bindkey '\e ' autosuggest-accept 
-
-pdf() {
-	lowriter --convert-to pdf "$1" && nohup zathura "${1%.*}".pdf &
-}
-
-vf() {
-    nvim $(fzf)
-}
-
-f() {
-    filet "$@"
-    cd "$(< /tmp/filet_dir)"
-}
-
-[ -f ~/.fzf.colors ] && source ~/.fzf.colors
