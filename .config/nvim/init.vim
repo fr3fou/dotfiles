@@ -183,7 +183,9 @@ inoremap <silent><expr> <TAB> pumvisible() ? "\<C-n>" : coc#expandableOrJumpable
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 inoremap <silent><expr> <c-space> coc#refresh()
 
-autocmd vimenter * NERDTree
+if argc() == 0
+    autocmd VimEnter * NERDTree
+end
 autocmd BufNewFile,BufRead *.tsx set filetype=typescript.tsx
 autocmd BufNewFile,BufRead *.jsx set filetype=javascript.jsx
 autocmd BufEnter * :syntax sync fromstart
@@ -208,6 +210,6 @@ augroup vimrc-javascript
 augroup vimrc-remember-cursor-position
   autocmd!
         autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
-    augroup END"`'")"'")
+augroup END"`'")"'"
 
 colorscheme material
