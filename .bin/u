@@ -17,14 +17,11 @@ Client for interacting with up.simo.sh
 If no file is given, upload stdin.
 
     -f <file>       - upload <file>
-    -s <url>        - shorten <url>
-    -u <url>        - upload content of <url>
-
 EOF
 }
 
 function clip {
-    if command -v xsel;then
+    if command -v xsel >/dev/null 2>&1;then
         printf '%s' "$@" | xsel -b
     fi
 }
