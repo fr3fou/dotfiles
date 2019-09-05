@@ -1,46 +1,9 @@
 " --- General -- "
 " Use Vim settings, rather than Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
-set nocompatible
-set termguicolors
-set mouse=a
-set autowrite
-set background=dark
-set t_Co=256
-set encoding=UTF-8
-set backspace=indent,eol,start
-set splitbelow splitright
-set wrap
-set linebreak
-set whichwrap=b,s,<,>,[,]
-set relativenumber
-set number
-set wildmenu
-set lazyredraw
-set autoindent
-set expandtab
-set tabstop=4
-set softtabstop=0
-set shiftwidth=4
-set expandtab
-set shiftwidth=4
-set showmatch
-set nobackup
-set noswapfile
-set display+=lastline
-set history=1000
-set listchars=tab:│·,trail:_
-set incsearch
-set hlsearch
-set ignorecase
-set smartcase
-set updatetime=100
-set laststatus=2
-set noshowmode
-set updatetime=300
-set shortmess+=c
-set signcolumn=yes
-set fillchars+=vert:┃
+set nocompatible termguicolors mouse=a autowrite background=dark t_Co=256 encoding=UTF-8 backspace=indent,eol,start splitbelow splitright wrap linebreak whichwrap=b,s,<,>,[,] 
+set autoindent expandtab tabstop=4 softtabstop=0 shiftwidth=4 expandtab shiftwidth=4 showmatch nobackup noswapfile display+=lastline history=1000 listchars=tab:│·,trail:_ incsearch hlsearch 
+set ignorecase smartcase updatetime=100 laststatus=2 noshowmode updatetime=300 shortmess+=c signcolumn=yes fillchars+=vert:┃ relativenumber number wildmenu lazyredraw
 
 syntax on
 filetype plugin indent on
@@ -194,18 +157,6 @@ autocmd FileType go nmap <leader>b  <Plug>(go-build)
 autocmd FileType go nmap <leader>r  <Plug>(go-run)
 autocmd Filetype man nnoremap <buffer> u <C-u>
 autocmd Filetype man nnoremap <buffer> d <C-d>
-augroup vimrc-javascript
-  autocmd!
-      autocmd FileType javascript set tabstop=2|set shiftwidth=2|set expandtab softtabstop=2 smartindent
-      autocmd FileType typescript set tabstop=2|set shiftwidth=2|set expandtab softtabstop=2 smartindent
-      autocmd FileType vue set tabstop=2|set shiftwidth=2|set expandtab softtabstop=2 smartindent
-      autocmd FileType jsx set tabstop=2|set shiftwidth=2|set expandtab softtabstop=2 smartindent
-      autocmd FileType tsx set tabstop=2|set shiftwidth=2|set expandtab softtabstop=2 smartindent
-      autocmd FileType less set tabstop=2|set shiftwidth=2|set expandtab softtabstop=2 smartindent
-      autocmd FileType scss set tabstop=2|set shiftwidth=2|set expandtab softtabstop=2 smartindent
-      autocmd FileType html set tabstop=2|set shiftwidth=2|set expandtab softtabstop=2 smartindent
-      autocmd FileType css set tabstop=2|set shiftwidth=2|set expandtab softtabstop=2 smartindent
-  augroup END
 
 augroup vimrc-remember-cursor-position
   autocmd!
