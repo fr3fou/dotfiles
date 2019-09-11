@@ -135,8 +135,6 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 nnoremap <silent> <F8> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><F9>
 nnoremap <silent> K :call <SID>show_documentation()<CR>
-nnoremap <Leader>i :GoImpl<CR>
-nnoremap <Leader>j :GoAddTags<CR>
 noremap <Leader>h :<C-u>split<CR>
 noremap <Leader>g :Goyo<CR>:Limelight!!<CR>
 noremap <Leader>0 :NERDTreeFocus<CR>
@@ -167,6 +165,8 @@ autocmd BufEnter * :syntax sync fromstart
 autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 autocmd FileType go nmap <leader>b  <Plug>(go-build)
 autocmd FileType go nmap <leader>r  <Plug>(go-run)
+autocmd FileType go nnoremap <Leader>i :GoImpl<CR>
+autocmd FileType go nnoremap <Leader>j :GoAddTags<CR>
 autocmd Filetype man nnoremap <buffer> u <C-u>
 autocmd Filetype man nnoremap <buffer> d <C-d>
 
