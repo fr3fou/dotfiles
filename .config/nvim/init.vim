@@ -66,7 +66,7 @@ hi! GitGutterChange ctermbg=NONE
 hi! GitGutterDelete ctermbg=NONE
 hi! GitGutterChangeDelete ctermbg=NONE
 
-let mapleader=' '
+let mapleader= "\<Space>"
 let base16colorspace=256 
 
 let g:NERDTreeChDirMode=2
@@ -135,6 +135,8 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 nnoremap <silent> <F8> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><F9>
 nnoremap <silent> K :call <SID>show_documentation()<CR>
+nnoremap <Leader>i :GoImpl<CR>
+nnoremap <Leader>j :GoAddTags<CR>
 noremap <Leader>h :<C-u>split<CR>
 noremap <Leader>g :Goyo<CR>:Limelight!!<CR>
 noremap <Leader>0 :NERDTreeFocus<CR>
@@ -150,7 +152,7 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
-nmap <leader> rn <Plug>(coc-rename)
+nmap <leader>rn <Plug>(coc-rename)
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 inoremap <silent><expr> <TAB> pumvisible() ? "\<C-n>" : coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" : <SID>check_back_space() ? "\<TAB>" : coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
