@@ -125,6 +125,7 @@ nnoremap <leader>7 7gt
 nnoremap <leader>8 8gt
 nnoremap <leader>9 9gt
 nnoremap <leader>0 0gt
+nnoremap <leader>m :GitGutterStageHunk<CR>
 nnoremap <C-s> :w<CR>
 nnoremap <Tab> gt
 nnoremap <S-Tab> gT
