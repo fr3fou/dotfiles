@@ -7,23 +7,6 @@ plugins=(
   zsh-autosuggestions
 )
 
-SPACESHIP_PROMPT_ORDER=(
-  time     
-  vi_mode 
-  user    
-  host   
-  char
-  dir
-  git
-  node
-  ruby
-  xcode
-  swift
-  golang
-  docker
-  venv
-  pyenv
-)
 SPACESHIP_USER_PREFIX=""
 SPACESHIP_USER_SUFFIX=""
 SPACESHIP_HOST_PREFIX="@:("
