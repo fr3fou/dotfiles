@@ -39,14 +39,14 @@ SPACESHIP_CHAR_SYMBOL="λ "
 
 disable -r time
 
-GOPATH="/home/simo/.go"
-PATH="$PATH:/home/simo/.bin:/home/simo/.local/bin:/home/simo/.gem/ruby/2.5.0/bin:/home/simo/.npm-packages/bin:$GOPATH/bin";
-NPM_PACKAGES="/home/simo/.npm-packages"
+GOPATH="${HOME}/.go"
+PATH="$PATH:${HOME}.bin:/${HOME}/simo/.local/bin:/Users/simo/.gem/ruby/2.5.0/bin:/Users/simo/.npm-packages/bin:$GOPATH/bin";
+NPM_PACKAGES="/Users/simo/.npm-packages"
 
 unset MANPATH
 
 export PATH;
-export ZSH="/home/simo/.oh-my-zsh"
+export ZSH="${HOME}/.oh-my-zsh"
 export EDITOR="/usr/bin/nvim"
 export VISUAL=$EDITOR
 export NNN_TMPFILE="/tmp/nnn"
@@ -76,3 +76,6 @@ else
 fi
 
 bindkey '\e ' autosuggest-accept 
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
