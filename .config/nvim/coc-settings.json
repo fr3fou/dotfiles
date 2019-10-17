@@ -4,6 +4,7 @@
   "coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript", "typescriptreact", "json", "javascriptreact"],
   "eslint.filetypes": ["javascript", "typescript", "typescriptreact", "javascriptreact", "typescript.tsx", "javascript.jsx","typescript.tsx"],
   "eslint.packageManager": "yarn",
+  "prettier.disableSuccessMessage": true,
   "eslint.run": "onSave",
   "eslint.autoFix": true,
   "eslint.autoFixOnSave": true,
