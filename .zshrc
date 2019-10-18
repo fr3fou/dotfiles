@@ -40,20 +40,21 @@ SPACESHIP_CHAR_SYMBOL="λ "
 disable -r time
 
 GOPATH="${HOME}/.go"
-PATH="$PATH:${HOME}.bin:/${HOME}/simo/.local/bin:/Users/simo/.gem/ruby/2.5.0/bin:/Users/simo/.npm-packages/bin:$GOPATH/bin";
+PATH="$PATH:${HOME}.bin:/${HOME}/simo/.local/bin:/Users/simo/.gem/ruby/2.5.0/bin:/Users/simo/.npm-packages/bin:$GOPATH/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin";
 NPM_PACKAGES="/Users/simo/.npm-packages"
 
 unset MANPATH
 
 export PATH;
 export ZSH="${HOME}/.oh-my-zsh"
-export EDITOR="/usr/bin/nvim"
+export EDITOR=$(where nvim)
 export VISUAL=$EDITOR
 export NNN_TMPFILE="/tmp/nnn"
 export BROWSER="/usr/bin/google-chrome-stable"
 export MANPAGER="nvim -c 'set ft=man' -"
 export GOPATH;
 export MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
+export ANDROID_HOME="/usr/local/share/android-sdk"
 export motherfucker="redeemer"
 
 source $ZSH/oh-my-zsh.sh

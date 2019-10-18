@@ -25,7 +25,7 @@ alias igpu="sudo tee /proc/acpi/bbswitch <<<OFF"
 alias dgpu="sudo tee /proc/acpi/bbswitch <<<ON"
 
 # Directory
-alias projects="cd ~/Projects"
+alias projects="cd ~/Code"
 alias videos="cd ~/Videos"
 alias scripts="cd ~/Scripts"
 alias music="cd ~/Music"
