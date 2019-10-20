@@ -3,6 +3,7 @@ DISABLE_AUTO_TITLE="false"
 plugins=(
   git
   z
+  sudo
   zsh-syntax-highlighting
   zsh-autosuggestions
 )
