@@ -41,7 +41,7 @@ SPACESHIP_CHAR_SYMBOL="λ "
 disable -r time
 
 GOPATH="${HOME}/.go"
-PATH="$PATH:${HOME}.bin:/${HOME}/simo/.local/bin:/Users/simo/.gem/ruby/2.5.0/bin:/Users/simo/.npm-packages/bin:$GOPATH/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin";
+PATH="$PATH:${HOME}/.bin:/${HOME}/.local/bin:/${HOME}/.gem/ruby/2.5.0/bin:/${HOME}/.npm-packages/bin:$GOPATH/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin";
 NPM_PACKAGES="/Users/simo/.npm-packages"
 
 unset MANPATH
