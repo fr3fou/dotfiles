@@ -17,6 +17,7 @@ endif
 call plug#begin('~/.config/nvim/autoload/plugged')
 Plug 'kaicataldo/material.vim'
 Plug 'honza/vim-snippets'
+Plug 'majutsushi/tagbar'
 Plug 'sainnhe/tmuxline.vim'
 Plug 'wakatime/vim-wakatime'
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install() } }
@@ -90,7 +91,7 @@ let g:go_highlight_function_calls = 1
 
 let g:polyglot_disabled = ['jsx', 'tsx']
 
-let g:lightline = { 'colorscheme': 'material_vim' }
+let g:lightline = { 'colorscheme': 'material' }
 
 let g:material_theme_style='darker'
 let g:material_terminal_italics = 1
@@ -134,15 +135,15 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
-nnoremap <silent> <F8> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><F9>
 nnoremap <silent> K :call <SID>show_documentation()<CR>
+nnoremap <Leader>c :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><F9>
 noremap <Leader>h :<C-u>split<CR>
 noremap <Leader>g :Goyo<CR>:Limelight!!<CR>
 noremap <Leader>0 :NERDTreeFocus<CR>
 noremap <Leader>v :<C-u>vsplit<CR>
 noremap <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 noremap <silent> gb <C-o>
-noremap <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>" 
+noremap <Leader>t :TagbarToggle<CR>
 noremap ,o :!echo `git url`/blob/`git rev-parse --abbrev-ref HEAD`/%\#L<C-R>=line('.')<CR> \| xargs open<CR><CR>
 noremap Y y$
 noremap <C-p> "+P
@@ -162,6 +163,7 @@ if argc() == 0
 end
 autocmd BufNewFile,BufRead *.tsx set filetype=typescript.tsx
 autocmd BufNewFile,BufRead *.jsx set filetype=javascript.jsx
+autocmd BufNewFile,BufRead *.go TagbarToggle
 autocmd BufEnter * :syntax sync fromstart
 autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 autocmd FileType go nmap <leader>b  <Plug>(go-build)
