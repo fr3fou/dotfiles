@@ -41,6 +41,7 @@ SPACESHIP_CHAR_SYMBOL="λ "
 disable -r time
 
 GOPATH="${HOME}/.go"
+GOPRIVATE="*"
 PATH="$PATH:${HOME}/.bin:/${HOME}/.local/bin:/${HOME}/.gem/ruby/2.5.0/bin:/${HOME}/.npm-packages/bin:$GOPATH/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin";
 NPM_PACKAGES="/Users/simo/.npm-packages"
 
@@ -54,6 +55,7 @@ export NNN_TMPFILE="/tmp/nnn"
 export BROWSER="/usr/bin/google-chrome-stable"
 export MANPAGER="nvim -c 'set ft=man' -"
 export GOPATH;
+export GOPRIVATE;
 export MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
 export ANDROID_HOME="/usr/local/share/android-sdk"
 export motherfucker="redeemer"
