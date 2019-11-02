@@ -3,7 +3,7 @@
 " This must be first, because it changes other options as a side effect.
 set nocompatible termguicolors mouse=a autowrite background=dark t_Co=256 encoding=UTF-8 backspace=indent,eol,start splitbelow splitright wrap linebreak whichwrap=b,s,<,>,[,] 
 set autoindent expandtab tabstop=4 softtabstop=0 shiftwidth=4 expandtab shiftwidth=4 showmatch nobackup noswapfile display+=lastline history=1000 listchars=tab:│·,trail:_ incsearch hlsearch 
-set ignorecase smartcase updatetime=100 laststatus=2 noshowmode updatetime=300 shortmess+=c signcolumn=yes fillchars+=vert:┃ relativenumber number wildmenu lazyredraw
+set ignorecase smartcase updatetime=100 laststatus=2 noshowmode updatetime=300 shortmess+=c signcolumn=yes fillchars+=vert:┃ relativenumber number wildmenu lazyredraw list
 
 syntax on
 filetype plugin indent on
@@ -16,6 +16,7 @@ endif
 
 call plug#begin('~/.config/nvim/autoload/plugged')
 Plug 'kaicataldo/material.vim'
+Plug 'agreco/vim-citylights'
 Plug 'honza/vim-snippets'
 Plug 'majutsushi/tagbar'
 Plug 'sainnhe/tmuxline.vim'
@@ -61,6 +62,10 @@ function! s:show_documentation()
   endif
 endfunction
 
+function! CocCurrentFunction()
+    return get(b:, 'coc_current_function', '')
+endfunction
+
 hi Comment cterm=italic
 hi! GitGutterAdd ctermbg=NONE
 hi! GitGutterChange ctermbg=NONE
@@ -91,10 +96,15 @@ let g:go_highlight_function_calls = 1
 
 let g:polyglot_disabled = ['jsx', 'tsx']
 
-let g:lightline = { 'colorscheme': 'material' }
+let g:lightline = { 'colorscheme': 'gruvbox' }
 
 let g:material_theme_style='darker'
 let g:material_terminal_italics = 1
+
+let g:gruvbox_invert_selection = 0
+let g:gruvbox_improved_strings = 1
+let g:gruvbox_guisp_fallback = 'bg'
+let g:gruvbox_invert_indent_guides = 1
 
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
@@ -178,4 +188,4 @@ augroup vimrc-remember-cursor-position
         autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 augroup END"`'")"'"
 
-colorscheme material
+colorscheme gruvbox
