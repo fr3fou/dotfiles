@@ -3,7 +3,7 @@
 " This must be first, because it changes other options as a side effect.
 set nocompatible termguicolors mouse=a autowrite background=dark t_Co=256 encoding=UTF-8 backspace=indent,eol,start splitbelow splitright wrap linebreak whichwrap=b,s,<,>,[,] 
 set autoindent expandtab tabstop=4 softtabstop=0 shiftwidth=4 expandtab shiftwidth=4 showmatch nobackup noswapfile display+=lastline history=1000 listchars=tab:│·,trail:_ incsearch hlsearch 
-set ignorecase smartcase updatetime=100 laststatus=2 noshowmode updatetime=300 shortmess+=c signcolumn=yes fillchars+=vert:┃ relativenumber number wildmenu lazyredraw list
+set ignorecase smartcase updatetime=100 laststatus=2 noshowmode updatetime=300 shortmess+=c signcolumn=yes fillchars+=vert:┃ relativenumber number wildmenu lazyredraw list cursorcolumn
 
 syntax on
 filetype plugin indent on
@@ -102,9 +102,11 @@ let g:material_theme_style='darker'
 let g:material_terminal_italics = 1
 
 let g:gruvbox_invert_selection = 0
-let g:gruvbox_improved_strings = 1
 let g:gruvbox_guisp_fallback = 'bg'
 let g:gruvbox_invert_indent_guides = 1
+let g:gruvbox_contrast_dark = 'soft'
+" let g:gruvbox_sige_column = 'none'
+let g:gruvbox_invert_signs = 0
 
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
@@ -113,7 +115,7 @@ let g:gitgutter_sign_modified='┃'
 let g:gitgutter_sign_removed='◢'
 let g:gitgutter_sign_removed_first_line='◥'
 let g:gitgutter_sign_modified_removed='◢'
-let g:gitgutter_override_sign_column_highlight = 0
+let g:gitgutter_override_sign_column_highlight = 1
 
 let g:tmuxline_preset = "powerline"
 let g:tmuxline_powerline_separators = 0
