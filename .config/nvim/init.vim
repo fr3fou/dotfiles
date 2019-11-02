@@ -96,7 +96,7 @@ let g:go_highlight_function_calls = 1
 
 let g:polyglot_disabled = ['jsx', 'tsx']
 
-let g:lightline = { 'colorscheme': 'gruvbox' }
+let g:lightline = { 'colorscheme': 'gruvbox', 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" }, 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" }}
 
 let g:material_theme_style='darker'
 let g:material_terminal_italics = 1
@@ -105,7 +105,6 @@ let g:gruvbox_invert_selection = 0
 let g:gruvbox_guisp_fallback = 'bg'
 let g:gruvbox_invert_indent_guides = 1
 let g:gruvbox_contrast_dark = 'soft'
-" let g:gruvbox_sige_column = 'none'
 let g:gruvbox_invert_signs = 0
 
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
@@ -118,7 +117,6 @@ let g:gitgutter_sign_modified_removed='◢'
 let g:gitgutter_override_sign_column_highlight = 1
 
 let g:tmuxline_preset = "powerline"
-let g:tmuxline_powerline_separators = 0
 
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.jsx,*.tsx'
 let g:closetag_xhtml_filenames = '*.xhtml,*.jsx,*.tsx'
