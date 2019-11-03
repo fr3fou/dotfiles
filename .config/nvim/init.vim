@@ -43,7 +43,7 @@ Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 Plug 'alvan/vim-closetag'
 Plug 'Shougo/denite.nvim'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'mdempsky/gocode', { 'rtp': 'vim', 'do': '~/.config/nvim/plugged/gocode/vim/symlink.sh' }
+" Plug 'mdempsky/gocode', { 'rtp': 'vim', 'do': '~/.config/nvim/plugged/gocode/vim/symlink.sh' }
 Plug 'mattn/emmet-vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'morhetz/gruvbox'
