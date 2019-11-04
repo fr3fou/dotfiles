@@ -1,5 +1,5 @@
 # This tmux statusbar config was created by tmuxline.vim
-# on Sat, 02 Nov 2019
+# on Mon, 04 Nov 2019
 
 set -g status-justify "left"
 set -g status "on"
@@ -16,6 +16,6 @@ setw -g window-status-activity-style "none"
 setw -g window-status-separator ""
 setw -g window-status-style "none,fg=#a89984,bg=#3c3836"
 set -g status-left ""
-set -g status-right "#[fg=#32302f,bg=#a89984] %H:%M "
+set -g status-right "#[fg=#282828,bg=#a89984] %H:%M "
 setw -g window-status-format "#[fg=#a89984,bg=#3c3836] #I #[fg=#a89984,bg=#3c3836]#W "
 setw -g window-status-current-format "#[fg=#3c3836,bg=#504945,nobold,nounderscore,noitalics]#[fg=#a89984,bg=#504945] #W #[fg=#504945,bg=#3c3836,nobold,nounderscore,noitalics]"
