@@ -17,6 +17,9 @@ endif
 call plug#begin('~/.config/nvim/autoload/plugged')
 Plug 'kaicataldo/material.vim'
 Plug 'drewtempelmeyer/palenight.vim'
+Plug 'phanviet/vim-monokai-pro'
+Plug 'NLKNguyen/papercolor-theme'
+Plug 'mhinz/vim-janah'
 Plug 'honza/vim-snippets'
 Plug 'majutsushi/tagbar'
 Plug 'sainnhe/tmuxline.vim'
@@ -95,9 +98,9 @@ let g:go_highlight_function_calls = 1
 
 let g:polyglot_disabled = ['jsx', 'tsx']
 
-let g:lightline = { 'colorscheme': 'palenight', 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" }, 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" }}
+let g:lightline = { 'colorscheme': 'material', 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" }, 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" }}
 
-let g:material_theme_style='darker'
+let g:material_theme_style='ocean'
 let g:material_terminal_italics = 1
 
 let g:gruvbox_invert_selection = 0
@@ -187,4 +190,4 @@ augroup vimrc-remember-cursor-position
         autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 augroup END"`'")"'"
 
-colorscheme palenight
+colorscheme material
