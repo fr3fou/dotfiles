@@ -1,7 +1,7 @@
 " --- General -- "
 " Use Vim settings, rather than Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
-set nocompatible termguicolors mouse=a autowrite background=dark t_Co=256 encoding=UTF-8 backspace=indent,eol,start splitbelow splitright wrap linebreak whichwrap=b,s,<,>,[,] 
+set nocompatible termguicolors mouse=a autowrite background=dark t_Co=256 encoding=UTF-8 backspace=indent,eol,start splitbelow splitright wrap linebreak whichwrap=b,s,<,>,[,] undofile undodir=~/.vimundo
 set autoindent expandtab tabstop=4 softtabstop=0 shiftwidth=4 expandtab shiftwidth=4 showmatch nobackup noswapfile display+=lastline history=1000 listchars=tab:│·,trail:_ incsearch hlsearch 
 set ignorecase smartcase updatetime=100 laststatus=2 noshowmode updatetime=300 shortmess+=c signcolumn=yes fillchars+=vert:┃ relativenumber number wildmenu lazyredraw list completeopt+=noselect
 
