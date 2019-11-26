@@ -100,7 +100,7 @@ let g:polyglot_disabled = ['jsx', 'tsx']
 
 let g:lightline = { 'colorscheme': 'material_vim', 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" }, 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" }}
 
-let g:material_theme_style='ocean'
+let g:material_theme_style='darker'
 let g:material_terminal_italics = 1
 
 let g:gruvbox_invert_selection = 0
@@ -124,6 +124,12 @@ let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.jsx,*.tsx'
 let g:closetag_xhtml_filenames = '*.xhtml,*.jsx,*.tsx'
 let g:closetag_emptyTags_caseSensitive = 1
 let g:closetag_regions = { 'typescript.tsx': 'jsxRegion,tsxRegion', 'javascript.jsx': 'jsxRegion' }
+
+let g:go_highlight_structs = 1 
+let g:go_highlight_methods = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
 
 nnoremap <silent> <F2> :NERDTreeFind<CR>
 nnoremap <Leader>f :NERDTreeToggle<CR>
