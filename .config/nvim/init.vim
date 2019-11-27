@@ -125,7 +125,7 @@ let g:gruvbox_contrast_dark = 'medium'
 let g:gruvbox_invert_signs = 0
 
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
-let g:ctrlp_map = 's'
+let g:ctrlp_map = '<S-S>'
 let g:ctrlp_cmd = 'CtrlP'
 
 let g:gitgutter_sign_added='┃'
