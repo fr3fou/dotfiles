@@ -20,6 +20,7 @@ Plug 'drewtempelmeyer/palenight.vim'
 Plug 'phanviet/vim-monokai-pro'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'mhinz/vim-janah'
+Plug 'airblade/vim-rooter'
 Plug 'honza/vim-snippets'
 Plug 'majutsushi/tagbar'
 Plug 'sainnhe/tmuxline.vim'
@@ -124,6 +125,8 @@ let g:gruvbox_contrast_dark = 'medium'
 let g:gruvbox_invert_signs = 0
 
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+let g:ctrlp_map = 's'
+let g:ctrlp_cmd = 'CtrlP'
 
 let g:gitgutter_sign_added='┃'
 let g:gitgutter_sign_modified='┃'
@@ -132,7 +135,7 @@ let g:gitgutter_sign_removed_first_line='◥'
 let g:gitgutter_sign_modified_removed='◢'
 let g:gitgutter_override_sign_column_highlight = 1
 
-let g:tmuxline_preset = "powerline"
+let g:tmuxline_preset = "nightly_fox"
 
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.jsx,*.tsx'
 let g:closetag_xhtml_filenames = '*.xhtml,*.jsx,*.tsx'
