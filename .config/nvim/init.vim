@@ -192,7 +192,6 @@ if argc() == 0
 end
 autocmd BufNewFile,BufRead *.tsx set filetype=typescript.tsx
 autocmd BufNewFile,BufRead *.jsx set filetype=javascript.jsx
-autocmd BufNewFile,BufRead *.go TagbarToggle
 autocmd BufEnter * :syntax sync fromstart
 autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 autocmd FileType go nmap <leader>b  <Plug>(go-build)
