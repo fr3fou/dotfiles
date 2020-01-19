@@ -27,6 +27,7 @@ Plug 'sainnhe/tmuxline.vim'
 Plug 'wakatime/vim-wakatime'
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install() } }
 Plug 'Shougo/echodoc.vim'
+Plug 'arcticicestudio/nord-vim'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main'  }
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
@@ -113,7 +114,7 @@ let g:go_addtags_transform = "camelcase"
 
 let g:polyglot_disabled = ['jsx', 'tsx']
 
-let g:lightline = { 'colorscheme': 'material_vim', 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" }, 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" }}
+let g:lightline = { 'colorscheme': 'nord', 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" }, 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" }}
 
 let g:material_theme_style='darker'
 let g:material_terminal_italics = 1
@@ -206,4 +207,4 @@ augroup vimrc-remember-cursor-position
         autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 augroup END"`'")"'"
 
-colorscheme material
+colorscheme nord
