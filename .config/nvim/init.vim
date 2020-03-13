@@ -2,8 +2,8 @@
 " Use Vim settings, rather than Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible termguicolors mouse=a autowrite background=dark t_Co=256 encoding=UTF-8 backspace=indent,eol,start splitbelow splitright wrap linebreak whichwrap=b,s,<,>,[,] undofile undodir=~/.vimundo
-set autoindent expandtab tabstop=4 softtabstop=0 shiftwidth=4 expandtab shiftwidth=4 showmatch nobackup noswapfile display+=lastline history=1000 listchars=tab:│·,trail:_ incsearch hlsearch 
-set ignorecase smartcase updatetime=100 laststatus=2 noshowmode updatetime=300 shortmess+=c signcolumn=yes fillchars+=vert:┃ relativenumber number wildmenu lazyredraw list completeopt+=noselect
+set autoindent expandtab tabstop=4 softtabstop=0 shiftwidth=4 expandtab shiftwidth=4 showmatch nobackup noswapfile display+=lastline history=1000 nolist incsearch hlsearch 
+set ignorecase smartcase updatetime=100 laststatus=2 noshowmode updatetime=300 shortmess+=c signcolumn=yes fillchars+=vert:┃ relativenumber number wildmenu lazyredraw completeopt+=noselect
 
 syntax on
 filetype plugin indent on
@@ -22,6 +22,7 @@ Plug 'NLKNguyen/papercolor-theme'
 Plug 'mhinz/vim-janah'
 Plug 'airblade/vim-rooter'
 Plug 'honza/vim-snippets'
+Plug 'haishanh/night-owl.vim'
 Plug 'majutsushi/tagbar'
 Plug 'sainnhe/tmuxline.vim'
 Plug 'wakatime/vim-wakatime'
@@ -114,7 +115,7 @@ let g:go_addtags_transform = "camelcase"
 
 let g:polyglot_disabled = ['jsx', 'tsx']
 
-let g:lightline = { 'colorscheme': 'nord', 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" }, 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" }}
+let g:lightline = { 'colorscheme': 'nightowl', 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" }, 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" }}
 
 let g:material_theme_style='darker'
 let g:material_terminal_italics = 1
@@ -156,6 +157,7 @@ nnoremap <leader>7 7gt
 nnoremap <leader>8 8gt
 nnoremap <leader>9 9gt
 nnoremap <leader>0 0gt
+nnoremap <leader>q :tabclose<CR>
 nnoremap <leader>m :GitGutterStageHunk<CR>
 nnoremap <C-s> :w<CR>
 nnoremap <Tab> gt
@@ -207,4 +209,4 @@ augroup vimrc-remember-cursor-position
         autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 augroup END"`'")"'"
 
-colorscheme nord
+colorscheme night-owl
