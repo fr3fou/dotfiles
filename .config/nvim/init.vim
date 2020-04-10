@@ -2,7 +2,7 @@
 " Use Vim settings, rather than Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible termguicolors mouse=a autowrite background=dark t_Co=256 encoding=UTF-8 backspace=indent,eol,start splitbelow splitright wrap linebreak whichwrap=b,s,<,>,[,] undofile undodir=~/.vimundo
-set autoindent expandtab tabstop=4 softtabstop=0 shiftwidth=4 expandtab shiftwidth=4 showmatch nobackup noswapfile display+=lastline history=1000 listchars=tab:│·,trail:_ incsearch hlsearch 
+set autoindent expandtab tabstop=4 softtabstop=0 shiftwidth=0 expandtab showmatch nobackup noswapfile display+=lastline history=1000 listchars=tab:│·,trail:_ incsearch hlsearch 
 set ignorecase smartcase updatetime=100 laststatus=2 noshowmode updatetime=300 shortmess+=c signcolumn=yes fillchars+=vert:┃ relativenumber number wildmenu lazyredraw list completeopt+=noselect
 
 syntax on
@@ -38,6 +38,7 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'junegunn/limelight.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'jiangmiao/auto-pairs'
+Plug 'doums/darcula'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-commentary'
@@ -114,7 +115,7 @@ let g:go_addtags_transform = "camelcase"
 
 let g:polyglot_disabled = ['jsx', 'tsx']
 
-let g:lightline = { 'colorscheme': 'nord', 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" }, 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" }}
+let g:lightline = { 'colorscheme': 'material_vim', 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" }, 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" }}
 
 let g:material_theme_style='darker'
 let g:material_terminal_italics = 1
@@ -167,6 +168,8 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 nnoremap <Leader>c :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><F9>
+nnoremap <Left> <<
+nnoremap <Right> >>
 noremap <Leader>h :<C-u>split<CR>
 noremap <Leader>g :Goyo<CR>:Limelight!!<CR>
 noremap <Leader>0 :NERDTreeFocus<CR>
@@ -177,6 +180,8 @@ noremap <Leader>t :TagbarToggle<CR>
 noremap ,o :!echo `git url`/blob/`git rev-parse --abbrev-ref HEAD`/%\#L<C-R>=line('.')<CR> \| xargs open<CR><CR>
 noremap Y y$
 noremap <C-p> "+P
+vnoremap <Left> <gv
+vnoremap <Right> >gv"
 vnoremap <C-c> "+y
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
@@ -193,6 +198,10 @@ if argc() == 0
 end
 autocmd BufNewFile,BufRead *.tsx set filetype=typescript.tsx
 autocmd BufNewFile,BufRead *.jsx set filetype=javascript.jsx
+autocmd FileType javascript.jsx set tabstop=2
+autocmd FileType typescript.tsx set tabstop=2
+autocmd FileType javascript set tabstop=2
+autocmd FileType typescript set tabstop=2
 autocmd BufEnter * :syntax sync fromstart
 autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 autocmd FileType go nmap <leader>b  <Plug>(go-build)
@@ -207,4 +216,4 @@ augroup vimrc-remember-cursor-position
         autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 augroup END"`'")"'"
 
-colorscheme nord
+colorscheme material
