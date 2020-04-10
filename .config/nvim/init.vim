@@ -2,7 +2,7 @@
 " Use Vim settings, rather than Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible termguicolors mouse=a autowrite background=dark t_Co=256 encoding=UTF-8 backspace=indent,eol,start splitbelow splitright wrap linebreak whichwrap=b,s,<,>,[,] undofile undodir=~/.vimundo
-set autoindent expandtab tabstop=4 softtabstop=0 shiftwidth=0 expandtab showmatch nobackup noswapfile display+=lastline history=1000 listchars=tab:│·,trail:_ incsearch hlsearch 
+set autoindent expandtab tabstop=4 softtabstop=0 shiftwidth=0 expandtab showmatch nobackup noswapfile display+=lastline history=1000 listchars=tab:│·,trail:_ incsearch hlsearch nolist
 set ignorecase smartcase updatetime=100 laststatus=2 noshowmode updatetime=300 shortmess+=c signcolumn=yes fillchars+=vert:┃ relativenumber number wildmenu lazyredraw list completeopt+=noselect
 
 syntax on
@@ -22,6 +22,7 @@ Plug 'NLKNguyen/papercolor-theme'
 Plug 'mhinz/vim-janah'
 Plug 'airblade/vim-rooter'
 Plug 'honza/vim-snippets'
+Plug 'haishanh/night-owl.vim'
 Plug 'majutsushi/tagbar'
 Plug 'sainnhe/tmuxline.vim'
 Plug 'wakatime/vim-wakatime'
@@ -157,6 +158,7 @@ nnoremap <leader>7 7gt
 nnoremap <leader>8 8gt
 nnoremap <leader>9 9gt
 nnoremap <leader>0 0gt
+nnoremap <leader>q :tabclose<CR>
 nnoremap <leader>m :GitGutterStageHunk<CR>
 nnoremap <C-s> :w<CR>
 nnoremap <Tab> gt
