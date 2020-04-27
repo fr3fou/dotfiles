@@ -19,6 +19,7 @@ Plug 'kaicataldo/material.vim'
 Plug 'drewtempelmeyer/palenight.vim'
 Plug 'phanviet/vim-monokai-pro'
 Plug 'NLKNguyen/papercolor-theme'
+Plug 'jxnblk/vim-mdx-js'
 Plug 'mhinz/vim-janah'
 Plug 'airblade/vim-rooter'
 Plug 'honza/vim-snippets'
@@ -139,6 +140,7 @@ let g:gitgutter_sign_modified_removed='◢'
 let g:gitgutter_override_sign_column_highlight = 1
 
 let g:tmuxline_preset = "nightly_fox"
+let g:tmuxline_powerline_separators = 0
 
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.jsx,*.tsx'
 let g:closetag_xhtml_filenames = '*.xhtml,*.jsx,*.tsx'
@@ -217,5 +219,9 @@ augroup vimrc-remember-cursor-position
   autocmd!
         autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 augroup END"`'")"'"
+
+let &t_SI.="\e[5 q"
+let &t_SR.="\e[4 q"
+let &t_EI.="\e[1 q""]"
 
 colorscheme material
