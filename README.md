@@ -24,6 +24,14 @@
 
 ![3](https://i.imgur.com/sYu4qek.png)
 
+## vim setup
+
+Make sure you have yarn and pip installed!
+```bash
+yarn global add neovim
+pip install neovim --user
+```
+
 ## Setting up
 
 Shoutout to [jaagr/dots](https://github.com/jaagr/dots)
@@ -85,5 +93,6 @@ rsync -rvl --exclude ".git" /tmp/dots/ $HOME/
 rm -r /tmp/dots
 dots submodule update --init --recursive $HOME/
 ~~~
+
 
 
