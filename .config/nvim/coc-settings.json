@@ -1,8 +1,22 @@
 {
   "suggest.echodocSupport": true,
   "suggest.maxCompleteItemCount": 20,
-  "coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript", "typescriptreact", "json", "javascriptreact"],
-  "eslint.filetypes": ["javascript", "typescript", "typescriptreact", "javascriptreact", "typescript.tsx", "javascript.jsx","typescript.tsx"],
+  "coc.preferences.formatOnSaveFiletypes": [
+    "javascript",
+    "typescript",
+    "typescriptreact",
+    "json",
+    "javascriptreact"
+  ],
+  "eslint.filetypes": [
+    "javascript",
+    "typescript",
+    "typescriptreact",
+    "javascriptreact",
+    "typescript.tsx",
+    "javascript.jsx",
+    "typescript.tsx"
+  ],
   "eslint.packageManager": "yarn",
   "prettier.disableSuccessMessage": true,
   "eslint.run": "onSave",
@@ -12,8 +26,6 @@
   "diagnostic.warningSign": "•",
   "diagnostic.infoSign": "•",
   "suggest.noselect": false,
-  "tsserver.trace.server": "verbose",
-  "tsserver.log": "verbose",
-"java.home": "/usr/lib/jvm/java-11-jdk",
-"java.errors.incompleteClasspath.severity": "ignore"
+  "suggest.floatEnable": true,
+  "signature.target": "float"
 }
