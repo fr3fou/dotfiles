@@ -46,11 +46,14 @@ Plug 'airblade/vim-rooter'
 " tmuxline
 Plug 'sainnhe/tmuxline.vim'
 
-" Coc
+" Coc - for interaction with gopls
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-" vim-go
-Plug 'fatih/vim-go'
+" Ale - linter
+Plug 'dense-analysis/ale'
+
+" vim-go - go tooling
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries'  }
 
 " auto-pairs
 Plug 'jiangmiao/auto-pairs'
@@ -156,10 +159,13 @@ nnoremap <leader>9 9gt
 nnoremap <leader>0 0gt
 
 " clear search on Space + c
-nnoremap <Leader>c :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><F9>
+nnoremap <silent><Leader>c :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><F9>
+
+" go back
+noremap <silent>gb <C-o>
 
 " control + S for save
-nnoremap <C-s> :w<CR>
+nnoremap <silent><C-s> :w<CR>
 
 " change tabs with Tab and Shift+Tab
 nnoremap <Tab> gt
@@ -212,18 +218,27 @@ inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR
 inoremap <silent><expr> <c-space> coc#refresh()
 au! CompleteDone * if pumvisible() == 0 | pclose | endif
 
-nmap <leader>gd <Plug>(coc-definition)
-nmap <leader>gy <Plug>(coc-type-definition)
-nmap <leader>gi <Plug>(coc-implementation)
-nmap <leader>gr <Plug>(coc-references)
-nmap <leader>rn <Plug>(coc-rename)
-nmap <leader>2 <Plug>(coc-rename)
-nmap <leader>g[ <Plug>(coc-diagnostic-prev)
-nmap <leader>g] <Plug>(coc-diagnostic-next)
+nmap <silent>gd <Plug>(coc-definition)
+nmap <silent>gy <Plug>(coc-type-definition)
+nmap <silent>gi <Plug>(coc-implementation)
+nmap <silent>gr <Plug>(coc-references)
+nmap <silent><leader>r <Plug>(coc-rename)
+nmap <silent>g[ <Plug>(coc-diagnostic-prev)
+nmap <silent>g] <Plug>(coc-diagnostic-next)
 nmap <silent> <leader>gp <Plug>(coc-diagnostic-prev-error)
 nmap <silent> <leader>gn <Plug>(coc-diagnostic-next-error)
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 nnoremap <leader>cr :CocRestart
+
+" ALE
+hi ALEErrorSign ctermbg=NONE ctermfg=red
+hi ALEWarningSign ctermbg=NONE ctermfg=yellow
+let g:ale_sign_error = '😔'
+let g:ale_sign_warning = '🤔'
+let g:ale_virtualtext_cursor = 1
+
+" vim-go
+let g:go_def_mapping_enabled = 0
 
 " remember cursor position after quitting
 augroup remember-cursor

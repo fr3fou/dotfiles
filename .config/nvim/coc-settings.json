@@ -1,6 +1,7 @@
 {
   "suggest.echodocSupport": true,
   "suggest.maxCompleteItemCount": 20,
+  "diagnostic.displayByAle": true,
   "coc.preferences.formatOnSaveFiletypes": [
     "javascript",
     "typescript",
@@ -27,5 +28,13 @@
   "diagnostic.infoSign": "•",
   "suggest.noselect": false,
   "suggest.floatEnable": true,
-  "signature.target": "float"
+  "signature.target": "float",
+  "languageserver": {
+    "golang": {
+      "command": "gopls",
+      "args": ["-remote=auto"],
+      "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
+      "filetypes": ["go"]
+    }
+  }
 }
