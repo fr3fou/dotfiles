@@ -49,6 +49,9 @@ Plug 'sainnhe/tmuxline.vim'
 " Coc - for interaction with gopls
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+" Snippets
+Plug 'honza/vim-snippets'
+
 " Ale - linter
 Plug 'dense-analysis/ale'
 
@@ -236,6 +239,9 @@ hi ALEWarningSign ctermbg=NONE ctermfg=yellow
 let g:ale_sign_error = '😔'
 let g:ale_sign_warning = '🤔'
 let g:ale_virtualtext_cursor = 1
+let g:ale_linters = {
+            \ 'go': ['golangci-lint'] }
+let g:ale_go_golangci_lint_options = 'fast -E bodyclose,misspell,gocyclo,gofmt,golint,unconvert,goimports,depguard,gocritic,interfacer'
 
 " vim-go
 let g:go_def_mapping_enabled = 0
