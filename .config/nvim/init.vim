@@ -240,8 +240,13 @@ let g:ale_sign_error = '😔'
 let g:ale_sign_warning = '🤔'
 let g:ale_virtualtext_cursor = 1
 let g:ale_linters = {
-            \ 'go': ['golangci-lint'] }
-let g:ale_go_golangci_lint_options = 'fast -E bodyclose,misspell,gocyclo,gofmt,golint,unconvert,goimports,depguard,gocritic,interfacer'
+            \ 'go': ['golangci-lint', 'golint'] }
+let g:ale_go_golangci_lint_options = '--enable-all'
+      \ . ' -D wsl'
+      \ . ' -D maligned'
+      \ . ' -D gochecknoglobals'
+      \ . ' -D golint'
+let g:ale_go_golangci_lint_package = 1
 
 " vim-go
 let g:go_def_mapping_enabled = 0
