@@ -1,4 +1,5 @@
 ZSH_THEME="spaceship"
+ZSH_DISABLE_COMPFIX="true"
 DISABLE_AUTO_TITLE="false"
 plugins=(
   git
@@ -42,12 +43,14 @@ disable -r time
 
 GOPATH="${HOME}/.go"
 GOPRIVATE="*"
-PATH="$PATH:${HOME}/.bin:/${HOME}/.local/bin:/${HOME}/.gem/ruby/2.5.0/bin:/${HOME}/.npm-packages/bin:$GOPATH/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin";
+
+PATH="$PATH:${HOME}/.bin:/${HOME}/.local/bin:/${HOME}/.gem/ruby/2.5.0/bin:/${HOME}/.npm-packages/bin:$GOPATH/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:${HOME}/.yarn/bin";
 NPM_PACKAGES="/Users/simo/.npm-packages"
 
 unset MANPATH
 
 export PATH;
+export SHELL="/usr/bin/zsh"
 export ZSH="${HOME}/.oh-my-zsh"
 export EDITOR=$(where nvim)
 export VISUAL=$EDITOR
@@ -63,7 +66,7 @@ export motherfucker="redeemer"
 source $ZSH/oh-my-zsh.sh
 source ~/.aliases
 
-if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then nx; fi
+# if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then nx; fi
 
 if [[ -z $TMUX ]]; then
     if [ -e /usr/share/terminfo/x/xterm+256color ]; then # may be xterm-256 depending on your distro
@@ -83,3 +86,7 @@ bindkey '\e ' autosuggest-accept
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+if type rg &> /dev/null; then
+    export FZF_DEFAULT_COMMAND="rg --files --hidden --follow -g '!.git/'"
+fi
