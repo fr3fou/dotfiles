@@ -7,7 +7,7 @@ set display+=lastline history=1000 completeopt+=noselect
 set incsearch hlsearch ignorecase smartcase signcolumn=yes
 set updatetime=100 laststatus=2 updatetime=50 shortmess+=c fillchars+=vert:┃
 set relativenumber number wildmenu lazyredraw list listchars=tab:│·,trail:_ noshowmode
-set pastetoggle=<F10> completeopt-=preview
+set pastetoggle=<F10> completeopt-=preview 
 syntax on
 filetype plugin indent on
 
@@ -29,6 +29,12 @@ Plug 'itchyny/lightline.vim'
 " NERDTree
 Plug 'preservim/nerdtree'
 
+" NERDTree git
+Plug 'Xuyuanp/nerdtree-git-plugin'
+
+" devicons
+Plug 'ryanoasis/vim-devicons'
+
 " fzf
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -36,9 +42,6 @@ Plug 'junegunn/fzf.vim'
 " git plugins
 Plug 'tpope/vim-fugitive'
 " Plug 'airblade/vim-gitgutter'
-
-" devicons
-Plug 'ryanoasis/vim-devicons'
 
 " vim-rooter
 Plug 'airblade/vim-rooter'
@@ -94,7 +97,8 @@ let g:NERDTreeAutoDeleteBuffer = 1
 let g:NERDTreeMapOpenInTabSilent = '<RightMouse>'
 let g:NERDTreeWinSize = 30
 let g:NERDTreeHighlightCursorline=0
-let g:NERDTreeWinPos = "right"
+let g:NERDTreeGitStatusWithFlags = 1
+
 nnoremap <Leader>f :NERDTreeToggle<CR>
 autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
@@ -225,7 +229,7 @@ nmap <silent>gd <Plug>(coc-definition)
 nmap <silent>gy <Plug>(coc-type-definition)
 nmap <silent>gi <Plug>(coc-implementation)
 nmap <silent>gr <Plug>(coc-references)
-nmap <silent><leader>r <Plug>(coc-rename)
+nmap <silent><leader>rn <Plug>(coc-rename)
 nmap <silent>g[ <Plug>(coc-diagnostic-prev)
 nmap <silent>g] <Plug>(coc-diagnostic-next)
 nmap <silent> <leader>gp <Plug>(coc-diagnostic-prev-error)
@@ -244,6 +248,7 @@ let g:ale_linters = {
 let g:ale_go_golangci_lint_options = '--enable-all'
       \ . ' -D wsl'
       \ . ' -D maligned'
+      \ . ' -D gomnd'
       \ . ' -D gochecknoglobals'
       \ . ' -D golint'
 let g:ale_go_golangci_lint_package = 1
