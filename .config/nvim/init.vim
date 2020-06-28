@@ -165,6 +165,9 @@ nnoremap <leader>8 8gt
 nnoremap <leader>9 9gt
 nnoremap <leader>0 0gt
 
+" Make Y behave like D
+noremap Y y$
+
 " clear search on Space + c
 nnoremap <silent><Leader>c :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><F9>
 
