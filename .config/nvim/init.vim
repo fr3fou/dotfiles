@@ -7,7 +7,7 @@ set display+=lastline history=1000 completeopt+=noselect
 set incsearch hlsearch ignorecase smartcase signcolumn=yes
 set updatetime=100 laststatus=2 updatetime=50 shortmess+=c fillchars+=vert:┃
 set relativenumber number wildmenu lazyredraw list listchars=tab:│·,trail:_ noshowmode
-set pastetoggle=<F10> completeopt-=preview 
+set pastetoggle=<F10> completeopt-=preview cursorline
 syntax on
 filetype plugin indent on
 
@@ -22,6 +22,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
 " Colorschemes
 Plug 'kaicataldo/material.vim'
+Plug 'gruvbox-community/gruvbox'
 
 " Lightline
 Plug 'itchyny/lightline.vim'
@@ -148,6 +149,10 @@ au User Startified nnoremap <buffer> <S-S> :Files<CR>
 let g:material_theme_style='darker'
 let g:material_terminal_italics = 1
 
+let g:gruvbox_contrast_dark = "medium"
+let g:gruvbox_invert_selection = 0
+let g:gruvbox_improved_warnings = 1
+
 " tmux fix
 let &t_SI.="\e[5 q"
 let &t_SR.="\e[4 q"
@@ -195,7 +200,7 @@ let g:gitgutter_override_sign_column_highlight = 1
 nnoremap <leader>m :GitGutterStageHunk<CR>
 
 " Lightline
-let g:lightline = { 'colorscheme': 'material_vim', 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" }, 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" }}
+let g:lightline = { 'colorscheme': 'gruvbox', 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" }, 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" }}
 
 " polyglot
 let g:polyglot_disabled = ['jsx', 'tsx', 'go']
@@ -268,12 +273,7 @@ augroup END
 " custom colors
 augroup custom-colors
     au!
-    au ColorScheme * hi! Comment cterm=italic gui=italic
-                \ | hi! clear SignColumn
-                \ | hi! GitGutterAdd ctermbg=NONE
-                \ | hi! GitGutterChange ctermbg=NONE
-                \ | hi! GitGutterDelete ctermbg=NONE
-                \ | hi! GitGutterChangeDelete ctermbg=NONE
+    au ColorScheme * hi! clear SignColumn
 augroup END
 
-colorscheme material
+colorscheme gruvbox
