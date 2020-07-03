@@ -1,4 +1,4 @@
-set nocompatible termguicolors background=dark t_Co=256
+set nocompatible termguicolors background=light t_Co=256
 set mouse=a encoding=UTF-8 backspace=indent,eol,start
 set splitbelow splitright wrap linebreak whichwrap=b,s,<,>,[,]
 set autoindent expandtab tabstop=4 softtabstop=0 shiftwidth=0 showmatch
@@ -150,6 +150,7 @@ let g:material_theme_style='darker'
 let g:material_terminal_italics = 1
 
 let g:gruvbox_contrast_dark = "medium"
+let g:gruvbox_contrast_light = "hard"
 let g:gruvbox_invert_selection = 0
 let g:gruvbox_improved_warnings = 1
 
