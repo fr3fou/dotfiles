@@ -61,7 +61,7 @@ export GOPATH;
 export GOPRIVATE;
 export MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
 export ANDROID_HOME="/usr/local/share/android-sdk"
-export motherfucker="redeemer"
+export motherfucker="redeemer" # https://www.youtube.com/watch?v=mPj1R2UT9mc uwu
 
 source $ZSH/oh-my-zsh.sh
 source ~/.aliases
