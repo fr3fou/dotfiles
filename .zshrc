@@ -1,4 +1,4 @@
-ZSH_THEME="spaceship"
+ZSH_THEME="robbyrussell"
 ZSH_DISABLE_COMPFIX="true"
 DISABLE_AUTO_TITLE="false"
 plugins=(
@@ -45,7 +45,7 @@ GOPATH="${HOME}/.go"
 GOPRIVATE="*"
 
 PATH="$PATH:${HOME}/.bin:/${HOME}/.local/bin:/${HOME}/.gem/ruby/2.5.0/bin:/${HOME}/.npm-packages/bin:$GOPATH/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:${HOME}/.yarn/bin";
-NPM_PACKAGES="/Users/simo/.npm-packages"
+NPM_PACKAGES="$HOME/.npm-packages"
 
 unset MANPATH
 
