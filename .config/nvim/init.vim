@@ -22,6 +22,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
 " Colorschemes
 Plug 'kaicataldo/material.vim', { 'branch': 'main' }
+Plug 'AlessandroYorba/Sierra'
 Plug 'gruvbox-community/gruvbox'
 
 " Lightline
@@ -154,6 +155,8 @@ let g:gruvbox_contrast_light = "hard"
 let g:gruvbox_invert_selection = 0
 let g:gruvbox_improved_warnings = 1
 
+let g:sierra_Twilight = 1
+
 " tmux fix
 let &t_SI.="\e[5 q"
 let &t_SR.="\e[4 q"
@@ -201,7 +204,7 @@ let g:gitgutter_override_sign_column_highlight = 1
 nnoremap <leader>m :GitGutterStageHunk<CR>
 
 " Lightline
-let g:lightline = { 'colorscheme': 'gruvbox', 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" }, 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" }}
+let g:lightline = { 'colorscheme': 'seoul256', 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" }, 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" }}
 
 " polyglot
 let g:polyglot_disabled = ['jsx', 'tsx', 'go']
@@ -277,4 +280,4 @@ augroup custom-colors
     au ColorScheme * hi! clear SignColumn
 augroup END
 
-colorscheme gruvbox
+colorscheme sierra
