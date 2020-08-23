@@ -1,4 +1,4 @@
-set nocompatible termguicolors background=light t_Co=256
+set nocompatible termguicolors background=dark t_Co=256
 set mouse=a encoding=UTF-8 backspace=indent,eol,start
 set splitbelow splitright wrap linebreak whichwrap=b,s,<,>,[,]
 set autoindent expandtab tabstop=4 softtabstop=0 shiftwidth=0 showmatch
@@ -21,7 +21,7 @@ endif
 call plug#begin('~/.config/nvim/autoload/plugged')
 
 " Colorschemes
-Plug 'kaicataldo/material.vim'
+Plug 'kaicataldo/material.vim', { 'branch': 'main' }
 Plug 'gruvbox-community/gruvbox'
 
 " Lightline
