@@ -39,3 +39,7 @@ alot.
     - autocompletion is disabled, due to me wanting to handle all autocompletion and goto definition through coc
 - ale
     - linter only
+
+## TODO:
+
+- [ ] https://github.com/ms-jpq/chadtree as an alternative to NERDTree
