@@ -64,5 +64,6 @@ alias rdsc="pkill DiscordCanary && pkill DiscordCanary && nohup discord-canary &
 alias nvm-init="source ~/.nvm/nvm.sh"
 alias audio-fix="sudo alsactl restore"
 alias git="hub"
+alias explorer="explorer.exe"
 
 # vim:ft=config
