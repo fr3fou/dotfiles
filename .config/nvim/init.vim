@@ -78,6 +78,8 @@ Plug 'mhinz/vim-startify'
 Plug 'wakatime/vim-wakatime'
 
 " Language support for many languages
+" Disabled filetypes, should be before loading the plugin
+let g:polyglot_disabled = ['jsx', 'tsx', 'go']
 Plug 'sheerun/vim-polyglot'
 
 call plug#end()
@@ -205,9 +207,6 @@ nnoremap <leader>m :GitGutterStageHunk<CR>
 
 " Lightline
 let g:lightline = { 'colorscheme': 'seoul256', 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" }, 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" }}
-
-" polyglot
-let g:polyglot_disabled = ['jsx', 'tsx', 'go']
 
 " Tmuxline
 let g:tmuxline_preset = "nightly_fox"
