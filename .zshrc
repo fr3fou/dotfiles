@@ -1,4 +1,4 @@
-ZSH_THEME="robbyrussell"
+ZSH_THEME="refined"
 ZSH_DISABLE_COMPFIX="true"
 DISABLE_AUTO_TITLE="false"
 plugins=(
@@ -43,8 +43,8 @@ disable -r time
 
 GOPATH="${HOME}/.go"
 GOPRIVATE="*"
-
-PATH="$PATH:${HOME}/.bin:/${HOME}/.local/bin:/${HOME}/.gem/ruby/2.5.0/bin:/${HOME}/.npm-packages/bin:$GOPATH/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:${HOME}/.yarn/bin";
+DENO_INSTALL="${HOME}/.deno"
+PATH="$PATH:${HOME}/.bin:/${HOME}/.local/bin:/${HOME}/.gem/ruby/2.5.0/bin:/${HOME}/.npm-packages/bin:$GOPATH/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:${HOME}/.yarn/bin:$DENO_INSTALL/bin";
 NPM_PACKAGES="$HOME/.npm-packages"
 
 unset MANPATH
