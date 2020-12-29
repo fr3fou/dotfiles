@@ -1,11 +1,13 @@
 # nvim 
 
+Remove `Plug 'wakatime/vim-wakatime'` from `init.vim` if you don't want wakatime
+
 ## Requirements
 
 - nvim
 - bat (optional)
 - fzf (installed automatically)
-- python (optional, remove `Plug 'wakatime/vim-wakatime'` from `init.vim` if you don't want it)
+- python
 - ripgrep for `:Rg` support (optional, but recommended)
     - Add this in your `~/.bashrc/` or `~/.zshrc` 
     ```sh
