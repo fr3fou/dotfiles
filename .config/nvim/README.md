@@ -20,12 +20,12 @@ Remove `Plug 'wakatime/vim-wakatime'` from `init.vim` if you don't want wakatime
 
 0. Install `neovim`
 1. Copy the contents `nvim` directory into `~/.config/nvim`
-2. Install `node`
+2. Install `node` and `python3.7` or `python3.8`
 3. `yarn global add neovim` or `npm -g install neovim`
 4. `pip3 install neovim --user`
 5. Run `nvim`, type `:PlugInstall` and restart `nvim`
 6. If you're going to be using `wakatime`, you'll be prompted to add your API key, otherwise, remove the line in `init.vim`
-7. For Go development, run `:GoUpdateBinaries` (not 100% if it's done automatically by `:PlugInstall`
+7. For Go development, run `:GoUpdateBinaries` (not 100% if it's done automatically by `:PlugInstall`)
 
 ## Plugins
 
