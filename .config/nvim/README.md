@@ -22,8 +22,9 @@ Remove `Plug 'wakatime/vim-wakatime'` from `init.vim` if you don't want wakatime
 1. Copy the contents `nvim` directory into `~/.config/nvim`
 2. Install `node`
 3. `yarn global add neovim` or `npm -g install neovim`
-4. Run `nvim`, type `:PlugInstall` and restart `nvim`
-5. If you're going to be using `wakatime`, you'll be prompted to add your API key, otherwise, remove the line in `init.vim`
+4. `pip3 install neovim --user`
+5. Run `nvim`, type `:PlugInstall` and restart `nvim`
+6. If you're going to be using `wakatime`, you'll be prompted to add your API key, otherwise, remove the line in `init.vim`
 
 ## Plugins
 
