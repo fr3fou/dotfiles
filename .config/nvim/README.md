@@ -25,6 +25,7 @@ Remove `Plug 'wakatime/vim-wakatime'` from `init.vim` if you don't want wakatime
 4. `pip3 install neovim --user`
 5. Run `nvim`, type `:PlugInstall` and restart `nvim`
 6. If you're going to be using `wakatime`, you'll be prompted to add your API key, otherwise, remove the line in `init.vim`
+7. For Go development, run `:GoUpdateBinaries` (not 100% if it's done automatically by `:PlugInstall`
 
 ## Plugins
 
