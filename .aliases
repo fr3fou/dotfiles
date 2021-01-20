@@ -66,4 +66,5 @@ alias audio-fix="sudo alsactl restore"
 alias git="hub"
 alias explorer="explorer.exe"
 
+eval $(thefuck --alias FUCK)
 # vim:ft=config
