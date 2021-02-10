@@ -47,3 +47,5 @@ alot.
 ## TODO:
 
 - [ ] https://github.com/ms-jpq/chadtree as an alternative to NERDTree
+- [ ] https://github.com/nvim-treesitter/nvim-treesitter 
+- [ ] https://github.com/neovim/nvim-lspconfig
