@@ -2,27 +2,13 @@
 <h1>dots</h1>
 </div>
 
+A rewrite of my dotfiles.
+
+You can see my old dotfiles in the https://github.com/fr3fou/dotfiles/tree/old branch.
+
 :pencil: GitHub repo for my .dotfiles for my Linux PCs
 
 ## Screenshots
-
-![new](https://i.imgur.com/CnUC52A.png)
-
-![new](https://i.redd.it/ywmjde2nj2821.png)
-
-![new](https://i.imgur.com/z9MuXWd.png)
-
-![new1](https://i.imgur.com/u8YZek0.png)
-
-![new2](https://i.imgur.com/sABLRi6.png)
-
-![mountain](https://i.imgur.com/kDgQtue.png)
-
-![1](https://i.imgur.com/xCDhZlL.png)
-
-![2](https://i.imgur.com/92lsOpc.png)
-
-![3](https://i.imgur.com/sYu4qek.png)
 
 ## vim setup
 
