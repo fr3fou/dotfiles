@@ -34,7 +34,7 @@ ScrollingUnlimited=TRUE
 TitleMode=TERMINAL_TITLE_REPLACE
 ScrollingBar=TERMINAL_SCROLLBAR_NONE
 TextBlinkMode=TERMINAL_TEXT_BLINK_MODE_FOCUSED
-FontName=UbuntuMono Nerd Font Mono 17
+FontName=Operator Mono weight=325 14
 ColorCursorForeground=#FFFFFF
 ColorCursor=#ffffffffffff
 ColorCursorUseDefault=FALSE
@@ -42,4 +42,5 @@ ColorBold=#7fbaff
 ColorBoldIsBright=FALSE
 TabActivityColor=#47B35D
 TitleInitial=uwu
+FontAllowBold=FALSE
 
