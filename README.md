@@ -2,13 +2,13 @@
 <h1>dots</h1>
 </div>
 
-A rewrite of my dotfiles.
+:pencil: A rewrite of my dotfiles.
 
 You can see my old dotfiles in the https://github.com/fr3fou/dotfiles/tree/old branch.
 
-:pencil: GitHub repo for my .dotfiles for my Linux PCs
-
 ## Screenshots
+
+TODO
 
 ## vim setup
 

@@ -8,6 +8,6 @@ end
 
 fish_add_path $HOME/.bin
 fish_add_path $GOPATH/bin $HOME/.yarn/bin 
-fish_add_path $ANDROID_SDK_ROOT/tools/bin $ANDROID_SDK_ROOT/platform-tools $ANDROID_SDK_ROOT/build-tools/30.0.3 $ANDROID_SDK_ROOT/emulator
+fish_add_path $ANDROID_SDK_ROOT/emulator $ANDROID_SDK_ROOT/tools/bin $ANDROID_SDK_ROOT/platform-tools $ANDROID_SDK_ROOT/build-tools/30.0.3 
 
 thefuck --alias | source
