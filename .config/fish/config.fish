@@ -6,5 +6,6 @@ if begin; status --is-interactive; and test "$COLORTERM" = xfce4-terminal ; end
 end
 
 fish_add_path $GOPATH/bin
+fish_add_path $HOME/.bin
 
 thefuck --alias | source
