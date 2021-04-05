@@ -46,13 +46,13 @@ workspace_layout default
 ##############################
 
 #border indicator on windows: 
-new_window pixel 1
+new_window pixel 3
 
 # thin borders
 # hide_edge_borders both
 
 # Set inner/outer gaps
-gaps inner 8
+gaps inner 4
 gaps outer 4
 
 # Use Mouse+$mod to drag floating windows to their wanted position
@@ -287,11 +287,11 @@ for_window [class="Pamac-manager"] floating enable
 ######################################
 
 # class                 border  bground text    indicator child_border
-client.focused          #4C7899 #285577 #FFFFFF #2E9EF4   #285577
-client.focused_inactive #333333 #5F676A #FFFFFF #484E50   #5F676A
-client.unfocused        #333333 #222222 #888888 #292D2E   #222222
+client.focused          #4C7899 #285577 #FFFFFF #285577   #285577
+client.focused_inactive #333333 #222222 #888888 #222222   #222222
+client.unfocused        #333333 #222222 #888888 #222222   #222222
 client.urgent           #2F343A #900000 #FFFFFF #900000   #900000
-client.placeholder      #000000 #0C0C0C #FFFFFF #000000   #0C0C0C
+client.placeholder      #000000 #0C0C0C #FFFFFF #0C0C0C   #0C0C0C
 
 client.background       #FFFFFF
 
