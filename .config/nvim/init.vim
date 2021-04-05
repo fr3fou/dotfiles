@@ -180,10 +180,63 @@ if (has("termguicolors"))
 endif
 
 " Lightline
-let g:lightline = { 'colorscheme': 'one', 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" }, 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" }}
+let g:lightline = { 'colorscheme': 'nord', 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" }, 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" }}
 
 " Tmuxline
 let g:tmuxline_preset = "nightly_fox"
 let g:tmuxline_powerline_separators = 0
 
-colorscheme onedark
+" general vim vars
+let loaded_matchparen = 1
+let mapleader= "\<Space>"
+
+" change tabs with <Space>+Number
+nnoremap <leader>1 1gt
+nnoremap <leader>2 2gt
+nnoremap <leader>3 3gt
+nnoremap <leader>4 4gt
+nnoremap <leader>5 5gt
+nnoremap <leader>6 6gt
+nnoremap <leader>7 7gt
+nnoremap <leader>8 8gt
+nnoremap <leader>9 9gt
+nnoremap <leader>0 0gt
+
+" Make Y behave like D
+noremap Y y$
+
+" clear search on Space + c
+nnoremap <silent><Leader>c :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><F9>
+
+" go back
+noremap <silent>gb <C-o>
+
+" control + S for save
+nnoremap <silent><C-s> :w<CR>
+
+" change tabs with Tab and Shift+Tab
+nnoremap <Tab> gt
+nnoremap <S-Tab> gT
+
+" ; -> :
+nnoremap ; :
+
+" Quicker navigation between panes
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" remember cursor position after quitting
+augroup remember-cursor
+    au!
+    au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+augroup END
+
+" custom colors
+augroup custom-colors
+    au!
+    au ColorScheme * hi! clear SignColumn
+augroup END
+
+colorscheme aurora
