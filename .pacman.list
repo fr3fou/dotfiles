@@ -148,6 +148,7 @@ jq
 jre8-openjdk
 jre8-openjdk-headless
 keyserver-rank
+lazygit
 libdvdcss
 libgsf
 libopenraw
