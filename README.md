@@ -10,15 +10,6 @@ You can see my old dotfiles in the https://github.com/fr3fou/dotfiles/tree/old b
 
 TODO
 
-## vim setup
-
-Make sure you have yarn and pip installed!
-
-```bash
-yarn global add neovim
-pip install neovim --user
-```
-
 ## Setting up
 
 Shoutout to [jaagr/dots](https://github.com/jaagr/dots)
