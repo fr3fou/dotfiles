@@ -197,6 +197,10 @@ vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
 vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
 EOF
 
+nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <silent> ca :Lspsaga code_action<CR>
+nnoremap <silent> K :Lspsaga hover_doc<CR>
+
 inoremap <silent><expr> <C-Space> compe#complete()
 inoremap <silent><expr> <CR>      compe#confirm('<CR>')
 inoremap <silent><expr> <C-e>     compe#close('<C-e>')
@@ -250,9 +254,6 @@ nnoremap <silent><C-s> :w<CR>
 " change tabs with Tab and Shift+Tab
 nnoremap <Tab> gt
 nnoremap <S-Tab> gT
-
-" ; -> :
-nnoremap ; :
 
 " Quicker navigation between panes
 nnoremap <C-h> <C-w>h
