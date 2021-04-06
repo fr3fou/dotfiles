@@ -60,12 +60,27 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-compe'
 Plug 'hrsh7th/vim-vsnip'
 
+" NERDTree
+Plug 'preservim/nerdtree'
+
+" NERDTree git
+" Plug 'Xuyuanp/nerdtree-git-plugin'
+
+" auto-pairs
+Plug 'jiangmiao/auto-pairs'
+
+" tpope's plugins
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-commentary'
+
+" wakatime
+Plug 'wakatime/vim-wakatime'
+
 call plug#end()
 
 lua << EOF
-
 vim.g.dashboard_default_executive = 'telescope'
-
 vim.g.dashboard_custom_header={
     '',
     '⡿⠋⠄⣀⣀⣤⣴⣶⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣦⣌⠻⣿⣿',
@@ -209,16 +224,16 @@ let loaded_matchparen = 1
 let mapleader= "\<Space>"
 
 " change tabs with <Space>+Number
-nnoremap <leader>1 1gt
-nnoremap <leader>2 2gt
-nnoremap <leader>3 3gt
-nnoremap <leader>4 4gt
-nnoremap <leader>5 5gt
-nnoremap <leader>6 6gt
-nnoremap <leader>7 7gt
-nnoremap <leader>8 8gt
-nnoremap <leader>9 9gt
-nnoremap <leader>0 0gt
+nnoremap <silent><leader>1 :BufferGoto 1<CR>
+nnoremap <silent><leader>2 :BufferGoto 2<CR>
+nnoremap <silent><leader>3 :BufferGoto 3<CR>
+nnoremap <silent><leader>4 :BufferGoto 4<CR>
+nnoremap <silent><leader>5 :BufferGoto 5<CR>
+nnoremap <silent><leader>6 :BufferGoto 6<CR>
+nnoremap <silent><leader>7 :BufferGoto 7<CR>
+nnoremap <silent><leader>8 :BufferGoto 8<CR>
+nnoremap <silent><leader>9 :BufferLast<CR>
+nnoremap <silent><leader>q :BufferClose<CR>
 
 " Make Y behave like D
 noremap Y y$
@@ -250,6 +265,23 @@ augroup remember-cursor
     au!
     au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 augroup END
+
+" NERDTree
+let g:NERDTreeChDirMode=2
+let g:NERDTreeShowHidden=1
+let g:NERDTreeQuitOnOpen = 1
+let g:NERDTreeIgnore=['\.rbc$', '\~$', '\.pyc$', '\.db$', '\.sqlite$', '__pycache__']
+let g:NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$', '\.bak$', '\~$']
+let g:NERDTreeShowBookmarks=1
+let g:NERDTreeMinimalUI = 1
+let g:NERDTreeDirArrows = 1
+let g:NERDTreeAutoDeleteBuffer = 1
+let g:NERDTreeWinSize = 30
+let g:NERDTreeHighlightCursorline=0
+let g:NERDTreeGitStatusWithFlags = 1
+
+nnoremap <Leader>f :NERDTreeToggle<CR>
+autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " custom colors
 augroup custom-colors
