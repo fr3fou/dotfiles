@@ -23,6 +23,7 @@ b43-fwcutter
 baobab
 base
 bash-completion
+bat
 bind
 binutils
 bison
@@ -200,7 +201,6 @@ numlockx
 open-vm-tools
 openconnect
 opendesktop-fonts
-orca
 os-prober
 otf-font-awesome
 pacman-contrib
@@ -262,6 +262,8 @@ usbutils
 vi
 vino
 visual-studio-code-bin
+webstorm
+webstorm-jre
 welcome
 wget
 which
@@ -270,6 +272,7 @@ wireless-regdb
 wireless_tools
 wvdial
 xbindkeys
+xclip
 xcursor-neutral
 xdg-user-dirs
 xdg-user-dirs-gtk
