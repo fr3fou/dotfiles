@@ -214,6 +214,7 @@ pkgconf
 polkit-gnome
 poppler-glib
 postgresql
+postman-bin
 pptpclient
 pulseaudio
 python-pip
