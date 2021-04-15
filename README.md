@@ -36,7 +36,7 @@ alias dots='git --git-dir=$HOME/.dots.git/ --work-tree=$HOME'
 
 ```sh
 git init --bare $HOME/.dots.git
-dots remote add origin https://github.com/jaagr/dots.git
+dots remote add origin https://github.com/fr3fou/dots.git
 ```
 
 ### Configuration
