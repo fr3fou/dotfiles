@@ -198,7 +198,6 @@ vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
 EOF
 
 nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>
-nnoremap <silent> ca :Lspsaga code_action<CR>
 nnoremap <silent> K :Lspsaga hover_doc<CR>
 
 inoremap <silent><expr> <C-Space> compe#complete()
