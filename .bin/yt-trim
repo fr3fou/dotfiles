@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+if [ "$1" == "help" ] || [ $# -eq 0 ]; then
+    echo "usage: yt-trim 'https://www.youtube.com/watch?v=tSAVkWdoknA' 0:50 0:10 test.mp4"; 
+    echo "                               ^                              ^    ^       ^"; 
+    echo "                           video url                        time duration filename"; 
+    exit 0;
+fi
+
+if [ -z "$1" ]; then
+    echo "No video URL supplied"; 
+    exit 1;
+fi
+
+if [ -z "$2" ]; then
+    echo "No timestamp supplied"; 
+    exit 1;
+fi
+
+if [ -z "$3" ]; then
+    echo "No duration supplied"; 
+    exit 1;
+fi
+
+if [ -z "$4" ]; then
+    echo "No filename supplied"; 
+    exit 1;
+fi
+
+ffmpeg $(youtube-dl --youtube-skip-dash-manifest -g "$1" | sed "s/^/-ss $2 -thread_queue_size 512 -i /") -map 0:v -map 1:a -t "$3" -c:v libx264 -c:a aac "$4"
