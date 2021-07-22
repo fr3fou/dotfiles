@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+if [ "$1" == "help" ] || [ $# -eq 0 ]; then
+    echo "usage: watch-psql 'select count(*) from users' 0.1 123 app";
+    echo "                               ^                ^   ^   ^ ";
+    echo "                             query            time pass db";
+    exit 0;
+fi
+
+if [ -z "$1" ]; then
+    echo "No query provided";
+    exit 1;
+fi
+
+if [ -z "$2" ]; then
+    echo "No time provided";
+    exit 1;
+fi
+
+if [ -z "$3" ]; then
+    echo "No password provided";
+    exit 1;
+fi
+
+if [ -z "$4" ]; then
+    echo "No db provided";
+    exit 1;
+fi
+
+PGPASSWORD=$3 watch -n $2 "echo \"$1\" | psql -h localhost -U postgres -d $4"
