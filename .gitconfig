@@ -1,0 +1,12 @@
+[user]
+	name = Simo Aleksandrov
+	email = simo3003@me.com
+	signingkey = 6D9EB8B7471AA4A9
+[pull]
+	rebase = false
+[commit]
+	gpgsign = true
+[gpg]
+	program = /opt/homebrew/bin/gpg
+[core]
+    hookspath = ~/.git-hooks
