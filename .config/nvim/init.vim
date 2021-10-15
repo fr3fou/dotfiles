@@ -7,7 +7,7 @@ set display+=lastline history=1000 completeopt+=noselect
 set incsearch hlsearch ignorecase smartcase signcolumn=yes
 set updatetime=100 laststatus=2 updatetime=50 shortmess+=c fillchars+=vert:┃
 set relativenumber number wildmenu lazyredraw noshowmode
-set pastetoggle=<F10> completeopt=menuone,noselect cursorline guicursor= 
+set pastetoggle=<F10> completeopt=menuone,noselect cursorline
 syntax on
 filetype plugin indent on
 
@@ -288,6 +288,11 @@ autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 augroup custom-colors
     au!
     au ColorScheme * hi! clear SignColumn
+augroup END
+
+augroup RestoreCursorShapeOnExit
+    autocmd!
+    autocmd VimLeave * set guicursor=a:ver20
 augroup END
 
 colorscheme aurora
