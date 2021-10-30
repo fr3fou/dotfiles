@@ -217,7 +217,7 @@ if (has("termguicolors"))
 endif
 
 " Lightline
-let g:lightline = { 'colorscheme': 'nord', 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" }, 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" }}
+let g:lightline = {  'separator': { 'left': "\ue0b0", 'right': "\ue0b2" }, 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" }}
 
 " Tmuxline
 let g:tmuxline_preset = "nightly_fox"
@@ -290,9 +290,4 @@ augroup custom-colors
     au ColorScheme * hi! clear SignColumn
 augroup END
 
-augroup RestoreCursorShapeOnExit
-    autocmd!
-    autocmd VimLeave * set guicursor=a:ver20
-augroup END
-
-colorscheme aurora
+colorscheme nvcode
