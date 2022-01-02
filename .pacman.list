@@ -7,13 +7,7 @@ alsa-firmware
 alsa-plugins
 alsa-utils
 amd-ucode
-android-emulator
-android-platform
-android-sdk
-android-sdk-build-tools
-android-sdk-platform-tools
 arandr
-arc-gtk-theme
 arc-x-icons-theme
 archlinux-xdg-menu
 autoconf
@@ -32,8 +26,6 @@ btrfs-progs
 capitaine-cursors
 cheese
 chrome-gnome-shell
-datagrip
-datagrip-jre
 dex
 dhclient
 dialog
@@ -65,7 +57,6 @@ fish
 flex
 fwupd
 galculator
-gcc
 gdm
 gedit
 glances
@@ -82,7 +73,6 @@ gnome-control-center
 gnome-disk-utility
 gnome-documents
 gnome-font-viewer
-gnome-getting-started-docs
 gnome-keyring
 gnome-logs
 gnome-maps
@@ -108,8 +98,6 @@ gnome-video-effects
 gnome-weather
 gnu-netcat
 go
-goland
-goland-jre
 google-chrome
 gotop-bin
 grilo-plugins
@@ -143,11 +131,8 @@ inxi
 ipw2100-fw
 ipw2200-fw
 iwd
-jdk8-openjdk
 jfsutils
 jq
-jre8-openjdk
-jre8-openjdk-headless
 keyserver-rank
 lazygit
 libdvdcss
@@ -216,7 +201,6 @@ poppler-glib
 postgresql
 postman-bin
 pptpclient
-pulseaudio
 python-pip
 r8168
 redis
@@ -262,9 +246,6 @@ usb_modeswitch
 usbutils
 vi
 vino
-visual-studio-code-bin
-webstorm
-webstorm-jre
 welcome
 wget
 which
@@ -294,7 +275,6 @@ xorg-xinput
 xorg-xkill
 xorg-xrandr
 xterm
-yad
 yarn
 yay
 yelp
