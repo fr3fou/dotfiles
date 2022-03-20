@@ -12,3 +12,5 @@
     hookspath = ~/.git-hooks
 [alias]
 	recreate = !git checkout $1 && git branch -D $2 && git checkout -b $2 && :
+[hub]
+	protocol = ssh
