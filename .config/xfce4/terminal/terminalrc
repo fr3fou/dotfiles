@@ -27,20 +27,16 @@ MiscRewrapOnResize=TRUE
 MiscUseShiftArrowsToScroll=FALSE
 MiscSlimTabs=TRUE
 MiscNewTabAdjacent=FALSE
-ColorForeground=#ffffffffffff
-ColorBackground=#111111111111
-ColorPalette=rgb(8,5,43);rgb(255,127,127);rgb(71,179,93);rgb(204,57,128);rgb(127,186,255);rgb(127,63,191);rgb(127,127,255);rgb(205,204,219);rgb(127,186,255);rgb(255,127,127);rgb(153,153,204);rgb(255,127,127);rgb(127,127,255);rgb(127,63,191);rgb(127,127,255);rgb(227,227,234)
 ScrollingUnlimited=TRUE
 TitleMode=TERMINAL_TITLE_REPLACE
 ScrollingBar=TERMINAL_SCROLLBAR_NONE
 TextBlinkMode=TERMINAL_TEXT_BLINK_MODE_FOCUSED
-FontName=Operator Mono weight=325 14
-ColorCursorForeground=#FFFFFF
-ColorCursor=#ffffffffffff
-ColorCursorUseDefault=FALSE
-ColorBold=#7fbaff
-ColorBoldIsBright=FALSE
-TabActivityColor=#47B35D
+FontName=Source Code Variable 14
 TitleInitial=uwu
 FontAllowBold=FALSE
+MiscRightClickAction=TERMINAL_RIGHT_CLICK_ACTION_CONTEXT_MENU
+ColorForeground=#dcdcdc
+ColorBackground=#2c2c2c
+ColorCursor=#dcdcdc
+ColorPalette=#3f3f3f;#705050;#60b48a;#dfaf8f;#9ab8d7;#dc8cc3;#8cd0d3;#dcdcdc;#709080;#dca3a3;#72d5a3;#f0dfaf;#94bff3;#ec93d3;#93e0e3;#ffffff
 
