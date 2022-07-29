@@ -3,6 +3,7 @@ set -x EDITOR nvim
 set -x ANDROID_SDK_ROOT /opt/android-sdk
 set -x N_PREFIX $HOME/.n
 set -x GOOGLE_CREDENTIALS $HOME/.n
+set -x USE_GKE_GCLOUD_AUTH_PLUGIN True
 
 if begin; status --is-interactive; and test "$COLORTERM" = xfce4-terminal ; end
     set -gx TERM xterm-256color
