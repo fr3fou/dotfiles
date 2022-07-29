@@ -18,6 +18,7 @@ fish_add_path $GOPATH/bin $HOME/.yarn/bin
 fish_add_path $ANDROID_SDK_ROOT/emulator $ANDROID_SDK_ROOT/tools/bin $ANDROID_SDK_ROOT/platform-tools $ANDROID_SDK_ROOT/build-tools/30.0.2 $ANDROID_SDK_ROOT/cmdline-tools/tools/bin
 fish_add_path $N_PREFIX/bin
 fish_add_path $HOME/.cargo/bin
+fish_add_path $HOME/.krew/bin
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
