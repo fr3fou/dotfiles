@@ -1,3 +1,4 @@
 set visualbell
 set noerrorbells
 set smartcase
+set relativenumber number
