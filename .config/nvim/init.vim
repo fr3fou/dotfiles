@@ -113,11 +113,7 @@ vim.g.dashboard_custom_footer = {'simo.sh'}
 
 require'nvim-treesitter.configs'.setup {
   ensure_installed = "all", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-  ignore_install = { "haskell" }, -- List of parsers to ignore installing
-  highlight = {
-    enable = true,              -- false will disable the whole extension
-    disable = { "rust" },  -- list of language that will be disabled
-  },
+  ignore_install = { "haskell", "phpdoc" }, -- List of parsers to ignore installing
 }
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -217,7 +213,7 @@ if (has("termguicolors"))
 endif
 
 " Lightline
-let g:lightline = {  'separator': { 'left': "\ue0b0", 'right': "\ue0b2" }, 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" }}
+let g:lightline = {  'separator': { 'left': "\ue0b0", 'right': "\ue0b2" }, 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" }, 'colorscheme': 'one'}
 
 " Tmuxline
 let g:tmuxline_preset = "nightly_fox"
@@ -290,4 +286,4 @@ augroup custom-colors
     au ColorScheme * hi! clear SignColumn
 augroup END
 
-colorscheme nvcode
+colorscheme onedark
