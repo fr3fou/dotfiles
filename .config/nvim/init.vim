@@ -29,6 +29,10 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 Plug 'itchyny/lightline.vim'
 Plug 'kyazdani42/nvim-web-devicons'
 
+" Catppuccin
+Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
+
+
 " Syntax highlighting
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
@@ -223,7 +227,7 @@ if (has("termguicolors"))
 endif
 
 " Lightline
-let g:lightline = {  'separator': { 'left': "\ue0b0", 'right': "\ue0b2" }, 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" }, 'colorscheme': 'one'}
+let g:lightline = {  'separator': { 'left': "\ue0b0", 'right': "\ue0b2" }, 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" }, 'colorscheme': 'catppuccin'}
 
 " Tmuxline
 let g:tmuxline_preset = "nightly_fox"
@@ -296,4 +300,4 @@ augroup custom-colors
     au ColorScheme * hi! clear SignColumn
 augroup END
 
-colorscheme onedark
+colorscheme catppuccin-macchiato
