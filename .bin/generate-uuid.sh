@@ -12,5 +12,5 @@
 # Documentation:
 # @raycast.description Generates a UUID and copies it to the clipboard.
 
-uuidgen | pbcopy
+uuidgen | awk '{ print tolower($0); }' | tr -d '\n' | pbcopy
 echo "UUID Generated"
