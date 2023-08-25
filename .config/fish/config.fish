@@ -4,12 +4,14 @@ set -x ANDROID_SDK_ROOT /opt/android-sdk
 set -x N_PREFIX $HOME/.n
 set -x GOOGLE_CREDENTIALS $HOME/.n
 set -x USE_GKE_GCLOUD_AUTH_PLUGIN True
+set -x JAVA_HOME (/usr/libexec/java_home -v 11.0.19)
 
 if begin; status --is-interactive; and test "$COLORTERM" = xfce4-terminal ; end
     set -gx TERM xterm-256color
 end
 
 fish_add_path /opt/homebrew/bin
+fish_add_path /opt/homebrew/opt/ruby/bin
 fish_add_path $HOME/.bin
 fish_add_path $HOME/.emacs.d/bin
 fish_add_path $HOME/.local/bin
@@ -27,3 +29,9 @@ eval /opt/homebrew/Caskroom/miniforge/base/bin/conda "shell.fish" "hook" $argv |
 
 ulimit -n 10240
 source $HOME/.config/fish/private.fish
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+set --export --prepend PATH "/Users/simo/.rd/bin"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+
+export PATH="$PATH:/Users/simo/.foundry/bin"
