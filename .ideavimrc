@@ -1,4 +1,7 @@
 set visualbell
 set noerrorbells
+set ignorecase
 set smartcase
-set relativenumber number
+set relativenumber 
+set number
+map <c-x> <Action>(ShowErrorDescription)

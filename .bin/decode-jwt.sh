@@ -25,7 +25,7 @@ function jwt() {
       b64="${b64}="
     fi
     d="$(openssl enc -base64 -d -A <<< "$b64")"
-    python -mjson.tool <<< "$d"
+    python3.9 -mjson.tool <<< "$d"
     # don't decode further if this is an encrypted JWT (JWE)
     if [[ 1 -eq part ]] && grep '"enc":' <<< "$d" >/dev/null ; then
         exit 0

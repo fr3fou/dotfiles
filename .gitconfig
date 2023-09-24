@@ -1,7 +1,7 @@
 [user]
 	name = Simo Aleksandrov
 	email = simo3003@me.com
-	signingkey = 6D9EB8B7471AA4A9
+	signingkey = D3A190801247660C
 [pull]
 	rebase = false
 [commit]
@@ -12,5 +12,6 @@
     hookspath = ~/.git-hooks
 [alias]
 	recreate = !git checkout $1 && git branch -D $2 && git checkout -b $2 && :
+	graphviz = "!f() { echo 'digraph git {' ; git log --pretty='format:  %h -> { %p }' \"$@\" | sed 's/[0-9a-f][0-9a-f]*/\"&\"/g' ; echo '}'; }; f"
 [hub]
 	protocol = ssh

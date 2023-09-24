@@ -4,7 +4,7 @@ set -x ANDROID_SDK_ROOT /opt/android-sdk
 set -x N_PREFIX $HOME/.n
 set -x GOOGLE_CREDENTIALS $HOME/.n
 set -x USE_GKE_GCLOUD_AUTH_PLUGIN True
-set -x JAVA_HOME (/usr/libexec/java_home -v 11.0.19)
+set -x JAVA_HOME (/usr/libexec/java_home -v 11)
 
 if begin; status --is-interactive; and test "$COLORTERM" = xfce4-terminal ; end
     set -gx TERM xterm-256color
@@ -21,6 +21,8 @@ fish_add_path $ANDROID_SDK_ROOT/emulator $ANDROID_SDK_ROOT/tools/bin $ANDROID_SD
 fish_add_path $N_PREFIX/bin
 fish_add_path $HOME/.cargo/bin
 fish_add_path $HOME/.krew/bin
+fish_add_path $HOME/.deno/bin
+fish_add_path $HOME/.foundry/bin
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -34,4 +36,4 @@ source $HOME/.config/fish/private.fish
 set --export --prepend PATH "/Users/simo/.rd/bin"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 
-export PATH="$PATH:/Users/simo/.foundry/bin"
+source (wmill completions fish | psub)

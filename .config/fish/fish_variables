@@ -2,12 +2,11 @@
 # VERSION: 3.0
 SETUVAR ZO_CMD:zo
 SETUVAR Z_CMD:z
-SETUVAR Z_DATA:/home/simo/\x2elocal/share/z/data
-SETUVAR Z_DATA_DIR:/home/simo/\x2elocal/share/z
-SETUVAR Z_EXCLUDE:\x5e/home/simo\x24
-SETUVAR __fish_initialized:3100
-SETUVAR _fisher_jethrokuan_2F_z_files:/home/simo/\x2econfig/fish/functions/__z\x2efish\x1e/home/simo/\x2econfig/fish/functions/__z_add\x2efish\x1e/home/simo/\x2econfig/fish/functions/__z_clean\x2efish\x1e/home/simo/\x2econfig/fish/functions/__z_complete\x2efish\x1e/home/simo/\x2econfig/fish/conf\x2ed/z\x2efish
-SETUVAR _fisher_jorgebucaran_2F_fisher_files:/home/simo/\x2econfig/fish/functions/fisher\x2efish\x1e/home/simo/\x2econfig/fish/completions/fisher\x2efish
+SETUVAR Z_DATA:/Users/simo/\x2elocal/share/z/data
+SETUVAR Z_DATA_DIR:/Users/simo/\x2elocal/share/z
+SETUVAR Z_EXCLUDE:\x5e/Users/simo\x24
+SETUVAR __fish_initialized:3400
+SETUVAR _fish_abbr_mux:tmuxinator
 SETUVAR _fisher_plugins:jorgebucaran/fisher\x1ejethrokuan/z
 SETUVAR fish_color_autosuggestion:4c566a
 SETUVAR fish_color_cancel:\x2dr
@@ -36,6 +35,7 @@ SETUVAR fish_greeting:
 SETUVAR fish_key_bindings:fish_default_key_bindings
 SETUVAR fish_pager_color_completion:normal
 SETUVAR fish_pager_color_description:B3A06D\x1eyellow
-SETUVAR fish_pager_color_prefix:white\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
+SETUVAR fish_pager_color_prefix:normal\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
 SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
-SETUVAR fish_user_paths:/home/simo/\x2elocal/bin\x1e/opt/android\x2dsdk/tools/bin\x1e/opt/android\x2dsdk/platform\x2dtools\x1e/opt/android\x2dsdk/build\x2dtools/30\x2e0\x2e3\x1e/opt/android\x2dsdk/emulator\x1e/home/simo/\x2eyarn/bin\x1e/home/simo/\x2ego/bin\x1e/home/simo/\x2ebin
+SETUVAR fish_pager_color_selected_background:\x2dr
+SETUVAR fish_user_paths:/Users/simo/\x2efoundry/bin\x1e/Users/simo/\x2edeno/bin\x1e/opt/homebrew/opt/ruby/bin\x1e/opt/homebrew/opt/curl/bin\x1e/Users/simo/\x2ekrew/bin\x1e/Users/simo/\x2elinkerd2/bin\x1e/Users/simo/\x2ecargo/bin\x1e/Users/simo/\x2en/bin\x1e/opt/android\x2dsdk/build\x2dtools/30\x2e0\x2e2\x1e/Users/simo/\x2eemacs\x2ed/bin\x1e/opt/android\x2dsdk/cmdline\x2dtools/tools/bin\x1e/opt/homebrew/bin\x1e/Users/simo/\x2ebin\x1e/Users/simo/\x2elocal/bin\x1e/opt/android\x2dsdk/tools/bin\x1e/opt/android\x2dsdk/platform\x2dtools\x1e/opt/android\x2dsdk/build\x2dtools/30\x2e0\x2e3\x1e/opt/android\x2dsdk/emulator\x1e/Users/simo/\x2eyarn/bin\x1e/Users/simo/\x2ego/bin\x1e/Users/simo/\x2efig/bin
