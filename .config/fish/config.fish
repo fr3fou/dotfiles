@@ -37,3 +37,5 @@ set --export --prepend PATH "/Users/simo/.rd/bin"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 
 source (wmill completions fish | psub)
+starship init fish | source
+
