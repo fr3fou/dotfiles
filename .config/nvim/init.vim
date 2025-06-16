@@ -7,7 +7,7 @@ set display+=lastline history=1000 completeopt+=noselect
 set incsearch hlsearch ignorecase smartcase signcolumn=yes
 set updatetime=100 laststatus=2 updatetime=50 shortmess+=c fillchars+=vert:┃
 set relativenumber number wildmenu lazyredraw noshowmode
-set pastetoggle=<F10> completeopt=menuone,noselect cursorline
+set completeopt=menuone,noselect cursorline
 syntax on
 filetype plugin indent on
 
@@ -32,6 +32,8 @@ Plug 'kyazdani42/nvim-web-devicons'
 " Catppuccin
 Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 
+" Nord
+Plug 'gbprod/nord.nvim'
 
 " Syntax highlighting
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -137,10 +139,6 @@ require'lspconfig'.gopls.setup{
     capabilities = capabilities,
 }
 
-require'lspconfig'.tsserver.setup{
-    capabilities = capabilities,
-}
-
 require'compe'.setup {
   enabled = true;
   autocomplete = true;
@@ -227,7 +225,7 @@ if (has("termguicolors"))
 endif
 
 " Lightline
-let g:lightline = {  'separator': { 'left': "\ue0b0", 'right': "\ue0b2" }, 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" }, 'colorscheme': 'catppuccin'}
+let g:lightline = {  'separator': { 'left': "\ue0b0", 'right': "\ue0b2" }, 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" }, 'colorscheme': 'nord'}
 
 " Tmuxline
 let g:tmuxline_preset = "nightly_fox"
@@ -300,4 +298,4 @@ augroup custom-colors
     au ColorScheme * hi! clear SignColumn
 augroup END
 
-colorscheme catppuccin-macchiato
+colorscheme nord
