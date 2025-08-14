@@ -1,12 +1,281 @@
 #!/bin/sh
-#
-# http://github.com/mitchweaver/bin
-#
-# open shell in a temporary dir
-#
 
-mkdir /tmp/$$.tmpsh
-cd /tmp/$$.tmpsh
-${SHELL}
-cd - > /dev/null
-rm -rf /tmp/$$.tmpsh
+# Color definitions
+if [ -t 1 ]; then
+    RED='\033[0;31m'
+    GREEN='\033[0;32m'
+    YELLOW='\033[0;33m'
+    BLUE='\033[0;34m'
+    MAGENTA='\033[0;35m'
+    CYAN='\033[0;36m'
+    WHITE='\033[0;37m'
+    BOLD='\033[1m'
+    DIM='\033[2m'
+    NC='\033[0m' # No Color
+    
+    # Symbols
+    CHECK="${GREEN}✓${NC}"
+    CROSS="${RED}✗${NC}"
+    ARROW="${BLUE}→${NC}"
+    WARNING="${YELLOW}⚠${NC}"
+    SKIP="${YELLOW}⊝${NC}"
+else
+    RED=''
+    GREEN=''
+    YELLOW=''
+    BLUE=''
+    MAGENTA=''
+    CYAN=''
+    WHITE=''
+    BOLD=''
+    DIM=''
+    NC=''
+    CHECK='✓'
+    CROSS='✗'
+    ARROW='→'
+    WARNING='⚠'
+    SKIP='⊝'
+fi
+
+# Function to check if current path is subpath of temp shell and return the temp shell path
+get_current_tempshell() {
+    current_path=$(pwd)
+    
+    # Check all .tmpsh directories in /tmp
+    for tmpdir in /tmp/*.tmpsh; do
+        if [ -d "$tmpdir" ]; then
+            case "$current_path" in
+                "$tmpdir"*)
+                    echo "$tmpdir"
+                    return 0
+                    ;;
+            esac
+        fi
+    done
+}
+
+# Function to find and clean temp shells
+clean_temp_shells() {
+    printf "${BLUE}${BOLD}Checking for temporary shells...${NC}\n"
+    
+    current_tempshell=$(get_current_tempshell)
+    
+    # Debug output - remove this line after testing
+    printf "${DIM}DEBUG: Current temp shell detected as: '%s'${NC}\n" "${current_tempshell:-<none>}"
+    
+    # Better detection - look for directories matching PID pattern
+    temp_shells=""
+    for pattern in /tmp/[0-9]*.tmpsh; do
+        if [ -d "$pattern" ]; then
+            temp_shells="$temp_shells$pattern\n"
+        fi
+    done
+    
+    # Also check for any other .tmpsh directories that might exist
+    if command -v find >/dev/null 2>&1; then
+        find_results=$(find /tmp -maxdepth 1 -name "*.tmpsh" -type d 2>/dev/null)
+        if [ -n "$find_results" ]; then
+            temp_shells="$temp_shells$find_results\n"
+        fi
+    fi
+    
+    # Remove duplicates and empty lines
+    all_temp_shells=$(printf "%b" "$temp_shells" | sort -u | grep -v '^$' || true)
+    
+    if [ -z "$all_temp_shells" ]; then
+        printf "${GREEN}${BOLD}No temporary shells found${NC} in ${CYAN}/tmp/${NC}\n"
+        printf "${DIM}Looking for directories matching pattern: *.tmpsh${NC}\n"
+        printf "\n${BLUE}Current .tmpsh entries in /tmp/:${NC}\n"
+        tmpsh_entries=$(ls -la /tmp/ | grep tmpsh 2>/dev/null || true)
+        if [ -n "$tmpsh_entries" ]; then
+            printf "%s\n" "$tmpsh_entries"
+        else
+            printf "${DIM}  (none found)${NC}\n"
+        fi
+        exit 0
+    fi
+    
+    # Filter out current temp shell if we're in one - do this without pipes
+    excluded_shell=""
+    cleanable_shells=""
+    
+    # Use temp files to avoid pipe/subshell issues
+    temp_cleanable=$(mktemp)
+    temp_excluded=$(mktemp)
+    
+    printf "%s\n" "$all_temp_shells" | while IFS= read -r tmpdir; do
+        [ -z "$tmpdir" ] && continue
+        if [ "$tmpdir" = "$current_tempshell" ]; then
+            echo "$tmpdir" > "$temp_excluded"
+        else
+            echo "$tmpdir" >> "$temp_cleanable"
+        fi
+    done
+    
+    # Read back the results
+    if [ -s "$temp_excluded" ]; then
+        excluded_shell=$(cat "$temp_excluded")
+    fi
+    
+    if [ -s "$temp_cleanable" ]; then
+        cleanable_shells=$(cat "$temp_cleanable")
+    fi
+    
+    # Cleanup temp files
+    rm -f "$temp_cleanable" "$temp_excluded"
+    
+    printf "${GREEN}${BOLD}Found temporary shells:${NC}\n"
+    
+    # Show excluded shell first if there is one
+    if [ -n "$excluded_shell" ]; then
+        size=$(du -sh "$excluded_shell" 2>/dev/null | cut -f1 || echo "?")
+        printf "  ${SKIP} ${YELLOW}%s${NC} ${DIM}(%s) - Current shell, excluded${NC}\n" "$excluded_shell" "$size"
+    fi
+    
+    # Show cleanable shells
+    if [ -n "$cleanable_shells" ]; then
+        printf "%s\n" "$cleanable_shells" | while IFS= read -r tmpdir; do
+            if [ -n "$tmpdir" ]; then
+                size=$(du -sh "$tmpdir" 2>/dev/null | cut -f1 || echo "?")
+                printf "  ${ARROW} ${CYAN}%s${NC} ${DIM}(%s)${NC}\n" "$tmpdir" "$size"
+            fi
+        done
+    fi
+    printf "\n"
+    
+    if [ -z "$cleanable_shells" ]; then
+        if [ -n "$excluded_shell" ]; then
+            printf "${YELLOW}${BOLD}Only found current temp shell.${NC} Nothing to clean.\n"
+            printf "${DIM}Exit this shell first to clean it.${NC}\n"
+        else
+            printf "${GREEN}${BOLD}No temp shells to clean.${NC}\n"
+        fi
+        exit 0
+    fi
+    
+    # Count cleanable directories
+    count=$(printf "%s\n" "$cleanable_shells" | grep -c . || echo "0")
+    if [ -n "$excluded_shell" ]; then
+        printf "${YELLOW}${BOLD}Delete %d temporary shell(s)?${NC} ${DIM}(excluding current)${NC} ${DIM}[y/N]:${NC} " "$count"
+    else
+        printf "${YELLOW}${BOLD}Delete %d temporary shell(s)?${NC} ${DIM}[y/N]:${NC} " "$count"
+    fi
+    
+    # This read now runs in the main shell, not in a pipe
+    read -r answer
+    case "$answer" in
+        [Yy]|[Yy][Ee][Ss])
+            printf "\n${BLUE}${BOLD}Cleaning temporary shells...${NC}\n"
+            printf "%s\n" "$cleanable_shells" | while IFS= read -r tmpdir; do
+                if [ -n "$tmpdir" ] && [ -d "$tmpdir" ]; then
+                    printf "  ${ARROW} Removing: ${CYAN}%s${NC}" "$tmpdir"
+                    if rm -rf "$tmpdir" 2>/dev/null; then
+                        printf " ${CHECK} ${GREEN}Success${NC}\n"
+                    else
+                        printf " ${CROSS} ${RED}Failed${NC}\n"
+                    fi
+                fi
+            done
+            if [ -n "$excluded_shell" ]; then
+                printf "\n${GREEN}${BOLD}Cleanup complete!${NC} ${DIM}(Current shell at ${CYAN}%s${NC}${DIM} preserved)${NC}\n" "$excluded_shell"
+            else
+                printf "\n${GREEN}${BOLD}Cleanup complete!${NC}\n"
+            fi
+            ;;
+        *)
+            printf "\n${YELLOW}Cleanup cancelled.${NC}\n"
+            ;;
+    esac
+}
+
+# Function to list temp shells without cleaning
+list_temp_shells() {
+    printf "${BLUE}${BOLD}Scanning for temporary shells...${NC}\n"
+    
+    current_tempshell=$(get_current_tempshell)
+    
+    temp_shells=""
+    for pattern in /tmp/[0-9]*.tmpsh; do
+        if [ -d "$pattern" ]; then
+            temp_shells="$temp_shells$pattern\n"
+        fi
+    done
+    
+    if command -v find >/dev/null 2>&1; then
+        find_results=$(find /tmp -maxdepth 1 -name "*.tmpsh" -type d 2>/dev/null)
+        if [ -n "$find_results" ]; then
+            temp_shells="$temp_shells$find_results\n"
+        fi
+    fi
+    
+    temp_shells=$(printf "%b" "$temp_shells" | sort -u | grep -v '^$' || true)
+    
+    if [ -z "$temp_shells" ]; then
+        printf "${GREEN}${BOLD}No temporary shells found.${NC}\n"
+    else
+        printf "${GREEN}${BOLD}Found temporary shells:${NC}\n"
+        printf "%s\n" "$temp_shells" | while IFS= read -r tmpdir; do
+            if [ -d "$tmpdir" ]; then
+                size=$(du -sh "$tmpdir" 2>/dev/null | cut -f1 || echo "?")
+                mtime=$(stat -c %y "$tmpdir" 2>/dev/null | cut -d' ' -f1,2 | cut -d'.' -f1 || echo "unknown")
+                
+                if [ "$tmpdir" = "$current_tempshell" ]; then
+                    printf "  ${YELLOW}%s${NC} ${DIM}(current shell)${NC}\n" "$tmpdir"
+                else
+                    printf "  ${CYAN}%s${NC}\n" "$tmpdir"
+                fi
+                printf "    ${DIM}Size: %s | Modified: %s${NC}\n" "$size" "$mtime"
+            fi
+        done
+    fi
+}
+
+# Function to show help with colors
+show_help() {
+    printf "${BOLD}${BLUE}Temporary Shell Manager${NC}\n\n"
+    printf "${BOLD}Usage:${NC} %s [${GREEN}OPTION${NC}]\n\n" "$0"
+    printf "${BOLD}Options:${NC}\n"
+    printf "  ${GREEN}(no args)${NC}     Create and enter temporary shell\n"
+    printf "  ${GREEN}--clean, -c${NC}   Find and clean all temporary shells ${DIM}(excludes current)${NC}\n"
+    printf "  ${GREEN}--list, -l${NC}    List all temporary shells without cleaning\n"
+    printf "  ${GREEN}--help, -h${NC}    Show this help message\n"
+    printf "\n${DIM}Temporary shells are created in /tmp/ with .tmpsh extension${NC}\n"
+    printf "${DIM}When cleaning from within a temp shell, that shell is automatically excluded${NC}\n"
+}
+
+# Main script logic
+case "${1:-}" in
+    --clean|-c)
+        clean_temp_shells
+        ;;
+    --list|-l)
+        list_temp_shells
+        ;;
+    --help|-h)
+        show_help
+        ;;
+    "")
+        # Original functionality with colors
+        tmpdir="/tmp/$$.tmpsh"
+        printf "${BLUE}${BOLD}Creating temporary shell...${NC}\n"
+        
+        if mkdir "$tmpdir" 2>/dev/null; then
+            printf "${CHECK} Created: ${CYAN}%s${NC}\n" "$tmpdir"
+            printf "${ARROW} Entering shell ${DIM}(type 'exit' to leave)${NC}\n\n"
+            cd "$tmpdir"
+            ${SHELL}
+            cd - > /dev/null
+            printf "\n${GREEN}${BOLD}Session ended.${NC}\n"
+            printf "${BLUE}Temporary shell left in:${NC} ${CYAN}%s${NC}\n" "$tmpdir"
+            printf "${DIM}Run '${BOLD}%s --clean${NC}${DIM}' to clean up temp shells later${NC}\n" "$0"
+        else
+            printf "${CROSS} ${RED}Failed to create temporary directory${NC}\n"
+            exit 1
+        fi
+        ;;
+    *)
+        printf "${RED}${BOLD}Unknown option:${NC} %s\n" "$1"
+        printf "Use ${GREEN}--help${NC} for usage information.\n"
+        exit 1
+        ;;
+esac
